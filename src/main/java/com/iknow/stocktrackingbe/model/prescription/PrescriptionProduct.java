@@ -6,9 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,5 +30,7 @@ public class PrescriptionProduct implements Serializable {
 
     private String usageDescriptions;
 
+    private LocalDate startDate;
 
+    private LocalDate endDate;
 }

@@ -29,7 +29,6 @@ public class StockCard implements Serializable {
 
     private Long stockCount;
     private Long safeStockCount;
-    private Long min;
     private Long max;
 
     private LocalDate expectedSupplyDate;

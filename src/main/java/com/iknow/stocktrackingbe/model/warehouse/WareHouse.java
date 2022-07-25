@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.model.warehouse;
 
+import com.iknow.stocktrackingbe.model.facility.Facility;
 import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,5 +29,10 @@ public class WareHouse implements Serializable {
 
     @ManyToMany
     private List<Product> products;
+
+    @ManyToOne
+    private Facility facility;
+
+
 
 }

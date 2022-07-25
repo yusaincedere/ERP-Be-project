@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.model.prospectus;
 
 
 import lombok.AllArgsConstructor;
