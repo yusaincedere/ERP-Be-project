@@ -1,5 +1,4 @@
 package com.iknow.stocktrackingbe.service.product;
-
 import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.repository.product.ProductRepository;
 import org.springframework.stereotype.Service;
