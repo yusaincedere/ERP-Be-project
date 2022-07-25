@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model.product;
 
-import com.iknow.stocktrackingbe.model.Prospectus;
+import com.iknow.stocktrackingbe.model.prospectus.Prospectus;
 import com.iknow.stocktrackingbe.model.stock.StockCard;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -51,6 +51,7 @@ public class Product implements Serializable {
 
     @NotNull
     private Long safetStockCount;
+
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<ProductIngredient> productIngredients;

@@ -1,20 +1,22 @@
 package com.iknow.stocktrackingbe.model.prescription;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Prescription implements Serializable {
 
     @Id
@@ -27,12 +29,14 @@ public class Prescription implements Serializable {
     private LocalDate endDate;
 
 
+
     @CreatedDate
-    private LocalDate created;
+    private Date created = new Date();
 
-    private boolean unOfficial;
+    private boolean draft = false;
 
-    private boolean approved;
+    private boolean approved = false;
 
-
+    @ManyToMany
+    private List<PrescriptionProduct> prescriptionProducts;
 }
