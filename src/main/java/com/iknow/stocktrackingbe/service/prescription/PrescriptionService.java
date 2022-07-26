@@ -2,16 +2,16 @@ package com.iknow.stocktrackingbe.service.prescription;
 import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.prescription.PrescriptionProduct;
 import com.iknow.stocktrackingbe.repository.prescription.PrescriptionRepository;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 @Service
 public class PrescriptionService {
-    private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final PrescriptionRepository prescriptionRepository;
 
     public PrescriptionService(PrescriptionRepository prescriptionRepository) {
@@ -26,10 +26,9 @@ public class PrescriptionService {
         logger.info("Service Called: getPrescriptionById");
         Optional<Prescription> optional =  prescriptionRepository.findById(id) ;
         if(optional.isPresent()){
-            Prescription prescription = optional.get();
-            return prescription;
+            return optional.get();
         }else {
-            logger.warning("Prescription not found");
+            logger.warn("Prescription not found");
             throw new IllegalStateException("Prescription not found");
         }
     }
@@ -47,9 +46,8 @@ public class PrescriptionService {
         logger.info("Service Called: clonePrescription");
         Prescription prescription = getPrescriptionById(id);
         List<PrescriptionProduct> products =  prescription.getPrescriptionProducts();
-        Prescription clonePrescription = Prescription.builder().prescriptionProducts(products).
+        return Prescription.builder().prescriptionProducts(products).
                 startDate(prescription.getStartDate()).endDate(prescription.getEndDate()).build();
-        return clonePrescription;
     }
 
     public void updatePrescription(String id, Prescription newPrescription){
@@ -65,7 +63,7 @@ public class PrescriptionService {
         if(oldPrescription.getPrescriptionProducts()!= newPrescription.getPrescriptionProducts()){
             oldPrescription.setPrescriptionProducts(newPrescription.getPrescriptionProducts());
         }
-        if(oldPrescription.getPrescriptionVersion()!=newPrescription.getPrescriptionVersion()){
+        if(!oldPrescription.getPrescriptionVersion().equals(newPrescription.getPrescriptionVersion())){
             oldPrescription.setPrescriptionVersion(newPrescription.getPrescriptionVersion());
         }
         prescriptionRepository.flush();
