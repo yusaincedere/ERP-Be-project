@@ -1,11 +1,9 @@
 package com.iknow.stocktrackingbe.controller.prescription;
 
 import com.iknow.stocktrackingbe.model.prescription.Prescription;
-import com.iknow.stocktrackingbe.model.prescription.PrescriptionProduct;
 import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -22,26 +20,26 @@ public class PrescriptionController {
         prescriptionService.createNewPrescription(prescription);
     }
     @GetMapping(path = "/{id}")
-    public Prescription getPrescriptionById(@PathVariable(required = false) Long id){
+    public Prescription getPrescriptionById(@PathVariable(required = false) String id){
         Prescription pres = prescriptionService.getPrescriptionById(id);
         System.out.println(pres);
         return pres;
     }
 
     @PutMapping("/{id}/approve")
-    public void approvePrescription(@PathVariable Long id){
+    public void approvePrescription(@PathVariable String id){
         prescriptionService.approvePrescription(id);
     }
 
     @GetMapping(path = "/{id}/clone")
-    public Prescription clonePrescription(@PathVariable Long id){
+    public Prescription clonePrescription(@PathVariable String id){
         Prescription prescription = prescriptionService.getPrescriptionById(id);
         Prescription clonePrescription = prescriptionService.clonePrescription(id);
         return clonePrescription;
     }
     @PutMapping("/{id}/update")
     public void updatePrescription(
-            @PathVariable Long id,
+            @PathVariable String id,
             @RequestBody Prescription prescription){
         System.out.println(prescription);
         prescriptionService.updatePrescription(id,prescription);

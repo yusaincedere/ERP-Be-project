@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.model.prescription;
 
 
+import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,11 +18,8 @@ import java.time.LocalDate;
 @Data
 @Builder
 @Entity
-public class PrescriptionProduct implements Serializable {
+public class PrescriptionProduct extends idGenerator implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private int quantity;
 

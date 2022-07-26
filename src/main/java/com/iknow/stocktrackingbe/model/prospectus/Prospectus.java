@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.model.prospectus;
 
 
+import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,12 +20,8 @@ import java.time.LocalDate;
 @Data
 @Builder
 @Entity
-public class Prospectus implements Serializable {
+public class Prospectus extends idGenerator implements Serializable {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @CreatedDate
     private LocalDate created;

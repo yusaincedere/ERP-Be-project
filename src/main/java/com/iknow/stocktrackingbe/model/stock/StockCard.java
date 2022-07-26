@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.model.stock;
 
+import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,11 +18,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 @Entity
-public class StockCard implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class StockCard extends idGenerator implements Serializable {
 
     private String stockCode;
 

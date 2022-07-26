@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/facility")
 public class FacilityController {
    private final FacilityService facilityService;
-
    public FacilityController(FacilityService facilityService) {
       this.facilityService = facilityService;
    }

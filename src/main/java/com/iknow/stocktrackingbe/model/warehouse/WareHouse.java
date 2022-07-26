@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.model.warehouse;
 
+import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import com.iknow.stocktrackingbe.model.facility.Facility;
 import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.AllArgsConstructor;
@@ -16,11 +17,7 @@ import java.util.List;
 @Data
 @Builder
 @Entity
-public class WareHouse implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class WareHouse extends idGenerator implements Serializable {
 
     private String name;
 

@@ -20,7 +20,7 @@ public class PrescriptionService {
         prescriptionRepository.save(prescription);
     }
 
-    public Prescription getPrescriptionById(Long id) {
+    public Prescription getPrescriptionById(String id) {
         Optional<Prescription> optional =  prescriptionRepository.findById(id) ;
         if(optional.isPresent()){
             Prescription prescription = optional.get();
@@ -30,7 +30,7 @@ public class PrescriptionService {
         }
     }
 
-    public void approvePrescription(Long id) {
+    public void approvePrescription(String id) {
         Prescription prescription = prescriptionRepository.findById(id).orElseThrow(()->
            new IllegalStateException("there is no prescription")
         );
@@ -38,7 +38,7 @@ public class PrescriptionService {
         prescriptionRepository.flush();
     }
 
-    public Prescription clonePrescription(Long id) {
+    public Prescription clonePrescription(String id) {
         Prescription prescription = getPrescriptionById(id);
         List<PrescriptionProduct> products =  prescription.getPrescriptionProducts();
         Prescription clonePrescription = Prescription.builder().prescriptionProducts(products).
@@ -46,7 +46,7 @@ public class PrescriptionService {
         return clonePrescription;
     }
 
-    public void updatePrescription(Long id, Prescription newPrescription){
+    public void updatePrescription(String id, Prescription newPrescription){
         Prescription oldPrescription = getPrescriptionById(id);
 
         if(oldPrescription.getStartDate() != newPrescription.getStartDate()){

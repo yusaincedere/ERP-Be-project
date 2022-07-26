@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.model.product;
 
 
+import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,11 +18,8 @@ import java.io.Serializable;
 @Data
 @Builder
 @Entity
-public class ProductIngredient implements Serializable {
+public class ProductIngredient extends idGenerator implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String name;
     private Double milliGramWeight;
 
