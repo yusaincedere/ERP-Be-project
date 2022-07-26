@@ -37,4 +37,12 @@ public class ProductController {
     public void deleteProducts(@RequestParam("ids") List<String> ids) {
         productService.deleteProducts(ids);
     }
+
+    @PutMapping("/{id}/update")
+    public void updateProduct(
+            @PathVariable String id,
+            @RequestBody Product product){
+        System.out.println(product);
+        productService.updateProduct(id,product);
+    }
 }

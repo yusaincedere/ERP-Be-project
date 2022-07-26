@@ -53,22 +53,13 @@ public class PrescriptionService {
                 startDate(prescription.getStartDate()).endDate(prescription.getEndDate()).build();
     }
 
-    public void updatePrescription(String id, Prescription newPrescription){
+    public void updatePrescription(String id, Prescription prescription){
         logger.info("Service Called: updatePrescription");
         Prescription oldPrescription = getPrescriptionById(id);
-
-        if(oldPrescription.getStartDate() != newPrescription.getStartDate()){
-            oldPrescription.setStartDate(newPrescription.getStartDate());
-        }
-        if(oldPrescription.getEndDate()!= newPrescription.getEndDate()){
-            oldPrescription.setEndDate(newPrescription.getEndDate());
-        }
-        if(oldPrescription.getPrescriptionProducts()!= newPrescription.getPrescriptionProducts()){
-            oldPrescription.setPrescriptionProducts(newPrescription.getPrescriptionProducts());
-        }
-        if(!oldPrescription.getPrescriptionVersion().equals(newPrescription.getPrescriptionVersion())){
-            oldPrescription.setPrescriptionVersion(newPrescription.getPrescriptionVersion());
-        }
+        oldPrescription.setPrescriptionVersion(prescription.getPrescriptionVersion());
+        oldPrescription.setPrescriptionProducts(prescription.getPrescriptionProducts());
+        oldPrescription.setEndDate(prescription.getEndDate());
+        oldPrescription.setStartDate(prescription.getStartDate());
         prescriptionRepository.flush();
     }
 

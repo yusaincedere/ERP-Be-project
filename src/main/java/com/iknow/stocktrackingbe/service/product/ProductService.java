@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.service.product;
+import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.repository.product.ProductRepository;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ public class ProductService {
 
 
     public void createNewProduct(Product product) {
+        logger.info("Service Called: createNewProduct");
         productRepository.save(product);
     }
 
@@ -45,5 +47,16 @@ public class ProductService {
         logger.info("Service Called: deleteProducts");
         productRepository.deleteByIdIn(new ArrayList<>(ids));
         logger.info("Products deleted");
+    }
+
+    public void updateProduct(String id, Product product) {
+        logger.info("Service Called: updateProduct");
+        Product oldProduct= getProductById(id);
+        oldProduct.setProductName(product.getProductName());
+        oldProduct.setPrice(product.getPrice());
+        oldProduct.setCurrencyType(product.getCurrencyType());
+        oldProduct.setAmountOfUsage(product.getAmountOfUsage());
+        oldProduct.setExpiryDate(product.getExpiryDate());
+        productRepository.flush();
     }
 }

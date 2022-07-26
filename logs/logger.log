@@ -81,3 +81,30 @@
 2022-07-26 13:56:29,831 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptions
 2022-07-26 13:57:18,613 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-7] Service Called: deletePrescriptions
 2022-07-26 13:57:18,653 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-7] Prescriptions deleted
+2022-07-26 14:38:36,676 INFO org.springframework.boot.StartupInfoLogger [main] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 12172 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-26 14:38:36,676 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-26 14:38:36,676 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-07-26 14:38:44,304 INFO org.springframework.boot.StartupInfoLogger [main] Started StockTrackingBeApplication in 9.001 seconds (JVM running for 10.366)
+2022-07-26 14:38:48,564 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-2] Service Called: createNewPrescription
+2022-07-26 14:38:49,562 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-3] Service Called: createNewPrescription
+2022-07-26 14:38:50,314 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-4] Service Called: createNewPrescription
+2022-07-26 14:38:51,098 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-5] Service Called: createNewPrescription
+2022-07-26 14:38:51,890 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-6] Service Called: createNewPrescription
+2022-07-26 14:39:36,218 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptions
+2022-07-26 14:40:08,674 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-8] Service Called: updatePrescription
+2022-07-26 14:40:08,674 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-8] Service Called: getPrescriptionById
+2022-07-26 14:40:20,206 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-9] Service Called: getPrescriptions
+2022-07-26 14:42:06,223 INFO org.springframework.boot.StartupInfoLogger [main] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 11528 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-26 14:42:06,227 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-26 14:42:06,228 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-07-26 14:42:10,514 INFO org.springframework.boot.StartupInfoLogger [main] Started StockTrackingBeApplication in 4.953 seconds (JVM running for 6.213)
+2022-07-26 14:42:15,413 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-2] Service Called: createNewPrescription
+2022-07-26 14:42:16,220 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-3] Service Called: createNewPrescription
+2022-07-26 14:42:16,990 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-4] Service Called: createNewPrescription
+2022-07-26 14:42:17,740 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-5] Service Called: createNewPrescription
+2022-07-26 14:42:18,695 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-6] Service Called: createNewPrescription
+2022-07-26 14:42:19,904 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-7] Service Called: createNewPrescription
+2022-07-26 14:42:22,145 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-8] Service Called: getPrescriptions
+2022-07-26 14:42:55,674 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-9] Service Called: updatePrescription
+2022-07-26 14:42:58,937 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-10] Service Called: getPrescriptions
+2022-07-26 15:10:37,970 INFO com.iknow.stocktrackingbe.service.product.ProductService [http-nio-8080-exec-4] Service Called: getProducts
