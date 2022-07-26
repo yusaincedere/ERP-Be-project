@@ -1,0 +1,5 @@
+2022-07-26 10:29:53,899 INFO org.springframework.boot.StartupInfoLogger [main] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 11176 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-26 10:29:53,899 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-26 10:29:53,899 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-07-26 10:29:57,674 INFO org.springframework.boot.StartupInfoLogger [main] Started StockTrackingBeApplication in 4.449 seconds (JVM running for 5.661)
+2022-07-26 10:30:05,940 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-2] Service Called: createDraftPrescription
