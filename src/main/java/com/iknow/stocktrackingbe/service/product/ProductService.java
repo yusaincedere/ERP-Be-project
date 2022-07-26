@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,5 +39,11 @@ public class ProductService {
     public List<Product> getProducts() {
         logger.info("Service Called: getProducts");
         return productRepository.findAll();
+    }
+
+    public void deleteProducts(List<String> ids){
+        logger.info("Service Called: deleteProducts");
+        productRepository.deleteByIdIn(new ArrayList<>(ids));
+        logger.info("Products deleted");
     }
 }

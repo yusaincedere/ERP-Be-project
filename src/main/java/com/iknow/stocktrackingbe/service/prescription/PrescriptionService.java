@@ -6,8 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class PrescriptionService {
@@ -19,6 +21,7 @@ public class PrescriptionService {
     }
 
     public void createNewPrescription(Prescription prescription){
+        logger.info("Service Called: createNewPrescription");
         prescriptionRepository.save(prescription);
     }
 
@@ -45,7 +48,7 @@ public class PrescriptionService {
     public Prescription clonePrescription(String id) {
         logger.info("Service Called: clonePrescription");
         Prescription prescription = getPrescriptionById(id);
-        List<PrescriptionProduct> products =  prescription.getPrescriptionProducts();
+        Set<PrescriptionProduct> products =  prescription.getPrescriptionProducts();
         return Prescription.builder().prescriptionProducts(products).
                 startDate(prescription.getStartDate()).endDate(prescription.getEndDate()).build();
     }
@@ -72,11 +75,18 @@ public class PrescriptionService {
     public void createDraftPrescription(Prescription prescription) {
         logger.info("Service Called: createDraftPrescription");
         prescription.setDraft(true);
-        createNewPrescription(prescription);
+        prescriptionRepository.save(prescription);
     }
 
     public List<Prescription> getPrescriptions() {
         logger.info("Service Called: getPrescriptions");
         return prescriptionRepository.findAll();
+    }
+    public void deletePrescriptions(List<String> ids) {
+        logger.info("Service Called: deletePrescriptions");
+        prescriptionRepository.deleteByIdIn(new ArrayList<>(ids));
+        logger.info("Prescriptions deleted");
+
+
     }
 }

@@ -1,16 +1,13 @@
 package com.iknow.stocktrackingbe.model.prescription;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,5 +32,5 @@ public class Prescription extends idGenerator implements Serializable {
     private boolean approved = false;
 
     @ManyToMany
-    private List<PrescriptionProduct> prescriptionProducts;
+    private Set<PrescriptionProduct> prescriptionProducts;
 }

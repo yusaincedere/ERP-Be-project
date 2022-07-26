@@ -5,6 +5,7 @@ import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.service.product.ProductService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -31,5 +32,9 @@ public class ProductController {
     public List<Product> getProducts(@PathVariable(required = false) String id){
         List<Product> products = productService.getProducts();
         return products;
+    }
+    @DeleteMapping(path = "/delete")
+    public void deleteProducts(@RequestParam("ids") List<String> ids) {
+        productService.deleteProducts(ids);
     }
 }

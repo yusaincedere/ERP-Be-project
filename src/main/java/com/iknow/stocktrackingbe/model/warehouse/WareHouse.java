@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +25,7 @@ public class WareHouse extends idGenerator implements Serializable {
     private Address address;
 
     @ManyToMany
-    private List<Product> products;
+    private Set<Product> products;
 
     @ManyToOne
     private Facility facility;

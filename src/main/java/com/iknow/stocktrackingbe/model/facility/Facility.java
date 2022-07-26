@@ -7,11 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,7 +27,7 @@ public class Facility extends idGenerator implements Serializable {
     private Address address;
 
     @OneToMany
-    private List<WareHouse> wareHouses;
+    private Set<WareHouse> wareHouses;
 
 
 }

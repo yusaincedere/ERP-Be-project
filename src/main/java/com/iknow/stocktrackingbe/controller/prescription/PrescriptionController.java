@@ -4,7 +4,9 @@ import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/prescription")
@@ -53,5 +55,9 @@ public class PrescriptionController {
     public List<Prescription> getPrescriptions(){
         List<Prescription> prescriptions = prescriptionService.getPrescriptions();
         return prescriptions;
+    }
+    @DeleteMapping(path = "/delete")
+    public void deletePrescriptions(@RequestParam("ids") List<String> ids) {
+        prescriptionService.deletePrescriptions(ids);
     }
 }

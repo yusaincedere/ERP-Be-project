@@ -1,14 +1,10 @@
 package com.iknow.stocktrackingbe.model.prescription;
-
-
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.asm.Advice;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
