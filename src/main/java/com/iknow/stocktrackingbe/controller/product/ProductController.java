@@ -5,6 +5,7 @@ import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.service.product.ProductService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public void createNewProduct(@RequestBody Product product){
+    public void createNewProduct(@Valid @RequestBody Product product){
         productService.createNewProduct(product);
     }
 

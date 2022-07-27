@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.service.production;
 
+import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.production.Production;
 import com.iknow.stocktrackingbe.repository.production.ProductionRepository;
 import org.slf4j.Logger;
@@ -28,12 +29,18 @@ public class ProductionService {
                 return optional.get();
             }else {
                 logger.warn("Production not found");
-                throw new IllegalStateException("Production not found");
+                throw new NotFoundException("Production not found");
             }
     }
 
     public List<Production> getProductions() {
         logger.info("Service Called: getProductions");
-        return productionRepository.findAll();
+        List<Production> productions = productionRepository.findAll();
+        if(!productions.isEmpty()){
+            return productions;
+        }else {
+            throw new NotFoundException("There is no Production");
+        }
+
     }
 }
