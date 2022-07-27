@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.service.prescription;
+import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.prescription.PrescriptionProduct;
 import com.iknow.stocktrackingbe.repository.prescription.PrescriptionRepository;
@@ -31,16 +32,14 @@ public class PrescriptionService {
         if(optional.isPresent()){
             return optional.get();
         }else {
-            logger.warn("Prescription not found");
-            throw new IllegalStateException("Prescription not found");
+            logger.warn("Prescription does not exist");
+            throw new NotFoundException("Prescription does not exist");
         }
     }
 
     public void approvePrescription(String id) {
         logger.info("Service Called: approvePrescription");
-        Prescription prescription = prescriptionRepository.findById(id).orElseThrow(()->
-           new IllegalStateException("there is no prescription")
-        );
+        Prescription prescription = getPrescriptionById(id);
         prescription.setApproved(true);
         prescriptionRepository.flush();
     }
@@ -71,13 +70,17 @@ public class PrescriptionService {
 
     public List<Prescription> getPrescriptions() {
         logger.info("Service Called: getPrescriptions");
-        return prescriptionRepository.findAll();
+
+        List<Prescription> prescriptions = prescriptionRepository.findAll();
+        if(!prescriptions.isEmpty()){
+            return prescriptions;
+        }else {
+            throw new NotFoundException("There is no Prescription");
+        }
     }
     public void deletePrescriptions(List<String> ids) {
         logger.info("Service Called: deletePrescriptions");
         prescriptionRepository.deleteByIdIn(new ArrayList<>(ids));
         logger.info("Prescriptions deleted");
-
-
     }
 }
