@@ -20,6 +20,7 @@ import java.time.LocalDate;
 @Entity
 public class StockCard extends idGenerator implements Serializable {
 
+
     private String stockCode;
 
     private String name;

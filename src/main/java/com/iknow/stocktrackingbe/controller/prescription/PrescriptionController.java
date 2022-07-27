@@ -1,13 +1,10 @@
 package com.iknow.stocktrackingbe.controller.prescription;
-
 import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping(path = "/prescription")

@@ -1,6 +1,8 @@
 package com.iknow.stocktrackingbe.exception;
 
 import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -16,6 +18,7 @@ import java.util.Map;
 @RestController
 public class ExceptionController implements ErrorController{
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private ErrorAttributes errorAttributes;
 
     public ExceptionController(ErrorAttributes errorAttributes) {
@@ -39,6 +42,7 @@ public class ExceptionController implements ErrorController{
             }
             exception.setValidationExceptions(validationExceptions);
         }
+        logger.error("Status: "+ exception.status +" Message: "+exception.message);
         return exception;
     }
 

@@ -25,3 +25,43 @@
 2022-07-27 00:16:31,401 WARN com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-1] Prescription does not exist
 2022-07-27 00:16:33,918 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-3] Service Called: getPrescriptionById
 2022-07-27 00:16:33,921 WARN com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-3] Prescription does not exist
+2022-07-27 10:13:05,607 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 7724 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-27 10:13:05,607 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-27 10:13:05,607 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-27 10:13:11,296 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 7.473 seconds (JVM running for 9.293)
+2022-07-27 10:14:18,352 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-1] Service Called: createNewPrescription
+2022-07-27 10:14:20,851 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-3] Service Called: createNewPrescription
+2022-07-27 10:14:21,862 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-4] Service Called: createNewPrescription
+2022-07-27 10:14:23,189 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-5] Service Called: createNewPrescription
+2022-07-27 10:14:26,601 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptions
+2022-07-27 10:14:38,223 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptions
+2022-07-27 10:16:56,615 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 6292 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-27 10:16:56,617 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-27 10:16:56,618 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-27 10:18:11,043 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 2272 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-27 10:18:11,043 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-27 10:18:11,043 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-27 10:18:15,179 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.784 seconds (JVM running for 6.362)
+2022-07-27 10:18:25,451 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-1] Service Called: createNewPrescription
+2022-07-27 10:18:26,593 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-3] Service Called: createNewPrescription
+2022-07-27 10:18:27,577 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-4] Service Called: createNewPrescription
+2022-07-27 10:18:28,623 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-5] Service Called: createNewPrescription
+2022-07-27 10:18:29,519 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-6] Service Called: createNewPrescription
+2022-07-27 10:18:39,462 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptions
+2022-07-27 10:19:00,553 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-8] Service Called: getPrescriptions
+2022-07-27 10:19:22,175 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-9] Service Called: getPrescriptions
+2022-07-27 10:56:06,661 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-1] Service Called: getPrescriptions
+2022-07-27 10:58:00,593 INFO com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptionById
+2022-07-27 10:58:00,604 WARN com.iknow.stocktrackingbe.service.prescription.PrescriptionService [http-nio-8080-exec-6] Prescription does not exist
+2022-07-27 11:00:33,984 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 10844 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-27 11:00:33,986 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-27 11:00:33,987 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-27 11:00:39,111 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 5.95 seconds (JVM running for 7.689)
+2022-07-27 11:02:16,807 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 7728 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-27 11:02:16,809 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-27 11:02:16,810 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-27 11:02:21,090 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.927 seconds (JVM running for 6.228)
+2022-07-27 11:02:26,810 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 400Message: Validation failed for object='prescription'. Error count: 2
+2022-07-27 11:05:28,523 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 404Message: No message available
+2022-07-27 11:05:44,843 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 400Message: Validation failed for object='prescription'. Error count: 2
+2022-07-27 11:55:34,364 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 404Message: No message available

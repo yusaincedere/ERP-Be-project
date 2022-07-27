@@ -7,11 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,5 +20,8 @@ public class ProductIngredient extends idGenerator implements Serializable {
 
     private String name;
     private Double milliGramWeight;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private Set<Product> products;
+
 
 }
