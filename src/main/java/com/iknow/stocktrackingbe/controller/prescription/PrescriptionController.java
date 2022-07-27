@@ -4,6 +4,7 @@ import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,18 +19,17 @@ public class PrescriptionController {
     }
 
     @PostMapping
-    public void createPrescription(@RequestBody Prescription prescription){
+    public void createPrescription(@Valid @RequestBody Prescription prescription){
         prescriptionService.createNewPrescription(prescription);
     }
     @GetMapping(path = "/{id}")
     public Prescription getPrescriptionById(@PathVariable(required = false) String id){
-        Prescription pres = prescriptionService.getPrescriptionById(id);
-        System.out.println(pres);
-        return pres;
+        Prescription prescription = prescriptionService.getPrescriptionById(id);
+        return prescription;
     }
 
     @PutMapping("/{id}/approve")
-    public void approvePrescription(@PathVariable String id){
+    public void approvePrescription(@Valid @PathVariable String id){
         prescriptionService.approvePrescription(id);
     }
 
@@ -41,6 +41,7 @@ public class PrescriptionController {
     }
     @PutMapping("/{id}/update")
     public void updatePrescription(
+            @Valid
             @PathVariable String id,
             @RequestBody Prescription prescription){
         System.out.println(prescription);
@@ -48,7 +49,7 @@ public class PrescriptionController {
     }
 
     @PostMapping("/draft")
-    public void createDraftPrescription(@RequestBody Prescription prescription){
+    public void createDraftPrescription(@Valid  @RequestBody Prescription prescription){
         prescriptionService.createDraftPrescription(prescription);
     }
     @GetMapping

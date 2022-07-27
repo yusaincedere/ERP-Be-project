@@ -23,15 +23,15 @@ public class Product extends idGenerator implements Serializable {
 
 
     private String productCode;
-
+    @NotNull
     private String productName;
 
     private Double productMilligramWeight;
-
+    @NotNull
     private LocalDate expiryDate;
-
+    @NotNull
     private LocalDate produceDate;
-
+    @NotNull
     private BigDecimal price;
 
     @Enumerated(EnumType.STRING)

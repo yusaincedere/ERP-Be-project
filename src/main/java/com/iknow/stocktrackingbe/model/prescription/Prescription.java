@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
@@ -18,11 +19,10 @@ import java.util.Set;
 public class Prescription extends idGenerator implements Serializable {
 
     private String prescriptionVersion;
-
+    @NotNull
     private LocalDate startDate;
+    @NotNull
     private LocalDate endDate;
-
-
 
     @CreatedDate
     private Date created = new Date();

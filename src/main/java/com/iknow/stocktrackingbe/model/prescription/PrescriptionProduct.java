@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -24,7 +25,8 @@ public class PrescriptionProduct extends idGenerator implements Serializable {
 
     private String usageDescriptions;
 
+    @NotNull
     private LocalDate startDate;
-
+    @NotNull
     private LocalDate endDate;
 }
