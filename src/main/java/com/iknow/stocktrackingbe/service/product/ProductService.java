@@ -46,4 +46,14 @@ public class ProductService {
         productRepository.deleteByIdIn(new ArrayList<>(ids));
         logger.info("Products deleted");
     }
+    public void updateProduct(String id, Product product) {
+        logger.info("Service Called: updateProduct");
+        Product oldProduct= getProductById(id);
+        oldProduct.setProductName(product.getProductName());
+        oldProduct.setPrice(product.getPrice());
+        oldProduct.setCurrencyType(product.getCurrencyType());
+        oldProduct.setAmountOfUsage(product.getAmountOfUsage());
+        oldProduct.setExpiryDate(product.getExpiryDate());
+        productRepository.flush();
+    }
 }
