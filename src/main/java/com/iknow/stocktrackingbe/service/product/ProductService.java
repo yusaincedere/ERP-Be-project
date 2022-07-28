@@ -54,6 +54,7 @@ public class ProductService {
         oldProduct.setCurrencyType(product.getCurrencyType());
         oldProduct.setAmountOfUsage(product.getAmountOfUsage());
         oldProduct.setExpiryDate(product.getExpiryDate());
+        oldProduct.setSafetStockCount(product.getSafetStockCount());
         productRepository.flush();
     }
 }

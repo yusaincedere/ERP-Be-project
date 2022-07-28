@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ import java.util.Set;
 @Entity
 public class WareHouse extends idGenerator implements Serializable {
 
+    @NotNull
     private String name;
 
     @OneToOne

@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 
@@ -19,8 +20,9 @@ import java.io.Serializable;
 @Builder
 @Entity
 public class Address  extends idGenerator implements Serializable {
-
+    @NotNull
     private String country;
+    @NotNull
     private String city;
     private String postCode;
     private String district;

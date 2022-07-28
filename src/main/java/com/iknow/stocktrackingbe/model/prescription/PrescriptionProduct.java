@@ -19,7 +19,6 @@ public class PrescriptionProduct extends idGenerator implements Serializable {
 
 
     private int quantity;
-
     @ManyToOne
     private Product product;
 

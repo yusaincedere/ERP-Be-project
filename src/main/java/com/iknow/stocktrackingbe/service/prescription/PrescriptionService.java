@@ -78,9 +78,9 @@ public class PrescriptionService {
             throw new NotFoundException("There is no Prescription");
         }
     }
-    public void deletePrescriptions(List<String> ids) {
+    public void deletePrescriptions(ArrayList<String> ids) {
         logger.info("Service Called: deletePrescriptions");
-        prescriptionRepository.deleteByIdIn(new ArrayList<>(ids));
+        prescriptionRepository.deleteByIdIn(ids);
         logger.info("Prescriptions deleted");
     }
 }

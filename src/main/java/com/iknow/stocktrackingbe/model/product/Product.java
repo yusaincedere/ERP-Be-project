@@ -1,5 +1,7 @@
 package com.iknow.stocktrackingbe.model.product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.model.production.Production;
 import com.iknow.stocktrackingbe.model.prospectus.Prospectus;
 import com.iknow.stocktrackingbe.model.stock.StockCard;
 import lombok.AllArgsConstructor;
@@ -11,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 
@@ -47,6 +50,10 @@ public class Product extends idGenerator implements Serializable {
 
     @NotNull
     private Long safetStockCount;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    @JsonIgnore
+    private List<Production> productions;
 
 
     @ManyToMany(cascade = CascadeType.PERSIST)
