@@ -1,10 +1,16 @@
 package com.iknow.stocktrackingbe.controller.prescription;
 import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
+
+import com.iknow.stocktrackingbe.payload.request.PrescriptionProductRequest;
 import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import java.util.List;
+
 
 
 @RestController
@@ -16,14 +22,29 @@ public class PrescriptionController {
         this.prescriptionService = prescriptionService;
     }
 
-    @PostMapping
-    public void createPrescription(@Valid @RequestBody Prescription prescription){
-        prescriptionService.createNewPrescription(prescription);
+    @GetMapping
+    public Page<Prescription> getPrescriptions(@PageableDefault (sort = "created",direction = Sort.Direction.ASC) Pageable page){
+        return  prescriptionService.getPrescriptions(page);
+
     }
     @GetMapping(path = "/{id}")
     public Prescription getPrescriptionById(@PathVariable(required = false) String id){
         Prescription prescription = prescriptionService.getPrescriptionById(id);
         return prescription;
+    }
+    @GetMapping(path = "/{id}/clone")
+    public Prescription clonePrescription(@PathVariable String id){
+        Prescription clonePrescription = prescriptionService.clonePrescription(id);
+        return clonePrescription;
+    }
+
+    @PostMapping
+    public void createPrescription(@Valid @RequestBody Prescription prescription){
+        prescriptionService.createNewPrescription(prescription);
+    }
+    @PostMapping("/draft")
+    public void createDraftPrescription(@Valid  @RequestBody Prescription prescription){
+        prescriptionService.createDraftPrescription(prescription);
     }
 
     @PutMapping("/{id}/approve")
@@ -31,11 +52,7 @@ public class PrescriptionController {
         prescriptionService.approvePrescription(id);
     }
 
-    @GetMapping(path = "/{id}/clone")
-    public Prescription clonePrescription(@PathVariable String id){
-        Prescription clonePrescription = prescriptionService.clonePrescription(id);
-        return clonePrescription;
-    }
+
     @PutMapping("/{id}/update")
     public void updatePrescription(
             @Valid
@@ -43,15 +60,12 @@ public class PrescriptionController {
             @RequestBody Prescription prescription){
         prescriptionService.updatePrescription(id,prescription);
     }
-
-    @PostMapping("/draft")
-    public void createDraftPrescription(@Valid  @RequestBody Prescription prescription){
-        prescriptionService.createDraftPrescription(prescription);
-    }
-    @GetMapping
-    public List<Prescription> getPrescriptions(){
-        List<Prescription> prescriptions = prescriptionService.getPrescriptions();
-        return prescriptions;
+    @PutMapping("/{id}/add")
+    public void addProductsToPrescription(
+            @Valid
+            @PathVariable String id,
+            @RequestBody PrescriptionProductRequest prescriptionProductRequest){
+        prescriptionService.addProductsToPrescription(id,prescriptionProductRequest);
     }
     @DeleteMapping(path = "/delete")
     public void deletePrescriptions(@RequestBody DeleteRequest ids) {

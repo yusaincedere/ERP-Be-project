@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -31,6 +32,6 @@ public class Prescription extends idGenerator implements Serializable {
 
     private boolean approved = false;
 
-    @ManyToMany
-    private Set<PrescriptionProduct> prescriptionProducts;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<PrescriptionProduct> prescriptionProducts;
 }

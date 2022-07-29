@@ -45,11 +45,10 @@ public class Product extends idGenerator implements Serializable {
     @OneToOne
     private Prospectus prospectus;
 
-    @OneToOne
+    @NotNull
+    @OneToOne(cascade = CascadeType.ALL)
     private StockCard stockCard;
 
-    @NotNull
-    private Long safetStockCount;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     @JsonIgnore

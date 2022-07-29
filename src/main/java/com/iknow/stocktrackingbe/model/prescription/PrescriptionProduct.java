@@ -28,4 +28,5 @@ public class PrescriptionProduct extends idGenerator implements Serializable {
     private LocalDate startDate;
     @NotNull
     private LocalDate endDate;
+
 }

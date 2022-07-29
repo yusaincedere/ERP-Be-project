@@ -6,6 +6,8 @@ import com.iknow.stocktrackingbe.model.product.ProductIngredient;
 import com.iknow.stocktrackingbe.repository.product.ProductIngredientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,12 +22,16 @@ public class ProductIngredientService {
     public ProductIngredientService(ProductIngredientRepository productIngredientRepository) {
         this.productIngredientRepository = productIngredientRepository;
     }
+    public Page<ProductIngredient> getProductIngredients(Pageable page) {
+        logger.info("Service Called: getProductIngredients");
 
-    public void createNewProductIngredient(ProductIngredient productIngredient) {
-        logger.info("Service Called: createNewProductIngredient");
-        productIngredientRepository.save(productIngredient);
+        Page<ProductIngredient> productIngredients = productIngredientRepository.findAll(page);
+        if(!productIngredients.isEmpty()){
+            return productIngredients;
+        }else {
+            throw new NotFoundException("There is no Ingredient");
+        }
     }
-
     public ProductIngredient getProductIngredientById(String id) {
         logger.info("Service Called: getProductIngredientById");
         Optional<ProductIngredient> optional =  productIngredientRepository.findById(id) ;
@@ -37,6 +43,13 @@ public class ProductIngredientService {
         }
     }
 
+    public void createNewProductIngredient(ProductIngredient productIngredient) {
+        logger.info("Service Called: createNewProductIngredient");
+        productIngredientRepository.save(productIngredient);
+    }
+
+
+
     public void updateProductIngredient(String id, ProductIngredient productIngredient) {
         logger.info("Service Called: updateProductIngredient");
         ProductIngredient oldProductIngredient = getProductIngredientById(id);
@@ -47,16 +60,7 @@ public class ProductIngredientService {
         productIngredientRepository.flush();
     }
 
-    public List<ProductIngredient> getProductIngredients() {
-        logger.info("Service Called: getProductIngredients");
 
-        List<ProductIngredient> productIngredients = productIngredientRepository.findAll();
-        if(!productIngredients.isEmpty()){
-            return productIngredients;
-        }else {
-            throw new NotFoundException("There is no Ingredient");
-        }
-    }
 
     public void deleteProductIngredients(ArrayList<String> ids) {
         logger.info("Service Called: deleteProductIngredients");

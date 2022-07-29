@@ -1,8 +1,12 @@
 package com.iknow.stocktrackingbe.service.product;
+import com.iknow.stocktrackingbe.exception.NotFoundException;
+import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.repository.product.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,32 +23,35 @@ public class ProductService {
     }
 
 
-
-    public void createNewProduct(Product product) {
-        productRepository.save(product);
+    public Page<Product> getPageableProducts(Pageable page) {
+        logger.info("Service Called: getPageableProducts");
+        Page<Product> products = productRepository.findAll(page);
+        if(!products.isEmpty()){
+            return products;
+        }else {
+            throw new NotFoundException("There is no product");
+        }
+    }
+    public List<Product> getProducts(ArrayList<String> ids) {
+        logger.info("Service Called: getProducts");
+        List<Product> products = productRepository.findAllById(ids);
+        if(!products.isEmpty()){
+            return products;
+        }else {
+            throw new NotFoundException("There is no product");
+        }
     }
 
     public Product getProductById(String id) {
         logger.info("Service Called: getProductById");
-            Optional<Product> optional =  productRepository.findById(id) ;
-            if(optional.isPresent()){
-                return optional.get();
-            }else {
-                logger.warn("Product not found");
-                throw new IllegalStateException("Product not found");
-            }
+        Optional<Product> optional =  productRepository.findById(id) ;
+        if(optional.isPresent()){
+            return optional.get();
+        }else {
+            logger.warn("Product not found");
+            throw new IllegalStateException("Product not found");
+        }
 
-    }
-
-    public List<Product> getProducts() {
-        logger.info("Service Called: getProducts");
-        return productRepository.findAll();
-    }
-
-    public void deleteProducts(List<String> ids){
-        logger.info("Service Called: deleteProducts");
-        productRepository.deleteByIdIn(new ArrayList<>(ids));
-        logger.info("Products deleted");
     }
     public void updateProduct(String id, Product product) {
         logger.info("Service Called: updateProduct");
@@ -54,7 +61,17 @@ public class ProductService {
         oldProduct.setCurrencyType(product.getCurrencyType());
         oldProduct.setAmountOfUsage(product.getAmountOfUsage());
         oldProduct.setExpiryDate(product.getExpiryDate());
-        oldProduct.setSafetStockCount(product.getSafetStockCount());
         productRepository.flush();
     }
+    public void createNewProduct(Product product) {
+        logger.info("Service Called: createNewProduct");
+        productRepository.save(product);
+    }
+
+    public void deleteProducts(List<String> ids){
+        logger.info("Service Called: deleteProducts");
+        productRepository.deleteByIdIn(new ArrayList<>(ids));
+        logger.info("Products deleted");
+    }
+
 }

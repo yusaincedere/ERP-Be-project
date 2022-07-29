@@ -25,7 +25,7 @@ public class StockCard extends idGenerator implements Serializable {
 
     private String name;
 
-    private Long stockCount;
+    private Long stockCount = 50L;
     private Long safeStockCount;
     private Long max;
 

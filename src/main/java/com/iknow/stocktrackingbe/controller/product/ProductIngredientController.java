@@ -5,6 +5,8 @@ package com.iknow.stocktrackingbe.controller.product;
 import com.iknow.stocktrackingbe.model.product.ProductIngredient;
 import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
 import com.iknow.stocktrackingbe.service.product.ProductIngredientService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,16 +20,21 @@ public class ProductIngredientController {
     public ProductIngredientController(ProductIngredientService productIngredientService) {
         this.productIngredientService = productIngredientService;
     }
-
-    @PostMapping
-    public void createProductIngredient(@Valid @RequestBody ProductIngredient productIngredient){
-        productIngredientService.createNewProductIngredient(productIngredient);
+    @GetMapping
+    public Page<ProductIngredient> getProductIngredients(Pageable page){
+        return productIngredientService.getProductIngredients(page);
     }
     @GetMapping(path = "/{id}")
     public ProductIngredient getProductIngredientById(@PathVariable(required = false) String id){
         ProductIngredient productIngredient = productIngredientService.getProductIngredientById(id);
         return productIngredient;
     }
+
+    @PostMapping
+    public void createProductIngredient(@Valid @RequestBody ProductIngredient productIngredient){
+        productIngredientService.createNewProductIngredient(productIngredient);
+    }
+
     @PutMapping("/{id}/update")
     public void updateProductIngredient(
             @Valid
@@ -35,11 +42,7 @@ public class ProductIngredientController {
             @RequestBody ProductIngredient productIngredient){
         productIngredientService.updateProductIngredient(id,productIngredient);
     }
-    @GetMapping
-    public List<ProductIngredient> getProductIngredients(){
-        List<ProductIngredient> productIngredients = productIngredientService.getProductIngredients();
-        return productIngredients;
-    }
+
     @DeleteMapping(path = "/delete")
     public void deleteProductIngredients(@RequestBody DeleteRequest ids) {
         productIngredientService.deleteProductIngredients(ids.getIds());

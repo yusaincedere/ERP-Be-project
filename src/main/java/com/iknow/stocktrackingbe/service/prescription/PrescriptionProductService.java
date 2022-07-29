@@ -8,6 +8,8 @@ import com.iknow.stocktrackingbe.model.product.ProductIngredient;
 import com.iknow.stocktrackingbe.repository.prescription.PrescriptionProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,12 +24,16 @@ public class PrescriptionProductService {
     public PrescriptionProductService(PrescriptionProductRepository prescriptionProductRepository) {
         this.prescriptionProductRepository = prescriptionProductRepository;
     }
+    public Page<PrescriptionProduct> getPrescriptionProducts(Pageable page) {
+        logger.info("Service Called: getPrescriptionProducts");
 
-    public void createPrescriptionProduct(PrescriptionProduct prescriptionProduct) {
-        logger.info("Service Called: createPrescriptionProduct");
-        prescriptionProductRepository.save(prescriptionProduct);
+        Page<PrescriptionProduct> productIngredients = prescriptionProductRepository.findAll(page);
+        if(!productIngredients.isEmpty()){
+            return productIngredients;
+        }else {
+            throw new NotFoundException("There is no Prescription product");
+        }
     }
-
     public PrescriptionProduct getPrescriptionProductById(String id) {
         logger.info("Service Called: getPrescriptionProductById");
         Optional<PrescriptionProduct> optional =  prescriptionProductRepository.findById(id) ;
@@ -38,7 +44,10 @@ public class PrescriptionProductService {
             throw new NotFoundException("Prescription product does not exist");
         }
     }
-
+    public void createPrescriptionProduct(PrescriptionProduct prescriptionProduct) {
+        logger.info("Service Called: createPrescriptionProduct");
+        prescriptionProductRepository.save(prescriptionProduct);
+    }
     public void updatePrescriptionProduct(String id, PrescriptionProduct prescriptionProduct) {
         logger.info("Service Called: updatePrescriptionProduct");
         PrescriptionProduct oldPrescriptionProduct = getPrescriptionProductById(id);
@@ -49,18 +58,6 @@ public class PrescriptionProductService {
         oldPrescriptionProduct.setUsageDescriptions(prescriptionProduct.getUsageDescriptions());
         prescriptionProductRepository.flush();
     }
-
-    public List<PrescriptionProduct> getPrescriptionProducts() {
-        logger.info("Service Called: getPrescriptionProducts");
-
-        List<PrescriptionProduct> productIngredients = prescriptionProductRepository.findAll();
-        if(!productIngredients.isEmpty()){
-            return productIngredients;
-        }else {
-            throw new NotFoundException("There is no Prescription product");
-        }
-    }
-
     public void deletePrescriptionProducts(ArrayList<String> ids) {
             logger.info("Service Called: deletePrescriptionProducts");
             prescriptionProductRepository.deleteByIdIn(ids);

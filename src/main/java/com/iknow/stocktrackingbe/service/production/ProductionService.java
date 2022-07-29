@@ -30,6 +30,25 @@ public class ProductionService {
         this.productionRepository=productionRepository;
         this.productService = productService;
     }
+    public List<Production> getProductions() {
+        logger.info("Service Called: getProductions");
+        List<Production> productions = productionRepository.findAll();
+        if(!productions.isEmpty()){
+            return productions;
+        }else {
+            throw new NotFoundException("There is no Production");
+        }
+
+    }
+    public Production getProductionById(String id) {
+        logger.info("Service Called: getProductionById");
+        Optional<Production>optional = productionRepository.findById(id);
+        if(optional.isPresent()){
+            return optional.get();
+        }else {
+            throw new NotFoundException("Production not found");
+        }
+    }
 
     public void createNewProduction(ProductionRequest productionRequest) {
         logger.info("Service Called: createNewProduction");
@@ -41,27 +60,6 @@ public class ProductionService {
         }
         productionRepository.save(production);
     }
-    public Production getProductionById(String id) {
-        logger.info("Service Called: getProductionById");
-        Optional<Production>optional = productionRepository.findById(id);
-            if(optional.isPresent()){
-                return optional.get();
-            }else {
-                throw new NotFoundException("Production not found");
-            }
-    }
-
-    public List<Production> getProductions() {
-        logger.info("Service Called: getProductions");
-        List<Production> productions = productionRepository.findAll();
-        if(!productions.isEmpty()){
-            return productions;
-        }else {
-            throw new NotFoundException("There is no Production");
-        }
-
-    }
-
     public void updateProduction(String id,Production production) {
         logger.info("Service Called: updateProduction");
         Production oldProduction = getProductionById(id);
