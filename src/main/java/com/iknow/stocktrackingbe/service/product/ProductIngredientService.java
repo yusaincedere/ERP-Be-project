@@ -2,8 +2,12 @@ package com.iknow.stocktrackingbe.service.product;
 
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.prescription.Prescription;
+import com.iknow.stocktrackingbe.model.prescription.PrescriptionProduct;
+import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.model.product.ProductIngredient;
 import com.iknow.stocktrackingbe.repository.product.ProductIngredientRepository;
+import com.iknow.stocktrackingbe.service.prescription.PrescriptionProductService;
+import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -17,10 +21,15 @@ import java.util.Optional;
 @Service
 public class ProductIngredientService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    private ProductIngredientRepository productIngredientRepository;
+    private final ProductIngredientRepository productIngredientRepository;
 
-    public ProductIngredientService(ProductIngredientRepository productIngredientRepository) {
+
+    private final PrescriptionProductService prescriptionProductService;
+
+
+    public ProductIngredientService(ProductIngredientRepository productIngredientRepository, PrescriptionProductService prescriptionProductService) {
         this.productIngredientRepository = productIngredientRepository;
+        this.prescriptionProductService = prescriptionProductService;
     }
     public Page<ProductIngredient> getProductIngredients(Pageable page) {
         logger.info("Service Called: getProductIngredients");
@@ -42,12 +51,37 @@ public class ProductIngredientService {
             throw new NotFoundException("Ingredient does not exist");
         }
     }
+    public List<Prescription> getPrescriptionsByProductIngredientId(String id) {
+
+        logger.info("Service Called: getPrescriptionsByProductIngredient");
+        List<Product> products = getProductIngredientById(id).getProducts();
+        List<PrescriptionProduct> prescriptionProducts =prescriptionProductService.getPrescriptionProducstByProducts(products);
+        List<Prescription> prescriptions = new ArrayList<>();
+        for(PrescriptionProduct prescriptionProduct:prescriptionProducts){
+
+            prescriptions.add(prescriptionProduct.getPrescription());
+        }
+        return prescriptions;
+    }
+
+
+    public List<ProductIngredient> getProductIngredientsByIdList(List<String> idList){
+        logger.info("Service Called: getProductIngredientsByIdList");
+        return productIngredientRepository.findAllById(idList);
+    }
+
 
     public void createNewProductIngredient(ProductIngredient productIngredient) {
         logger.info("Service Called: createNewProductIngredient");
         productIngredientRepository.save(productIngredient);
     }
 
+
+    public void addProdutToIngredient(ProductIngredient productIngredient,Product product){
+        List<Product> products = productIngredient.getProducts();
+        products.add(product);
+        productIngredient.setProducts(products);
+    }
 
 
     public void updateProductIngredient(String id, ProductIngredient productIngredient) {

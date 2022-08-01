@@ -2,6 +2,7 @@ package com.iknow.stocktrackingbe.controller.product;
 
 
 
+import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.product.ProductIngredient;
 import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
 import com.iknow.stocktrackingbe.service.product.ProductIngredientService;
@@ -29,6 +30,11 @@ public class ProductIngredientController {
         ProductIngredient productIngredient = productIngredientService.getProductIngredientById(id);
         return productIngredient;
     }
+    @GetMapping(path = "/{id}/prescriptions")
+    public List<Prescription> getPrescriptionsByProductIngredientId(@PathVariable(required = false) String id){
+        return productIngredientService.getPrescriptionsByProductIngredientId(id);
+    }
+
 
     @PostMapping
     public void createProductIngredient(@Valid @RequestBody ProductIngredient productIngredient){

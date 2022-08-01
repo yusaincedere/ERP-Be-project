@@ -102,13 +102,11 @@ public class PrescriptionService {
         logger.info("Service Called: addProductsToPrescription");
         Prescription prescription = getPrescriptionById(id);
         List<PrescriptionProduct> prescriptionProductList = prescriptionProductRequest.getPrescriptionProductList();
-        System.out.println(prescriptionProductList);
         List<String> idList = prescriptionProductRequest.getProductIdList();
-        System.out.println("--------------------------------------------------");
-        System.out.println(idList);
         for(int i = 0;i < idList.size();i++){
             Product product = productService.getProductById(idList.get(i));
             prescriptionProductList.get(i).setProduct(product);
+            prescriptionProductList.get(i).setPrescription(prescription);
 
         }
         prescription.setPrescriptionProducts(prescriptionProductList);

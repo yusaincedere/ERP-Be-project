@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.service.prescription;
 
 import com.iknow.stocktrackingbe.exception.NotFoundException;
+import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.prescription.PrescriptionProduct;
 import com.iknow.stocktrackingbe.model.product.Product;
 
@@ -44,10 +45,16 @@ public class PrescriptionProductService {
             throw new NotFoundException("Prescription product does not exist");
         }
     }
+    public List<PrescriptionProduct> getPrescriptionProducstByProducts(List<Product> products) {
+        return prescriptionProductRepository.findAllByProductIn(products);
+    }
+
+
     public void createPrescriptionProduct(PrescriptionProduct prescriptionProduct) {
         logger.info("Service Called: createPrescriptionProduct");
         prescriptionProductRepository.save(prescriptionProduct);
     }
+
     public void updatePrescriptionProduct(String id, PrescriptionProduct prescriptionProduct) {
         logger.info("Service Called: updatePrescriptionProduct");
         PrescriptionProduct oldPrescriptionProduct = getPrescriptionProductById(id);

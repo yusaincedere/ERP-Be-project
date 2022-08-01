@@ -32,6 +32,8 @@ public class Prescription extends idGenerator implements Serializable {
 
     private boolean approved = false;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<PrescriptionProduct> prescriptionProducts;
+
+
 }

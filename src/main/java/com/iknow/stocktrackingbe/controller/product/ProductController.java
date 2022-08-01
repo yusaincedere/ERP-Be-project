@@ -2,6 +2,7 @@ package com.iknow.stocktrackingbe.controller.product;
 
 import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.product.Product;
+import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.service.product.ProductService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,6 +43,12 @@ public class ProductController {
             @RequestBody Product product){
         System.out.println(product);
         productService.updateProduct(id,product);
+    }
+    @PutMapping("/{id}/addIngredients")
+    public void addProductIngredients(
+            @PathVariable String id,
+            @RequestBody IdListRequest idListRequest){
+        productService.addProductIngredients(id,idListRequest);
     }
     @DeleteMapping(path = "/delete")
     public void deleteProducts(@RequestParam("ids") List<String> ids) {

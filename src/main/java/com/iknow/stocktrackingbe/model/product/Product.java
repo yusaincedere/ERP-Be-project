@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
+
 
 
 @AllArgsConstructor
@@ -55,8 +55,9 @@ public class Product extends idGenerator implements Serializable {
     private List<Production> productions;
 
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private Set<ProductIngredient> productIngredients;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<ProductIngredient> productIngredients;
+
 
 
 }

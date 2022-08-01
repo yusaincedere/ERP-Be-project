@@ -54,7 +54,7 @@ public class ProductionService {
         logger.info("Service Called: createNewProduction");
         Product product = productService.getProductById(productionRequest.getProductId());
         Production production = Production.builder().productionCount(productionRequest.getProductionCount()).product(product).productionStatus(ProductionStatus.EMPTY).build();
-        Set<ProductIngredient> productIngredients = production.getProduct().getProductIngredients();
+        List<ProductIngredient> productIngredients = production.getProduct().getProductIngredients();
         for(ProductIngredient productIngredient:productIngredients){
             productIngredient.setStockCount(productIngredient.getStockCount()-production.getProductionCount());
         }
@@ -82,7 +82,7 @@ public class ProductionService {
         logger.info("Service Called: cancelProduction");
         Production production = getProductionById(id);
         production.setProductionStatus(ProductionStatus.CANCELLED);
-        Set<ProductIngredient> productIngredients = production.getProduct().getProductIngredients();
+        List<ProductIngredient> productIngredients = production.getProduct().getProductIngredients();
         for(ProductIngredient productIngredient:productIngredients){
             productIngredient.setStockCount(productIngredient.getStockCount()+production.getProductionCount());
         }

@@ -1,7 +1,8 @@
 package com.iknow.stocktrackingbe.service.product;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
-import com.iknow.stocktrackingbe.model.prescription.Prescription;
 import com.iknow.stocktrackingbe.model.product.Product;
+import com.iknow.stocktrackingbe.model.product.ProductIngredient;
+import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.repository.product.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +18,11 @@ import java.util.Optional;
 public class ProductService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final ProductRepository productRepository;
+    private final ProductIngredientService productIngredientService;
 
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository, ProductIngredientService productIngredientService) {
         this.productRepository = productRepository;
+        this.productIngredientService = productIngredientService;
     }
 
 
@@ -74,4 +77,15 @@ public class ProductService {
         logger.info("Products deleted");
     }
 
+    public void addProductIngredients(String id, IdListRequest idListRequest) {
+        logger.info("Service Called: addProductIngredients");
+        Product product = getProductById(id);
+        List<ProductIngredient> productIngredients = productIngredientService.getProductIngredientsByIdList(idListRequest.getIdList());
+        product.setProductIngredients(productIngredients);
+
+        for(ProductIngredient productIngredient:productIngredients){
+            productIngredientService.addProdutToIngredient(productIngredient,product);
+        }
+        productRepository.flush();
+    }
 }

@@ -13,4 +13,5 @@ public interface PrescriptionRepository extends JpaRepository<Prescription,Strin
 
     @Transactional
     void deleteByIdIn(ArrayList<String> ids);
+
 }

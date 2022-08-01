@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.model.product;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +11,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,9 +25,11 @@ public class ProductIngredient extends idGenerator implements Serializable {
     @Column(name = "name",unique = true)
     private String name;
     private Double milliGramWeight;
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private Set<Product> products;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Product> products;
     @NotNull
     private Long stockCount;
+
 
 }
