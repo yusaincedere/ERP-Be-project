@@ -1,0 +1,303 @@
+2022-07-29 09:52:40,271 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 3300 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 09:52:40,273 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 09:52:40,274 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 09:52:45,656 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 6.129 seconds (JVM running for 7.948)
+2022-07-29 09:52:54,984 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-2] Service Called: createNewPrescription
+2022-07-29 09:52:56,244 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-3] Service Called: createNewPrescription
+2022-07-29 09:52:57,476 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: createNewPrescription
+2022-07-29 09:52:58,507 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: createNewPrescription
+2022-07-29 09:52:59,408 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: createNewPrescription
+2022-07-29 09:53:00,254 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: createNewPrescription
+2022-07-29 09:53:01,029 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-8] Service Called: createNewPrescription
+2022-07-29 09:53:01,849 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-9] Service Called: createNewPrescription
+2022-07-29 09:53:02,560 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-10] Service Called: createNewPrescription
+2022-07-29 09:53:10,054 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: getPrescriptions
+2022-07-29 09:53:14,627 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-2] Service Called: getPrescriptions
+2022-07-29 09:53:18,711 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-3] Service Called: getPrescriptions
+2022-07-29 09:53:36,450 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: getPrescriptions
+2022-07-29 09:53:49,319 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: getPrescriptions
+2022-07-29 10:14:07,953 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 11956 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 10:14:07,955 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 10:14:07,956 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 10:14:14,030 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 7.034 seconds (JVM running for 8.888)
+2022-07-29 10:14:30,118 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-2] Service Called: getPrescriptions
+2022-07-29 10:15:27,226 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-3] Service Called: getPrescriptions
+2022-07-29 10:15:46,821 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: getPrescriptions
+2022-07-29 10:29:58,824 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 12624 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 10:29:58,824 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 10:29:58,824 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 10:30:03,086 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.921 seconds (JVM running for 6.252)
+2022-07-29 10:35:25,912 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 10768 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 10:35:25,914 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 10:35:25,916 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 10:35:33,596 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 8.475 seconds (JVM running for 9.818)
+2022-07-29 10:37:31,014 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: createNewProduct
+2022-07-29 10:49:00,000 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: createNewPrescription
+2022-07-29 11:15:23,401 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-8] Service Called: createNewPrescription
+2022-07-29 11:39:06,235 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 10792 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 11:39:06,235 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 11:39:06,235 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 11:39:10,522 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.944 seconds (JVM running for 6.263)
+2022-07-29 11:40:25,796 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: createNewPrescription
+2022-07-29 11:47:21,131 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 405 Message: Request method 'POST' not supported
+2022-07-29 11:47:34,709 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptionById
+2022-07-29 11:51:31,454 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 7676 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 11:51:31,454 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 11:51:31,459 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 11:51:36,578 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 5.879 seconds (JVM running for 7.266)
+2022-07-29 11:52:36,537 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 5924 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 11:52:36,537 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 11:52:36,537 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 11:52:41,222 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 5.36 seconds (JVM running for 6.76)
+2022-07-29 12:01:32,278 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 4844 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 12:01:32,282 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 12:01:32,283 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 12:03:44,907 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 4896 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 12:03:44,909 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 12:03:44,911 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 12:03:51,316 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 7.342 seconds (JVM running for 9.335)
+2022-07-29 12:04:00,409 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: addProductsToPrescription
+2022-07-29 12:04:00,410 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: getPrescriptionById
+2022-07-29 12:04:00,576 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 500 Message: No message available
+2022-07-29 12:04:43,023 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: addProductsToPrescription
+2022-07-29 12:04:43,024 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: getPrescriptionById
+2022-07-29 12:04:43,033 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: getProductById
+2022-07-29 12:05:59,077 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 11844 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 12:05:59,080 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 12:05:59,081 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 12:06:05,515 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 7.158 seconds (JVM running for 8.625)
+2022-07-29 12:06:18,735 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-2] Service Called: addProductsToPrescription
+2022-07-29 12:06:18,736 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-2] Service Called: getPrescriptionById
+2022-07-29 12:06:18,817 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: getProductById
+2022-07-29 12:06:18,944 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 500 Message: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.iknow.stocktrackingbe.model.PrescriptionProduct; nested exception is java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.iknow.stocktrackingbe.model.PrescriptionProduct
+2022-07-29 12:11:29,225 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 12492 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 12:11:29,225 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 12:11:29,225 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 12:11:35,563 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 7.127 seconds (JVM running for 8.7)
+2022-07-29 12:11:49,384 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: addProductsToPrescription
+2022-07-29 12:11:49,385 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: getPrescriptionById
+2022-07-29 12:11:49,484 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: getProductById
+2022-07-29 12:11:49,585 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 500 Message: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.iknow.stocktrackingbe.model.PrescriptionProduct; nested exception is java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.iknow.stocktrackingbe.model.PrescriptionProduct
+2022-07-29 12:21:41,289 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 8188 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 12:21:41,289 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 12:21:41,289 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 12:21:45,609 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 5.002 seconds (JVM running for 6.3)
+2022-07-29 12:21:57,089 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-2] Service Called: addProductsToPrescription
+2022-07-29 12:21:57,091 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-2] Service Called: getPrescriptionById
+2022-07-29 12:21:57,201 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: getProductById
+2022-07-29 13:59:27,652 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: addProductsToPrescription
+2022-07-29 13:59:27,661 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: getPrescriptionById
+2022-07-29 13:59:27,706 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: getProductById
+2022-07-29 13:59:30,466 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: addProductsToPrescription
+2022-07-29 13:59:30,467 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptionById
+2022-07-29 13:59:30,472 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getProductById
+2022-07-29 13:59:31,730 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: addProductsToPrescription
+2022-07-29 13:59:31,731 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptionById
+2022-07-29 13:59:31,738 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-7] Service Called: getProductById
+2022-07-29 14:01:01,796 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-10] Service Called: getPrescriptions
+2022-07-29 14:01:15,887 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: getPrescriptions
+2022-07-29 14:03:23,902 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: approvePrescription
+2022-07-29 14:03:23,903 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: getPrescriptionById
+2022-07-29 14:03:28,920 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: getPrescriptions
+2022-07-29 14:16:13,394 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-8] Service Called: getPrescriptions
+2022-07-29 14:16:19,950 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-9] Service Called: getPageableProducts
+2022-07-29 14:16:29,936 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-10] Service Called: createNewProduct
+2022-07-29 14:16:30,018 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 500 Message: could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement
+2022-07-29 14:16:31,095 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: createNewProduct
+2022-07-29 14:16:31,111 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 500 Message: could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement
+2022-07-29 14:17:26,638 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: createNewProduct
+2022-07-29 14:17:26,653 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 500 Message: could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement
+2022-07-29 14:18:43,949 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: createNewProduct
+2022-07-29 14:18:43,984 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 500 Message: could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement
+2022-07-29 14:18:56,864 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 5456 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 14:18:56,866 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 14:18:56,868 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 14:19:02,779 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 6.828 seconds (JVM running for 8.292)
+2022-07-29 14:19:08,981 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: createNewProduct
+2022-07-29 14:19:09,143 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 500 Message: could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement
+2022-07-29 14:22:39,696 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: createNewProduct
+2022-07-29 14:22:42,981 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: createNewProduct
+2022-07-29 14:23:24,644 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: addProductsToPrescription
+2022-07-29 14:23:24,644 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptionById
+2022-07-29 14:23:24,693 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getProductById
+2022-07-29 14:23:24,706 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getProductById
+2022-07-29 14:23:56,474 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptions
+2022-07-29 14:28:55,026 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-10] Service Called: getPrescriptions
+2022-07-29 14:36:47,300 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-3] Service Called: approvePrescription
+2022-07-29 14:36:47,301 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-3] Service Called: getPrescriptionById
+2022-07-29 15:15:54,812 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 10164 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 15:15:54,812 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 15:15:54,812 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 15:15:59,106 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.973 seconds (JVM running for 6.267)
+2022-07-29 15:16:03,291 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getProductIngredients
+2022-07-29 15:16:12,186 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-3] Service Called: getProductIngredients
+2022-07-29 16:39:07,824 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 14292 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 16:39:07,824 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 16:39:07,824 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 16:43:21,518 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 12032 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 16:43:21,518 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 16:43:21,518 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 16:43:25,793 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.939 seconds (JVM running for 6.172)
+2022-07-29 16:44:55,551 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: getPageableProducts
+2022-07-29 16:57:02,074 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 3268 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 16:57:02,074 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 16:57:02,074 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:01:27,078 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 6408 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:01:27,078 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:01:27,078 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:01:31,432 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.995 seconds (JVM running for 6.435)
+2022-07-29 17:02:23,149 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: getPageableProducts
+2022-07-29 17:04:07,830 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: addProductIngredients
+2022-07-29 17:04:07,830 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: getProductById
+2022-07-29 17:04:07,844 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-5] Service Called: getProductIngredientsByIdList
+2022-07-29 17:04:27,985 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: addProductIngredients
+2022-07-29 17:04:27,985 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getProductById
+2022-07-29 17:04:27,995 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-6] Service Called: getProductIngredientsByIdList
+2022-07-29 17:04:38,494 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-7] Service Called: addProductIngredients
+2022-07-29 17:04:38,494 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-7] Service Called: getProductById
+2022-07-29 17:04:38,506 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-7] Service Called: getProductIngredientsByIdList
+2022-07-29 17:06:11,014 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-10] Service Called: addProductsToPrescription
+2022-07-29 17:06:11,014 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-10] Service Called: getPrescriptionById
+2022-07-29 17:06:11,026 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-10] Service Called: getProductById
+2022-07-29 17:06:11,035 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-10] Service Called: getProductById
+2022-07-29 17:06:11,044 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-10] Service Called: getProductById
+2022-07-29 17:06:11,081 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 500 Message: Index 2 out of bounds for length 2
+2022-07-29 17:06:53,740 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: addProductsToPrescription
+2022-07-29 17:06:53,741 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-1] Service Called: getPrescriptionById
+2022-07-29 17:06:53,747 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: getProductById
+2022-07-29 17:06:53,760 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: getProductById
+2022-07-29 17:06:53,768 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: getProductById
+2022-07-29 17:07:37,941 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-3] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:07:37,941 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-3] Service Called: getProductIngredientById
+2022-07-29 17:09:38,166 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 10000 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:09:38,166 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:09:38,166 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:09:42,864 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 5.568 seconds (JVM running for 6.984)
+2022-07-29 17:10:01,227 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:10:01,228 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getProductIngredientById
+2022-07-29 17:10:52,166 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-3] Service Called: addProductsToPrescription
+2022-07-29 17:10:52,167 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-3] Service Called: getPrescriptionById
+2022-07-29 17:10:52,177 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: getProductById
+2022-07-29 17:10:52,186 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: getProductById
+2022-07-29 17:10:52,192 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: getProductById
+2022-07-29 17:10:56,716 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: addProductsToPrescription
+2022-07-29 17:10:56,718 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-4] Service Called: getPrescriptionById
+2022-07-29 17:10:56,727 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: getProductById
+2022-07-29 17:10:56,742 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: getProductById
+2022-07-29 17:10:56,755 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: getProductById
+2022-07-29 17:11:25,713 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: addProductsToPrescription
+2022-07-29 17:11:25,716 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: getPrescriptionById
+2022-07-29 17:11:25,724 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: getProductById
+2022-07-29 17:11:25,732 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: getProductById
+2022-07-29 17:11:25,741 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: getProductById
+2022-07-29 17:11:33,943 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: addProductsToPrescription
+2022-07-29 17:11:33,943 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptionById
+2022-07-29 17:11:33,955 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getProductById
+2022-07-29 17:11:33,962 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getProductById
+2022-07-29 17:11:33,975 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getProductById
+2022-07-29 17:11:46,208 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: addProductsToPrescription
+2022-07-29 17:11:46,209 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptionById
+2022-07-29 17:11:46,219 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-7] Service Called: getProductById
+2022-07-29 17:11:46,227 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-7] Service Called: getProductById
+2022-07-29 17:11:46,238 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-7] Service Called: getProductById
+2022-07-29 17:13:18,755 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-9] Status: 405 Message: Request method 'POST' not supported
+2022-07-29 17:13:23,699 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: addProductIngredients
+2022-07-29 17:13:23,701 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: getProductById
+2022-07-29 17:13:23,708 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-1] Service Called: getProductIngredientsByIdList
+2022-07-29 17:13:40,809 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: addProductIngredients
+2022-07-29 17:13:40,809 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: getProductById
+2022-07-29 17:13:40,821 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getProductIngredientsByIdList
+2022-07-29 17:13:52,754 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: addProductIngredients
+2022-07-29 17:13:52,755 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: getProductById
+2022-07-29 17:13:52,764 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-3] Service Called: getProductIngredientsByIdList
+2022-07-29 17:13:59,707 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-4] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:13:59,707 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-4] Service Called: getProductIngredientById
+2022-07-29 17:14:18,136 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-5] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:14:18,137 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-5] Service Called: getProductIngredientById
+2022-07-29 17:15:06,034 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-6] Service Called: getPageableProducts
+2022-07-29 17:15:31,063 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptions
+2022-07-29 17:17:42,823 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 2924 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:17:42,823 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:17:42,823 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:17:48,483 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 6.78 seconds (JVM running for 8.947)
+2022-07-29 17:17:48,903 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: addProductIngredients
+2022-07-29 17:17:48,904 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-1] Service Called: getProductById
+2022-07-29 17:17:49,013 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-1] Service Called: getProductIngredientsByIdList
+2022-07-29 17:17:51,379 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: addProductIngredients
+2022-07-29 17:17:51,379 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: getProductById
+2022-07-29 17:17:51,388 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-4] Service Called: getProductIngredientsByIdList
+2022-07-29 17:17:53,019 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: addProductIngredients
+2022-07-29 17:17:53,019 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: getProductById
+2022-07-29 17:17:53,025 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-3] Service Called: getProductIngredientsByIdList
+2022-07-29 17:18:02,390 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: getPrescriptions
+2022-07-29 17:18:25,842 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-6] Service Called: getPrescriptions
+2022-07-29 17:18:30,848 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-7] Service Called: getPrescriptions
+2022-07-29 17:20:20,602 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-10] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:20:20,602 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-10] Service Called: getProductIngredientById
+2022-07-29 17:21:59,409 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 6000 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:21:59,409 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:21:59,409 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:22:04,679 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 6.049 seconds (JVM running for 8.741)
+2022-07-29 17:22:14,699 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 6976 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:22:14,699 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:22:14,699 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:22:20,673 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 6.824 seconds (JVM running for 8.704)
+2022-07-29 17:22:28,705 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 12496 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:22:28,705 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:22:28,705 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:22:33,023 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 4.994 seconds (JVM running for 6.278)
+2022-07-29 17:22:50,310 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:22:50,311 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getProductIngredientById
+2022-07-29 17:23:37,454 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 7820 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:23:37,454 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:23:37,454 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:23:44,495 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 7.804 seconds (JVM running for 9.276)
+2022-07-29 17:23:46,685 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:23:46,686 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getProductIngredientById
+2022-07-29 17:24:26,065 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 12544 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:24:26,067 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:24:26,068 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:24:30,552 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 5.241 seconds (JVM running for 6.675)
+2022-07-29 17:24:33,102 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-1] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:24:33,103 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-1] Service Called: getProductIngredientById
+2022-07-29 17:25:41,116 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-5] Service Called: getProductIngredients
+2022-07-29 17:29:17,520 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 5156 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:29:17,520 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:29:17,520 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:29:24,943 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 8.315 seconds (JVM running for 10.017)
+2022-07-29 17:29:25,558 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-1] Service Called: getProductIngredients
+2022-07-29 17:29:49,946 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: addProductIngredients
+2022-07-29 17:29:49,946 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: getProductById
+2022-07-29 17:29:49,964 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-3] Service Called: getProductIngredientsByIdList
+2022-07-29 17:29:51,279 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: addProductIngredients
+2022-07-29 17:29:51,279 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-4] Service Called: getProductById
+2022-07-29 17:29:51,292 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-4] Service Called: getProductIngredientsByIdList
+2022-07-29 17:29:52,347 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: addProductIngredients
+2022-07-29 17:29:52,348 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-5] Service Called: getProductById
+2022-07-29 17:29:52,360 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-5] Service Called: getProductIngredientsByIdList
+2022-07-29 17:29:56,273 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-6] Service Called: getProductIngredients
+2022-07-29 17:30:36,392 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-7] Service Called: getPageableProducts
+2022-07-29 17:31:56,315 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 13252 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:31:56,319 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:31:56,320 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:32:01,693 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 6.389 seconds (JVM running for 7.818)
+2022-07-29 17:32:05,449 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: addProductIngredients
+2022-07-29 17:32:05,451 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-2] Service Called: getProductById
+2022-07-29 17:32:05,550 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-2] Service Called: getProductIngredientsByIdList
+2022-07-29 17:32:08,530 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: addProductIngredients
+2022-07-29 17:32:08,531 INFO com.iknow.stocktrackingbe.service.ProductService [http-nio-8080-exec-3] Service Called: getProductById
+2022-07-29 17:32:08,542 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-3] Service Called: getProductIngredientsByIdList
+2022-07-29 17:32:14,423 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-4] Service Called: getProductIngredients
+2022-07-29 17:32:29,567 INFO com.iknow.stocktrackingbe.service.PrescriptionService [http-nio-8080-exec-5] Service Called: getPrescriptions
+2022-07-29 17:33:12,012 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 404 Message: No message available
+2022-07-29 17:33:33,976 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-7] Service Called: getPrescriptionsByProductIngredient
+2022-07-29 17:33:33,977 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-7] Service Called: getProductIngredientById
+2022-07-29 17:34:15,231 INFO com.iknow.stocktrackingbe.service.ProductIngredientService [http-nio-8080-exec-8] Service Called: getProductIngredientById
+2022-07-29 17:34:44,546 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 7052 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:34:44,546 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:34:44,546 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:34:49,105 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 5.241 seconds (JVM running for 6.993)
+2022-07-29 17:35:21,988 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 9804 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-07-29 17:35:21,988 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-29 17:35:21,988 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-07-29 17:35:27,810 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 6.484 seconds (JVM running for 7.684)

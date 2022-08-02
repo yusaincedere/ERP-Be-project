@@ -1,6 +1,5 @@
 package com.iknow.stocktrackingbe.exception;
 
-import com.iknow.stocktrackingbe.service.prescription.PrescriptionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
