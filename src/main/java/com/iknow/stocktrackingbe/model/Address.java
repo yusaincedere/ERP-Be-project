@@ -30,5 +30,4 @@ public class Address  extends idGenerator implements Serializable {
     private String street;
     private String details;
 
-
 }

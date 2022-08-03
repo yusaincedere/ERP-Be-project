@@ -1,9 +1,8 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.model.warehouse;
 
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
-import com.iknow.stocktrackingbe.model.Address;
-import com.iknow.stocktrackingbe.model.Facility;
-import com.iknow.stocktrackingbe.model.Product;
+import com.iknow.stocktrackingbe.model.facility.Facility;
+import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +19,6 @@ import java.util.Set;
 @Builder
 @Entity
 public class WareHouse extends idGenerator implements Serializable {
-
     @NotNull
     private String name;
 
