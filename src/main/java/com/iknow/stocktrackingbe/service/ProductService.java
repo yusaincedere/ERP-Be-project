@@ -2,6 +2,8 @@ package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.Product;
 import com.iknow.stocktrackingbe.model.ProductIngredient;
+import com.iknow.stocktrackingbe.model.StockCard;
+import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,8 @@ public class ProductService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final ProductRepository productRepository;
     private final ProductIngredientService productIngredientService;
+
+    private final WareHouseService wareHouseService;
 
 
 
@@ -46,7 +50,7 @@ public class ProductService {
 
     public Product getProductById(String id) {
         logger.info("Service Called: getProductById");
-        Optional<Product> optional =  productRepository.findById(id) ;
+        Optional<Product> optional =  productRepository.findById(id);
         if(optional.isPresent()){
             return optional.get();
         }else {
@@ -85,6 +89,15 @@ public class ProductService {
         for(ProductIngredient productIngredient:productIngredients){
             productIngredientService.addProdutToIngredient(productIngredient,product);
         }
+        productRepository.flush();
+    }
+    public void addStockCard(String id, StockCard stockCard,String wareHouseId) {
+        logger.info("Service Called: addStockCard");
+        Product product = getProductById(id);
+        WareHouse wareHouse = wareHouseService.getWareHouseById(wareHouseId);
+        stockCard.setWareHouse(wareHouse);
+        stockCard.setProduct(product);
+        product.getStockCards().add(stockCard);
         productRepository.flush();
     }
 }

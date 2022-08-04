@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
+@Builder(toBuilder = true)
 @Entity
 public class Facility extends idGenerator implements Serializable {
 
@@ -26,7 +26,7 @@ public class Facility extends idGenerator implements Serializable {
     private Address address;
 
     @OneToMany
-    private Set<WareHouse> wareHouses;
+    private List<WareHouse> wareHouses;
 
 
 }

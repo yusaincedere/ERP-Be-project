@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Repository
@@ -14,5 +15,6 @@ import java.util.ArrayList;
 public interface PrescriptionRepository extends JpaRepository<Prescription,String> {
 
     void deleteByIdIn(ArrayList<String> ids);
+
 
 }

@@ -4,9 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.iknow.stocktrackingbe.helper.JsonHelper;
 import com.iknow.stocktrackingbe.model.Product;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
+import com.iknow.stocktrackingbe.payload.request.StockCardRequest;
 import com.iknow.stocktrackingbe.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,8 +59,14 @@ public class ProductController {
             @RequestBody IdListRequest idListRequest){
         productService.addProductIngredients(id,idListRequest);
     }
+    @PutMapping("/{id}/addStockCard")
+    public void addStockCard(
+            @PathVariable String id,
+            @RequestBody StockCardRequest stockCardRequest){
+        productService.addStockCard(id,stockCardRequest.getStockCard(),stockCardRequest.getWareHouseId());
+    }
     @DeleteMapping(path = "/delete")
-    public void deleteProducts(@RequestParam("ids") List<String> ids) {
+    public void deleteProducts(@RequestParam("ids") List<String> ids){
         productService.deleteProducts(ids);
     }
 }

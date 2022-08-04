@@ -1,8 +1,9 @@
-package com.iknow.stocktrackingbe.controller.facility;
+package com.iknow.stocktrackingbe.controller;
 
-import com.iknow.stocktrackingbe.model.facility.Facility;
-import com.iknow.stocktrackingbe.model.prescription.Prescription;
-import com.iknow.stocktrackingbe.service.facility.FacilityService;
+import com.iknow.stocktrackingbe.model.Facility;
+
+import com.iknow.stocktrackingbe.service.FacilityService;
+
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

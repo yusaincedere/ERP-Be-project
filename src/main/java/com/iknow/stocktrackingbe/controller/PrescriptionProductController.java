@@ -5,7 +5,6 @@ import com.iknow.stocktrackingbe.model.PrescriptionProduct;
 import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
 import com.iknow.stocktrackingbe.service.PrescriptionProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,10 +36,6 @@ public class PrescriptionProductController {
         }
     }
 
-    @PostMapping
-    public void createPrescriptionProduct(@Valid @RequestBody PrescriptionProduct prescriptionProduct){
-        prescriptionProductService.createPrescriptionProduct(prescriptionProduct);
-    }
 
     @PutMapping("/{id}/update")
     public void updatePrescriptionProduct(

@@ -46,12 +46,6 @@ public class PrescriptionProductService {
         return prescriptionProductRepository.findAllByProductIn(products);
     }
 
-
-    public void createPrescriptionProduct(PrescriptionProduct prescriptionProduct) {
-        logger.info("Service Called: createPrescriptionProduct");
-        prescriptionProductRepository.save(prescriptionProduct);
-    }
-
     public void updatePrescriptionProduct(String id, PrescriptionProduct prescriptionProduct) {
         logger.info("Service Called: updatePrescriptionProduct");
         PrescriptionProduct oldPrescriptionProduct = getPrescriptionProductById(id);
@@ -66,6 +60,5 @@ public class PrescriptionProductService {
             logger.info("Service Called: deletePrescriptionProducts");
             prescriptionProductRepository.deleteByIdIn(ids);
             logger.info("Ingredients deleted");
-
     }
 }

@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
+@Builder(toBuilder = true)
 @Entity
 public class Product extends idGenerator implements Serializable {
 
@@ -28,8 +29,11 @@ public class Product extends idGenerator implements Serializable {
 
     private Double productMilligramWeight;
     @NotNull
+    @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate expiryDate;
     @NotNull
+
+    @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate produceDate;
     @NotNull
     private BigDecimal price;
@@ -42,9 +46,9 @@ public class Product extends idGenerator implements Serializable {
     @OneToOne
     private Prospectus prospectus;
 
-    @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
-    private StockCard stockCard;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<StockCard> stockCards;
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")

@@ -14,7 +14,7 @@ import javax.validation.constraints.Email;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
+@Builder(toBuilder = true)
 @Entity
 @Table(name = "users",uniqueConstraints = { @UniqueConstraint(name = "unique_userName", columnNames = { "username"}) })
 public class User extends idGenerator {
@@ -26,7 +26,7 @@ public class User extends idGenerator {
     private String username;
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role role = Role.ROLE_USER;
 
 
 

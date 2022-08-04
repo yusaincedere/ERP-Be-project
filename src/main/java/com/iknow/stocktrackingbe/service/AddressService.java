@@ -21,4 +21,8 @@ public class AddressService {
     public List<Address> getAddressByCity(String city){
         return addressRepository.findAllByCity(city);
     }
+
+    public List<Address> getAddresByCountry(String ct) {
+        return  addressRepository.findAllByCountry(ct);
+    }
 }

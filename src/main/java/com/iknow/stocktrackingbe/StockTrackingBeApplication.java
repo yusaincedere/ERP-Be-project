@@ -1,7 +1,5 @@
 package com.iknow.stocktrackingbe;
 
-import com.iknow.stocktrackingbe.model.Role;
-import com.iknow.stocktrackingbe.model.User;
 import com.iknow.stocktrackingbe.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
+
 public class StockTrackingBeApplication {
 
 	public static void main(String[] args) {

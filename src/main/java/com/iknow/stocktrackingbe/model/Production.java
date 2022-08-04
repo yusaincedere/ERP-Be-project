@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
+@Builder(toBuilder = true)
 @Entity
 public class Production extends idGenerator implements Serializable {
 
@@ -26,10 +26,8 @@ public class Production extends idGenerator implements Serializable {
 
     @ManyToOne
     @JoinColumns({
-            @JoinColumn(name = "product_id", referencedColumnName = "id"),
-    })
+            @JoinColumn(name = "product_id", referencedColumnName = "id")})
     private Product product;
-
 
 
 

@@ -1,48 +1,35 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.payload.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-@Builder(toBuilder = true)
-@Entity
-public class StockCard extends idGenerator implements Serializable {
-
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class StockCardResponse {
     @JsonProperty("stock_code")
     private String stockCode;
-
+    @JsonProperty("name")
     private String name;
-
     @JsonProperty("stock_count")
-    private Long stockCount = 50L;
+    private Long stockCount;
     @JsonProperty("safe_stock_count")
-    private Long safeStockCount = 0L;
+    private Long safeStockCount;
+    @JsonProperty("max_stock")
     private Long max;
-
     @JsonProperty("expected_supply_date")
     @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate expectedSupplyDate;
-
-    @ManyToOne
-    @JsonIgnore
-    private WareHouse wareHouse;
-
-    @ManyToOne
-    @JsonIgnore
-    private Product product;
-
+    @JsonProperty("ware_house_name")
+    private String wareHouseName;
+    @JsonProperty("product_name")
+    private String productName;
 
 }

@@ -4,19 +4,16 @@ package com.iknow.stocktrackingbe.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.iknow.stocktrackingbe.helper.JsonHelper;
-import com.iknow.stocktrackingbe.model.Prescription;
 import com.iknow.stocktrackingbe.model.ProductIngredient;
 import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
 import com.iknow.stocktrackingbe.service.ProductIngredientService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/productIngredient")

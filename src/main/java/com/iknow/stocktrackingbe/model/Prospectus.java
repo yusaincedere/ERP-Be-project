@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,12 +19,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
+@Builder(toBuilder = true)
 @Entity
 public class Prospectus extends idGenerator implements Serializable {
 
 
     @CreatedDate
+    @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate created;
 
     private String details;

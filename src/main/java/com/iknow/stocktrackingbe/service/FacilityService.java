@@ -1,9 +1,7 @@
-package com.iknow.stocktrackingbe.service.facility;
-
+package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
-import com.iknow.stocktrackingbe.model.facility.Facility;
-import com.iknow.stocktrackingbe.model.prescription.Prescription;
-import com.iknow.stocktrackingbe.repository.facility.FacilityRepository;
+import com.iknow.stocktrackingbe.model.Facility;
+import com.iknow.stocktrackingbe.repository.FacilityRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

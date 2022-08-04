@@ -5,7 +5,6 @@ import com.iknow.stocktrackingbe.model.Product;
 import com.iknow.stocktrackingbe.model.ProductIngredient;
 import com.iknow.stocktrackingbe.model.Production;
 import com.iknow.stocktrackingbe.model.ProductionStatus;
-import com.iknow.stocktrackingbe.model.StockCard;
 import com.iknow.stocktrackingbe.payload.request.ProductionRequest;
 import com.iknow.stocktrackingbe.repository.ProductionRepository;
 import lombok.RequiredArgsConstructor;
@@ -70,8 +69,8 @@ public class ProductionService {
         logger.info("Service Called: completeProduction");
         Production production = getProductionById(id);
         production.setProductionStatus(ProductionStatus.FINISHED);
-        StockCard stockCard = production.getProduct().getStockCard();
-        stockCard.setStockCount(stockCard.getStockCount()+production.getProductionCount());
+        //StockCard stockCard = production.getProduct().getStockCard();
+       // stockCard.setStockCount(stockCard.getStockCount()+production.getProductionCount());
         productionRepository.flush();
     }
     public void cancelProduction(String id) {
