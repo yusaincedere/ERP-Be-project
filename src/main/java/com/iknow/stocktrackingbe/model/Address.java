@@ -26,7 +26,6 @@ public class Address  extends idGenerator implements Serializable {
     private String city;
     private String postCode;
     private String district;
-    private String neighbourHood;
     private String street;
     private String details;
 

@@ -2,11 +2,13 @@ package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.*;
 
-import com.iknow.stocktrackingbe.payload.dto.PrescriptionDTO;
+import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
 import com.iknow.stocktrackingbe.payload.request.PrescriptionProductListRequest;
 import com.iknow.stocktrackingbe.payload.request.PrescriptionProductRequest;
 import com.iknow.stocktrackingbe.payload.request.PrescriptionRequest;
 import com.iknow.stocktrackingbe.repository.PrescriptionRepository;
+import com.iknow.stocktrackingbe.repository.ProductRepository;
+import com.iknow.stocktrackingbe.repository.WareHouseRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,18 +26,18 @@ import java.util.stream.Collectors;
 public class PrescriptionService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final PrescriptionRepository prescriptionRepository;
-    private final ProductService productService;
-    private final WareHouseService wareHouseService;
+    private final ProductRepository productRepository;
+    private final WareHouseRepository wareHouseRepository;
 
 
-    public Page<PrescriptionDTO> getPrescriptions(Pageable page) {
+    public Page<PrescriptionResponse> getPrescriptions(Pageable page) {
         logger.info("Service Called: getPrescriptions");
 
         Page<Prescription> prescriptionsPage = prescriptionRepository.findAll(page);
         if(!prescriptionsPage.getContent().isEmpty()){
             int totalElements =  prescriptionsPage.getNumberOfElements();
-            return new PageImpl<PrescriptionDTO>(prescriptionsPage.getContent()
-                    .stream().map(prescription -> PrescriptionDTO.builder()
+            return new PageImpl<>(prescriptionsPage.getContent()
+                    .stream().map(prescription -> PrescriptionResponse.builder()
                             .startDate(prescription.getStartDate())
                             .prescriptionVersion(prescription.getPrescriptionVersion())
                             .prescriptionProducts(prescription.getPrescriptionProducts())
@@ -49,12 +51,12 @@ public class PrescriptionService {
             throw new NotFoundException("There is no Prescription");
         }
     }
-    public PrescriptionDTO getPrescriptionById(String id) {
+    public PrescriptionResponse getPrescriptionById(String id) {
         logger.info("Service Called: getPrescriptionById");
         Optional<Prescription> optional =  prescriptionRepository.findById(id) ;
         if(optional.isPresent()){
             Prescription prescription = optional.get();
-            return PrescriptionDTO.builder()
+            return PrescriptionResponse.builder()
                     .draft(prescription.isDraft())
                     .approved(prescription.isApproved())
                     .created(prescription.getCreated())
@@ -71,7 +73,9 @@ public class PrescriptionService {
     }
     public void createNewPrescription(PrescriptionRequest prescriptionRequest){
         logger.info("Service Called: createNewPrescription");
-        WareHouse wareHouse = wareHouseService.getWareHouseById(prescriptionRequest.getWareHouseId());
+        WareHouse wareHouse = wareHouseRepository.findById(prescriptionRequest.getWareHouseId()).orElseThrow(
+                ()-> new IllegalStateException("There is no ware house with this id")
+        );
         Prescription prescription =new Prescription().toBuilder().prescriptionVersion(prescriptionRequest.getPrescriptionVersion())
                 .wareHouse(wareHouse).startDate(prescriptionRequest.getStartDate()).endDate(prescriptionRequest.getEndDate())
                 .build();
@@ -79,7 +83,9 @@ public class PrescriptionService {
 
 
         for(PrescriptionProductRequest prescriptionProductRequest:prescriptionProductRequests){
-            Product product = productService.getProductById(prescriptionProductRequest.getProductId());
+            Product product = productRepository.findById(prescriptionProductRequest.getProductId()).orElseThrow(
+                    ()-> new IllegalStateException("There is no product with this id")
+            );
             PrescriptionProduct prescriptionProduct = new PrescriptionProduct().toBuilder().product(product)
                     .prescription(prescription).endDate(prescriptionProductRequest.getEndDate())
                     .quantity(prescriptionProductRequest.getQuantity())
@@ -116,13 +122,13 @@ public class PrescriptionService {
 
     }
 
-    public PrescriptionDTO clonePrescription(String id) {
+    public PrescriptionResponse clonePrescription(String id) {
         logger.info("Service Called: clonePrescription");
         Optional<Prescription> optional = prescriptionRepository.findById(id);
         if(optional.isPresent()){
             Prescription prescription = optional.get();
             List<PrescriptionProduct> products =  prescription.getPrescriptionProducts();
-            return PrescriptionDTO.builder().prescriptionProducts(products).
+            return PrescriptionResponse.builder().prescriptionProducts(products).
                     startDate(prescription.getStartDate()).endDate(prescription.getEndDate())
                     .prescriptionVersion(prescription.getPrescriptionVersion())
                     .build();
@@ -153,12 +159,16 @@ public class PrescriptionService {
 
     public void createDraftPrescription(PrescriptionRequest prescriptionRequest) {
         logger.info("Service Called: createDraftPrescription");
-        WareHouse wareHouse = wareHouseService.getWareHouseById(prescriptionRequest.getWareHouseId());
+        WareHouse wareHouse = wareHouseRepository.findById(prescriptionRequest.getWareHouseId()).orElseThrow(
+                ()-> new IllegalStateException("There is no ware house with this id")
+        );
         Prescription prescription =new Prescription().toBuilder().prescriptionVersion(prescriptionRequest.getPrescriptionVersion())
                 .wareHouse(wareHouse).startDate(prescriptionRequest.getStartDate()).endDate(prescriptionRequest.getEndDate()).build();
         List<PrescriptionProductRequest> prescriptionProductRequests = prescriptionRequest.getPrescriptionProductRequests();
         for(PrescriptionProductRequest prescriptionProductRequest:prescriptionProductRequests){
-            Product product = productService.getProductById(prescriptionProductRequest.getProductId());
+            Product product = productRepository.findById(prescriptionProductRequest.getProductId()).orElseThrow(
+                    ()-> new IllegalStateException("There is no product with this id")
+            );
             PrescriptionProduct prescriptionProduct =new PrescriptionProduct().toBuilder().product(product)
                     .prescription(prescription).endDate(prescriptionProductRequest.getEndDate())
                     .quantity(prescriptionProductRequest.getQuantity())
@@ -185,7 +195,9 @@ public class PrescriptionService {
             Prescription prescription = optional.get();
             List<PrescriptionProductRequest> prescriptionProductRequests = prescriptionProductListRequest.getPrescriptionProductRequests();
             for(PrescriptionProductRequest prescriptionProductRequest:prescriptionProductRequests){
-                Product product = productService.getProductById(prescriptionProductRequest.getProductId());
+                Product product = productRepository.findById(prescriptionProductRequest.getProductId()).orElseThrow(
+                        ()-> new IllegalStateException("There is no product with this id")
+                );
                 PrescriptionProduct prescriptionProduct =new PrescriptionProduct().toBuilder().product(product)
                         .productName(product.getProductName()).prescription(prescription).usageDescriptions(prescriptionProductRequest.getUsageDescriptions())
                         .startDate(prescriptionProductRequest.getStartDate()).endDate(prescriptionProductRequest.getEndDate())

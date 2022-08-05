@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,8 +26,8 @@ public class Prospectus extends idGenerator implements Serializable {
 
 
     @CreatedDate
-    @JsonFormat(pattern="dd-MM-yyyy")
-    private LocalDate created;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date created = new Date();
 
     private String details;
 

@@ -2,6 +2,8 @@ package com.iknow.stocktrackingbe.controller;
 
 import com.iknow.stocktrackingbe.model.Facility;
 
+import com.iknow.stocktrackingbe.payload.request.FacilityRequest;
+import com.iknow.stocktrackingbe.payload.request.FacilityUpdateRequest;
 import com.iknow.stocktrackingbe.service.FacilityService;
 
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/facility")
+@RequestMapping(path = "/api/facility")
 public class FacilityController {
    private final FacilityService facilityService;
 
@@ -19,29 +21,27 @@ public class FacilityController {
    }
 
    @PostMapping
-   public void createFacility(@Valid @RequestBody Facility facility) {
-      facilityService.createNewFacility(facility);
+   public void createFacility(@Valid @RequestBody FacilityRequest facilityRequest) {
+      facilityService.createNewFacility(facilityRequest);
    }
 
-   @GetMapping(path = "{id}")
+   @GetMapping(path = "/{id}")
    public Facility getFacilityById(@PathVariable(required = false) String id) {
-      Facility facility = facilityService.getFacilityById(id);
-      return facility;
+      return facilityService.getFacilityById(id);
    }
 
    @GetMapping
-   public List<Facility> getFacilitys() {
-      List<Facility> facilitys = facilityService.getFacilitys;
-      return facilitys;
+   public List<Facility> getFacilities() {
+      List<Facility> facilities = facilityService.getFacilities();
+      return facilities;
    }
 
    @PutMapping("/{id}/update")
    public void updateFacility(
            @Valid
            @PathVariable String id,
-           @RequestBody Facility facility) {
-      System.out.println(facility);
-      facilityService.updateFacility(id, facility);
+           @RequestBody FacilityUpdateRequest facilityUpdateRequest) {
+      facilityService.updateFacility(id, facilityUpdateRequest);
    }
 }
 

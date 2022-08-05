@@ -22,10 +22,10 @@ public class Facility extends idGenerator implements Serializable {
     @NotNull
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<WareHouse> wareHouses;
 
 

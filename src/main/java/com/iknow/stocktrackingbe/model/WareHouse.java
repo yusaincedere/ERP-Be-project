@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,9 +27,11 @@ public class WareHouse extends idGenerator implements Serializable {
     private Address address;
 
     @ManyToMany
-    private List<Product> products;
+    @JsonIgnore
+    private List<Product> products = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne()
+    @JsonIgnore
     private Facility facility;
 
 

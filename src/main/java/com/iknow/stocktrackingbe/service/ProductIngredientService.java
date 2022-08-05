@@ -5,17 +5,22 @@ import com.iknow.stocktrackingbe.model.Prescription;
 import com.iknow.stocktrackingbe.model.PrescriptionProduct;
 import com.iknow.stocktrackingbe.model.Product;
 import com.iknow.stocktrackingbe.model.ProductIngredient;
+import com.iknow.stocktrackingbe.payload.request.ProductIngredientRequest;
+import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
 import com.iknow.stocktrackingbe.repository.ProductIngredientRepository;
+import com.iknow.stocktrackingbe.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +28,7 @@ public class ProductIngredientService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final ProductIngredientRepository productIngredientRepository;
 
-
+    private final ProductRepository productRepository;
     private final PrescriptionProductService prescriptionProductService;
 
 
@@ -48,17 +53,30 @@ public class ProductIngredientService {
             throw new NotFoundException("Ingredient does not exist");
         }
     }
-    public List<Prescription> getPrescriptionsByProductIngredientId(String id) {
+    public Page<PrescriptionResponse> getPrescriptionsByProductIngredientId(String id,Pageable page) {
 
         logger.info("Service Called: getPrescriptionsByProductIngredient");
         List<Product> products = getProductIngredientById(id).getProducts();
         List<PrescriptionProduct> prescriptionProducts =prescriptionProductService.getPrescriptionProducstByProducts(products);
         List<Prescription> prescriptions = new ArrayList<>();
-        for(PrescriptionProduct prescriptionProduct:prescriptionProducts){
 
+
+        for(PrescriptionProduct prescriptionProduct:prescriptionProducts){
             prescriptions.add(prescriptionProduct.getPrescription());
         }
-        return prescriptions;
+        return new PageImpl<>(prescriptions.stream().map(
+                prescription ->
+                PrescriptionResponse.builder()
+                        .startDate(prescription.getStartDate())
+                        .endDate(prescription.getEndDate())
+                        .draft(prescription.isDraft())
+                        .prescriptionVersion(prescription.getPrescriptionVersion())
+                        .id(prescription.getId())
+                        .approved(prescription.isApproved())
+                        .created(prescription.getCreated())
+                        .prescriptionProducts(prescription.getPrescriptionProducts())
+                        .build()
+        ).collect(Collectors.toList()),page,prescriptions.size());
     }
 
 
@@ -68,8 +86,19 @@ public class ProductIngredientService {
     }
 
 
-    public void createNewProductIngredient(ProductIngredient productIngredient) {
+    public void createNewProductIngredient(ProductIngredientRequest productIngredientRequest) {
         logger.info("Service Called: createNewProductIngredient");
+        List<Product> productList = productRepository.findAllById(productIngredientRequest.getProductIds());
+        ProductIngredient productIngredient = new ProductIngredient().toBuilder()
+                .milliGramWeight(productIngredientRequest.getMilliGramWeight())
+                .stockCount(productIngredientRequest.getStockCount())
+                .name(productIngredientRequest.getName())
+                .products(productList)
+                .build();
+        for(Product product:productList){
+            product.getProductIngredients().add(productIngredient);
+        }
+        productRepository.flush();
         productIngredientRepository.save(productIngredient);
     }
 

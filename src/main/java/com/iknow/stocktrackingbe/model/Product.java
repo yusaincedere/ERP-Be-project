@@ -27,13 +27,15 @@ public class Product extends idGenerator implements Serializable {
     @NotNull
     private String productName;
 
-    private Double productMilligramWeight;
+
+
+
     @NotNull
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate expiryDate;
     @NotNull
 
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate produceDate;
     @NotNull
     private BigDecimal price;
@@ -43,7 +45,7 @@ public class Product extends idGenerator implements Serializable {
 
     private String amountOfUsage;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Prospectus prospectus;
 
     @OneToMany(cascade = CascadeType.ALL)

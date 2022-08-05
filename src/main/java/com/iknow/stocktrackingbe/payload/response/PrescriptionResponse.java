@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.payload.dto;
+package com.iknow.stocktrackingbe.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,13 +16,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PrescriptionDTO {
+public class PrescriptionResponse {
     @JsonProperty("id")
     private String id;
     @JsonProperty("prescription_version")
     private String prescriptionVersion;
     @JsonProperty("start_date")
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate startDate;
     @JsonFormat(pattern="dd-MM-yyyy")
     @JsonProperty("end_date")

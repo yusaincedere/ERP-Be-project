@@ -1,7 +1,11 @@
 package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.Facility;
+import com.iknow.stocktrackingbe.model.WareHouse;
+import com.iknow.stocktrackingbe.payload.request.FacilityRequest;
+import com.iknow.stocktrackingbe.payload.request.FacilityUpdateRequest;
 import com.iknow.stocktrackingbe.repository.FacilityRepository;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,17 +15,17 @@ import java.util.Optional;
 
 
 @Service
+@RequiredArgsConstructor
 public class FacilityService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final FacilityRepository facilityRepository;
-    public List<Facility> getFacilitys;
+    private final WareHouseService wareHouseService;
 
-    public FacilityService(FacilityRepository facilityRepository) {
-        this.facilityRepository = facilityRepository;
-    }
 
-    public void createNewFacility(Facility facility) {
+    public void createNewFacility(FacilityRequest facilityRequest) {
         logger.info("Servis Called: CreateNewFacility");
+        Facility facility = new Facility().toBuilder()
+                .address(facilityRequest.getAddress()).name(facilityRequest.getName()).build();
         facilityRepository.saveAndFlush(facility);
     }
 
@@ -36,8 +40,8 @@ public class FacilityService {
             throw new NotFoundException("Facility does not exist");
         }
     }
-    public List<Facility> getFacilitys(){
-        logger.info("Service called: getfacility" );
+    public List<Facility> getFacilities(){
+        logger.info("Service called: getFacilities" );
         List<Facility>facility =facilityRepository.findAll();
         if(!facility.isEmpty()){
             return facility;
@@ -46,12 +50,13 @@ public class FacilityService {
         }
     }
 
-    public void updateFacility(String id, Facility facility) {
-            logger.info("Service Called: updateFacility");
-            Facility oldFacility = getFacilityById(id);
-            oldFacility.setName(facility.getName());
-            oldFacility.setAddress(facility.getAddress());
-            oldFacility.setWareHouses(facility.getWareHouses());
-            facilityRepository.flush();
+    public void updateFacility(String id, FacilityUpdateRequest facilityUpdateRequest) {
+        logger.info("Service Called: updateFacility");
+        Facility facility = getFacilityById(id);
+        facility.setName(facilityUpdateRequest.getName());
+        facility.setAddress(facilityUpdateRequest.getAddress());
+        List<WareHouse> wareHouses = wareHouseService.getWareHosesByIds(facilityUpdateRequest.getWareHouseIds());
+        facility.setWareHouses(wareHouses);
+        facilityRepository.flush();
     }
 }

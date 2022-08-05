@@ -1,11 +1,9 @@
 package com.iknow.stocktrackingbe.service;
 
 import com.iknow.stocktrackingbe.exception.NotFoundException;
-import com.iknow.stocktrackingbe.model.Product;
-import com.iknow.stocktrackingbe.model.ProductIngredient;
-import com.iknow.stocktrackingbe.model.Production;
-import com.iknow.stocktrackingbe.model.ProductionStatus;
+import com.iknow.stocktrackingbe.model.*;
 import com.iknow.stocktrackingbe.payload.request.ProductionRequest;
+import com.iknow.stocktrackingbe.repository.ProductRepository;
 import com.iknow.stocktrackingbe.repository.ProductionRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -22,7 +20,7 @@ import java.util.Optional;
 public class ProductionService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final ProductionRepository productionRepository;
-    ProductService productService;
+    private final ProductRepository productRepository;
 
 
     public Page<Production> getProductions(Pageable page) {
@@ -47,7 +45,9 @@ public class ProductionService {
 
     public void createNewProduction(ProductionRequest productionRequest) {
         logger.info("Service Called: createNewProduction");
-        Product product = productService.getProductById(productionRequest.getProductId());
+        Product product = productRepository.findById(productionRequest.getProductId()).orElseThrow(
+                ()-> new IllegalStateException("There is no product with this id")
+        );
         Production production = Production.builder().productionCount(productionRequest.getProductionCount()).product(product).productionStatus(ProductionStatus.EMPTY).build();
         List<ProductIngredient> productIngredients = production.getProduct().getProductIngredients();
         for(ProductIngredient productIngredient:productIngredients){
@@ -70,7 +70,7 @@ public class ProductionService {
         Production production = getProductionById(id);
         production.setProductionStatus(ProductionStatus.FINISHED);
         //StockCard stockCard = production.getProduct().getStockCard();
-       // stockCard.setStockCount(stockCard.getStockCount()+production.getProductionCount());
+        //stockCard.setStockCount(stockCard.getStockCount()+production.getProductionCount());
         productionRepository.flush();
     }
     public void cancelProduction(String id) {

@@ -12,6 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/address")
 public class AddressController {
+
+
+
     private final AddressService addressService;
 
     public AddressController(AddressService addressService) {
@@ -20,7 +23,10 @@ public class AddressController {
 
 
     @GetMapping(path = "/byCountry")
-    public List<Address> getAddresByCountry(@PathVariable String ct){
-        return  addressService.getAddresByCountry(ct);
+    public List<Address> getAddressesByCountry(@PathVariable String ct){
+        return  addressService.getAddressesByCountry(ct);
     }
+
+
+
 }

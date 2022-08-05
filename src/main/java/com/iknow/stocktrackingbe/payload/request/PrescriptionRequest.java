@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.payload.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iknow.stocktrackingbe.model.Prescription;
 import com.iknow.stocktrackingbe.model.PrescriptionProduct;
@@ -21,8 +22,10 @@ public class PrescriptionRequest {
     @JsonProperty("wareHouse_id")
     private String wareHouseId;
     @JsonProperty("start_date")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startDate;
     @JsonProperty("end_date")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endDate;
     @JsonProperty("prescription_product_list")
     private List<PrescriptionProductRequest> prescriptionProductRequests;

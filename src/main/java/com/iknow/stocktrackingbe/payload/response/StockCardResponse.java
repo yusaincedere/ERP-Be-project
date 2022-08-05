@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.payload.dto;
+package com.iknow.stocktrackingbe.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

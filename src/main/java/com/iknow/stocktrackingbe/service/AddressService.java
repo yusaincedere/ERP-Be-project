@@ -18,11 +18,11 @@ public class AddressService {
 
 
 
-    public List<Address> getAddressByCity(String city){
+    public List<Address> getAddressesByCity(String city){
         return addressRepository.findAllByCity(city);
     }
 
-    public List<Address> getAddresByCountry(String ct) {
+    public List<Address> getAddressesByCountry(String ct) {
         return  addressRepository.findAllByCountry(ct);
     }
 }

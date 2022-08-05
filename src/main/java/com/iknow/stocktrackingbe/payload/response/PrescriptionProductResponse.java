@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.payload.request;
+package com.iknow.stocktrackingbe.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,17 +13,16 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PrescriptionProductRequest {
-
-    @JsonProperty("end_date")
-    private LocalDate endDate;
-    @JsonProperty("product_id")
-    private String productId;
+public class PrescriptionProductResponse {
     private int quantity;
-    @JsonProperty("start_date")
-    @JsonFormat
-    private LocalDate startDate;
+    @JsonProperty("product_name")
+    private String productName;
     @JsonProperty("usage_descriptions")
     private String usageDescriptions;
-
+    @JsonProperty("start_date")
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private LocalDate startDate;
+    @JsonProperty("end_date")
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private LocalDate endDate;
 }
