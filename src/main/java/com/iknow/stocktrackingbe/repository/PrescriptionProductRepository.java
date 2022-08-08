@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 @Transactional
 public interface PrescriptionProductRepository extends JpaRepository<PrescriptionProduct,String> {
-    void deleteByIdIn(ArrayList<String> ids);
+    void deleteByIdIn(List<String> ids);
 
     List<PrescriptionProduct> findAllByProductIn(List<Product> products);
 

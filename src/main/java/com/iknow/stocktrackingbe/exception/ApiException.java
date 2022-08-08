@@ -23,6 +23,4 @@ public class ApiException {
         this.path = path;
         this.timeStamp = new Date().getTime();
     }
-
-
 }

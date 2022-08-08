@@ -6,6 +6,7 @@ import com.iknow.stocktrackingbe.model.PrescriptionProduct;
 import com.iknow.stocktrackingbe.model.Product;
 import com.iknow.stocktrackingbe.model.ProductIngredient;
 import com.iknow.stocktrackingbe.payload.request.ProductIngredientRequest;
+import com.iknow.stocktrackingbe.payload.request.mapper.IngredientRequestMapper;
 import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
 import com.iknow.stocktrackingbe.repository.ProductIngredientRepository;
 import com.iknow.stocktrackingbe.repository.ProductRepository;
@@ -29,16 +30,16 @@ public class ProductIngredientService {
     private final ProductIngredientRepository productIngredientRepository;
 
     private final ProductRepository productRepository;
+    private final IngredientRequestMapper ingredientRequestMapper;
     private final PrescriptionProductService prescriptionProductService;
 
 
 
-    public Page<ProductIngredient> getProductIngredients(Pageable page) {
+    public List<ProductIngredient> getProductIngredients(Pageable page) {
         logger.info("Service Called: getProductIngredients");
-
-        Page<ProductIngredient> productIngredients = productIngredientRepository.findAll(page);
-        if(!productIngredients.isEmpty()){
-            return productIngredients;
+        Page<ProductIngredient> productIngredientsPage = productIngredientRepository.findAll(page);
+        if(!productIngredientsPage.getContent().isEmpty()){
+            return productIngredientsPage.getContent();
         }else {
             throw new NotFoundException("There is no Ingredient");
         }
@@ -53,30 +54,18 @@ public class ProductIngredientService {
             throw new NotFoundException("Ingredient does not exist");
         }
     }
-    public Page<PrescriptionResponse> getPrescriptionsByProductIngredientId(String id,Pageable page) {
+    public List<Prescription> getPrescriptionsByProductIngredientId(String id) {
 
         logger.info("Service Called: getPrescriptionsByProductIngredient");
         List<Product> products = getProductIngredientById(id).getProducts();
-        List<PrescriptionProduct> prescriptionProducts =prescriptionProductService.getPrescriptionProducstByProducts(products);
+        List<PrescriptionProduct> prescriptionProducts =prescriptionProductService.getPrescriptionProductsByProducts(products);
         List<Prescription> prescriptions = new ArrayList<>();
 
 
         for(PrescriptionProduct prescriptionProduct:prescriptionProducts){
             prescriptions.add(prescriptionProduct.getPrescription());
         }
-        return new PageImpl<>(prescriptions.stream().map(
-                prescription ->
-                PrescriptionResponse.builder()
-                        .startDate(prescription.getStartDate())
-                        .endDate(prescription.getEndDate())
-                        .draft(prescription.isDraft())
-                        .prescriptionVersion(prescription.getPrescriptionVersion())
-                        .id(prescription.getId())
-                        .approved(prescription.isApproved())
-                        .created(prescription.getCreated())
-                        .prescriptionProducts(prescription.getPrescriptionProducts())
-                        .build()
-        ).collect(Collectors.toList()),page,prescriptions.size());
+        return prescriptions;
     }
 
 
@@ -89,12 +78,7 @@ public class ProductIngredientService {
     public void createNewProductIngredient(ProductIngredientRequest productIngredientRequest) {
         logger.info("Service Called: createNewProductIngredient");
         List<Product> productList = productRepository.findAllById(productIngredientRequest.getProductIds());
-        ProductIngredient productIngredient = new ProductIngredient().toBuilder()
-                .milliGramWeight(productIngredientRequest.getMilliGramWeight())
-                .stockCount(productIngredientRequest.getStockCount())
-                .name(productIngredientRequest.getName())
-                .products(productList)
-                .build();
+        ProductIngredient productIngredient = ingredientRequestMapper.mapToModel(productIngredientRequest,productList);
         for(Product product:productList){
             product.getProductIngredients().add(productIngredient);
         }
@@ -122,7 +106,7 @@ public class ProductIngredientService {
 
 
 
-    public void deleteProductIngredients(ArrayList<String> ids) {
+    public void deleteProductIngredients(List<String> ids) {
         logger.info("Service Called: deleteProductIngredients");
         productIngredientRepository.deleteByIdIn(ids);
         logger.info("Ingredients deleted");

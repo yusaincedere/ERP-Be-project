@@ -34,11 +34,11 @@ public class PrescriptionProduct extends idGenerator implements Serializable {
 
     @NotNull
     @JsonProperty("start_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startDate;
     @NotNull
     @JsonProperty("end_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endDate;
 
     @ManyToOne(cascade = CascadeType.ALL)

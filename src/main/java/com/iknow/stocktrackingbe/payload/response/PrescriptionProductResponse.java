@@ -20,9 +20,9 @@ public class PrescriptionProductResponse {
     @JsonProperty("usage_descriptions")
     private String usageDescriptions;
     @JsonProperty("start_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startDate;
     @JsonProperty("end_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endDate;
 }

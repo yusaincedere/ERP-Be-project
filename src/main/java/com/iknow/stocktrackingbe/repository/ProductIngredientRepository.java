@@ -5,12 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 @Transactional
 public interface ProductIngredientRepository extends JpaRepository<ProductIngredient,String> {
 
-    void deleteByIdIn(ArrayList<String> ids);
+    void deleteByIdIn(List<String> ids);
 }

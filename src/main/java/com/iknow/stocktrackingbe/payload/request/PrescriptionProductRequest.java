@@ -15,13 +15,14 @@ import java.time.LocalDate;
 @Builder
 public class PrescriptionProductRequest {
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     @JsonProperty("end_date")
     private LocalDate endDate;
     @JsonProperty("product_id")
     private String productId;
     private int quantity;
     @JsonProperty("start_date")
-    @JsonFormat
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startDate;
     @JsonProperty("usage_descriptions")
     private String usageDescriptions;

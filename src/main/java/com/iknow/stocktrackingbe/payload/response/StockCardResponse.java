@@ -25,7 +25,7 @@ public class StockCardResponse {
     @JsonProperty("max_stock")
     private Long max;
     @JsonProperty("expected_supply_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate expectedSupplyDate;
     @JsonProperty("ware_house_name")
     private String wareHouseName;

@@ -1,19 +1,19 @@
 package com.iknow.stocktrackingbe.controller;
-
 import com.iknow.stocktrackingbe.model.Prescription;
+import com.iknow.stocktrackingbe.model.mapper.PrescriptionResponseMapper;
+import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
-import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
-
 import com.iknow.stocktrackingbe.payload.request.PrescriptionProductListRequest;
 import com.iknow.stocktrackingbe.payload.request.PrescriptionRequest;
 import com.iknow.stocktrackingbe.service.PrescriptionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
@@ -21,20 +21,26 @@ import javax.validation.Valid;
 @RequestMapping(path = "/api/prescription")
 public class PrescriptionController {
     private final PrescriptionService prescriptionService;
+    private final PrescriptionResponseMapper prescriptionResponseMapper;
 
 
-    @GetMapping(path = "/{id}")
-    public PrescriptionResponse getPrescriptionById(@PathVariable(required = false) String id){
-          return  prescriptionService.getPrescriptionById(id);
+
+    @GetMapping(path = "/id/{id}")
+    public ResponseEntity<PrescriptionResponse> getPrescriptionById(@PathVariable(required = false) String id){
+          return ResponseEntity.ok(prescriptionResponseMapper.mapper(prescriptionService.getPrescriptionById(id)));
     }
-    @GetMapping
-    public Page<PrescriptionResponse> getPrescriptions(@PageableDefault (sort = "created",direction = Sort.Direction.ASC) Pageable page){
-        return  prescriptionService.getPrescriptions(page);
+    @GetMapping("/prescriptions")
+    public ResponseEntity<List<PrescriptionResponse>> getPrescriptions(@PageableDefault (sort = "created",direction = Sort.Direction.ASC) Pageable page){
+        return ResponseEntity.ok(prescriptionResponseMapper.mapper(prescriptionService.getPrescriptions(page)));
     }
 
     @GetMapping(path = "/{id}/clone")
-    public PrescriptionResponse clonePrescription(@PathVariable String id){
-            return prescriptionService.clonePrescription(id);
+    public ResponseEntity<PrescriptionResponse> clonePrescription(@PathVariable String id){
+            return ResponseEntity.ok(prescriptionResponseMapper.mapper(prescriptionService.clonePrescription(id)));
+    }
+    @GetMapping(path = "/version/{version}")
+    public ResponseEntity<List<PrescriptionResponse>> searchByVersion(@PathVariable String version,Pageable pageable){
+        return ResponseEntity.ok(prescriptionResponseMapper.mapper(prescriptionService.searchByVersion(version,pageable)));
     }
 
     @PostMapping
@@ -67,7 +73,7 @@ public class PrescriptionController {
         prescriptionService.addProductsToPrescription(id,prescriptionProductListRequest);
     }
     @DeleteMapping(path = "/delete")
-    public void deletePrescriptions(@RequestBody DeleteRequest ids) {
-        prescriptionService.deletePrescriptions(ids.getIds());
+    public void deletePrescriptions(@RequestBody IdListRequest ids) {
+        prescriptionService.deletePrescriptions(ids.getIdList());
     }
 }

@@ -1,8 +1,7 @@
 package com.iknow.stocktrackingbe.controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.iknow.stocktrackingbe.model.Product;
-import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
+import com.iknow.stocktrackingbe.model.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.ProductRequest;
 import com.iknow.stocktrackingbe.payload.request.StockCardRequest;
@@ -10,9 +9,7 @@ import com.iknow.stocktrackingbe.payload.response.ProductResponse;
 import com.iknow.stocktrackingbe.service.ProductService;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,15 +22,19 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
+    private final ProductResponseMapper productResponseMapper;
 
 
-    @GetMapping
-    public Page<ProductResponse> getPageableProducts(Pageable page){
-            return productService.getPageableProducts(page);
+
+
+
+    @GetMapping("/products")
+    public ResponseEntity<List<ProductResponse>> getProducts(Pageable page){
+            return ResponseEntity.ok(productResponseMapper.mapper(productService.getProducts(page)));
     }
-    @GetMapping(path = "/{id}")
-    public  ProductResponse getProductById(@PathVariable(required = false) String id){
-            return productService.getProductById(id);
+    @GetMapping(path = "/id/{id}")
+    public  ResponseEntity<ProductResponse> getProductById(@PathVariable(required = false) String id){
+            return ResponseEntity.ok(productResponseMapper.mapper(productService.getProductById(id)));
     }
 
     @PostMapping
@@ -60,7 +61,7 @@ public class ProductController {
         productService.addStockCard(id,stockCardRequest.getStockCard(),stockCardRequest.getWareHouseId());
     }
     @DeleteMapping(path = "/delete")
-    public void deleteProducts(@RequestBody DeleteRequest deleteRequest){
-        productService.deleteProducts(deleteRequest.getIds());
+    public void deleteProducts(@RequestBody IdListRequest idList){
+        productService.deleteProducts(idList.getIdList());
     }
 }

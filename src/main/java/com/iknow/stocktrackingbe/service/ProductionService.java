@@ -23,11 +23,11 @@ public class ProductionService {
     private final ProductRepository productRepository;
 
 
-    public Page<Production> getProductions(Pageable page) {
+    public List<Production> getProductions(Pageable page) {
         logger.info("Service Called: getProductions");
-        Page<Production> productions = productionRepository.findAll(page);
-        if(!productions.isEmpty()){
-            return productions;
+        Page<Production> productionsPage = productionRepository.findAll(page);
+        if(!productionsPage.getContent().isEmpty()){
+            return productionsPage.getContent();
         }else {
             throw new NotFoundException("There is no Production");
         }

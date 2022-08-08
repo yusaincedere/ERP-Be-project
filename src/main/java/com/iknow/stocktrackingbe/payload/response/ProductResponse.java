@@ -18,11 +18,11 @@ public class ProductResponse {
     private String productCode;
     @JsonProperty("name")
     private String productName;
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     @JsonProperty("expiry_date")
     private LocalDate expiryDate;
     @JsonProperty("produce_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate produceDate;
     @JsonProperty("amount_of_usage")
     private String amountOfUsage;

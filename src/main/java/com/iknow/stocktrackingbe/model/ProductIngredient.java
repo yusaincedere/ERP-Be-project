@@ -31,6 +31,4 @@ public class ProductIngredient extends idGenerator implements Serializable {
     private List<Product> products;
     @NotNull
     private Long stockCount;
-
-
 }

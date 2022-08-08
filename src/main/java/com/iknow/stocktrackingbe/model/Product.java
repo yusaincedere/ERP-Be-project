@@ -26,10 +26,6 @@ public class Product extends idGenerator implements Serializable {
     private String productCode;
     @NotNull
     private String productName;
-
-
-
-
     @NotNull
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate expiryDate;

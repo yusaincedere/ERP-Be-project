@@ -6,6 +6,8 @@ import com.iknow.stocktrackingbe.payload.request.FacilityRequest;
 import com.iknow.stocktrackingbe.payload.request.FacilityUpdateRequest;
 import com.iknow.stocktrackingbe.service.FacilityService;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -13,12 +15,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/facility")
+@RequiredArgsConstructor
 public class FacilityController {
    private final FacilityService facilityService;
 
-   public FacilityController(FacilityService facilityService) {
-      this.facilityService = facilityService;
-   }
+
 
    @PostMapping
    public void createFacility(@Valid @RequestBody FacilityRequest facilityRequest) {
@@ -26,14 +27,14 @@ public class FacilityController {
    }
 
    @GetMapping(path = "/{id}")
-   public Facility getFacilityById(@PathVariable(required = false) String id) {
-      return facilityService.getFacilityById(id);
+   public ResponseEntity<Facility> getFacilityById(@PathVariable(required = false) String id) {
+      return ResponseEntity.ok(facilityService.getFacilityById(id));
    }
 
    @GetMapping
-   public List<Facility> getFacilities() {
+   public ResponseEntity<List<Facility>> getFacilities() {
       List<Facility> facilities = facilityService.getFacilities();
-      return facilities;
+      return ResponseEntity.ok(facilities);
    }
 
    @PutMapping("/{id}/update")

@@ -1,0 +1,53 @@
+2022-08-04 01:59:25,841 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 403 Message: Access Denied
+2022-08-04 02:39:44,995 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 404 Message: No message available
+2022-08-04 02:39:45,385 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available
+2022-08-04 02:39:52,350 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 403 Message: Access Denied
+2022-08-04 02:39:58,972 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 404 Message: No message available
+2022-08-04 02:40:05,443 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 403 Message: Access Denied
+2022-08-04 02:40:12,756 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 404 Message: No message available
+2022-08-04 02:40:19,173 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-7] Status: 403 Message: Access Denied
+2022-08-04 02:41:06,747 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-9] Status: 404 Message: No message available
+2022-08-04 02:41:40,945 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 403 Message: Access Denied
+2022-08-04 02:41:46,585 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available
+2022-08-04 02:45:43,420 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 404 Message: No message available
+2022-08-04 02:46:51,221 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 404 Message: No message available
+2022-08-04 02:47:53,274 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 403 Message: Access Denied
+2022-08-04 02:47:55,579 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 403 Message: Access Denied
+2022-08-04 02:48:00,348 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 404 Message: No message available
+2022-08-04 02:48:07,101 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 404 Message: No message available
+2022-08-04 02:48:34,191 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 403 Message: Access Denied
+2022-08-04 02:48:38,229 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 403 Message: Access Denied
+2022-08-04 02:48:44,345 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-7] Status: 404 Message: No message available
+2022-08-04 02:50:12,252 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available
+2022-08-04 02:50:17,200 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 404 Message: No message available
+2022-08-04 02:50:26,806 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 403 Message: Access Denied
+2022-08-04 02:51:13,834 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available
+2022-08-04 02:51:15,737 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 404 Message: No message available
+2022-08-04 02:51:19,494 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 403 Message: Access Denied
+2022-08-04 02:51:34,672 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 404 Message: No message available
+2022-08-04 02:51:39,877 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 404 Message: No message available
+2022-08-04 02:51:41,662 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 404 Message: No message available
+2022-08-04 02:52:08,103 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-7] Status: 404 Message: No message available
+2022-08-04 02:52:24,754 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-9] Status: 404 Message: No message available
+2022-08-04 02:52:25,118 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 404 Message: No message available
+2022-08-04 02:53:27,110 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 500 Message: Could not resolve view with name 'forward:/swagger-ui/index.html' in servlet with name 'dispatcherServlet'
+2022-08-04 10:46:53,668 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 500 Message: Could not write JSON: Unsupported field: HourOfDay; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unsupported field: HourOfDay (through reference chain: org.springframework.data.domain.PageImpl["content"]->java.util.Collections$UnmodifiableRandomAccessList[0]->com.iknow.stocktrackingbe.payload.response.PrescriptionResponse["start_date"])
+2022-08-04 11:11:24,706 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 403 Message: Access Denied
+2022-08-04 11:16:09,620 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-9] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.Prescription] during update time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='boş değer olamaz', propertyPath=startDate, rootBeanClass=class com.iknow.stocktrackingbe.model.Prescription, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boş değer olamaz', propertyPath=endDate, rootBeanClass=class com.iknow.stocktrackingbe.model.Prescription, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+]
+2022-08-04 11:16:56,201 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.Prescription] during update time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='boş değer olamaz', propertyPath=startDate, rootBeanClass=class com.iknow.stocktrackingbe.model.Prescription, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boş değer olamaz', propertyPath=endDate, rootBeanClass=class com.iknow.stocktrackingbe.model.Prescription, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+]
+2022-08-04 11:19:17,984 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.Prescription] during update time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='boş değer olamaz', propertyPath=endDate, rootBeanClass=class com.iknow.stocktrackingbe.model.Prescription, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boş değer olamaz', propertyPath=startDate, rootBeanClass=class com.iknow.stocktrackingbe.model.Prescription, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+]
+2022-08-04 11:23:23,748 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 400 Message: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "2022-08-04": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-08-04' could not be parsed at index 2; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "2022-08-04": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-08-04' could not be parsed at index 2
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 2, column: 15] (through reference chain: com.iknow.stocktrackingbe.model.Prescription["end_date"])
+2022-08-04 11:26:14,377 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 405 Message: Request method 'PUT' not supported

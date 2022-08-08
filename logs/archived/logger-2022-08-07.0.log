@@ -1,0 +1,28 @@
+2022-08-07 15:09:52,595 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 10056 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-08-07 15:09:52,600 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-08-07 15:09:52,601 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-08-07 15:10:10,883 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 2060 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-08-07 15:10:10,888 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-08-07 15:10:10,889 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-08-07 15:10:12,726 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-1] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:12,870 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-2] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:12,872 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-3] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:12,887 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-4] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:12,887 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-5] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:12,888 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-6] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:13,863 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-8] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:13,869 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-7] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:14,053 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-9] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:14,101 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-10] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:14,377 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 22.708 seconds (JVM running for 25.998)
+2022-08-07 15:10:17,474 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-1] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,505 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-2] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,517 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-2] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,520 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-6] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,520 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-5] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,522 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-4] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,859 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-8] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,874 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-7] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,880 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-9] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,893 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-10] Did not match request to Ant [pattern='/login', POST]
+2022-08-07 15:10:17,953 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-1] Did not match request to Ant [pattern='/login', POST]

@@ -26,42 +26,27 @@ public class PrescriptionProductService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final PrescriptionProductRepository prescriptionProductRepository;
 
-    public Page<PrescriptionProductResponse> getPrescriptionProducts(Pageable page) {
+    public List<PrescriptionProduct> getPrescriptionProducts(Pageable page) {
         logger.info("Service Called: getPrescriptionProducts");
 
         Page<PrescriptionProduct> prescriptionProductPage = prescriptionProductRepository.findAll(page);
         if(!prescriptionProductPage.isEmpty()){
-            int totalElements =  prescriptionProductPage.getNumberOfElements();
-            return new PageImpl<PrescriptionProductResponse>(prescriptionProductPage.getContent().stream()
-                    .map(prescriptionProduct -> PrescriptionProductResponse.builder()
-                            .productName(prescriptionProduct.getProductName())
-                            .endDate(prescriptionProduct.getEndDate())
-                            .quantity(prescriptionProduct.getQuantity())
-                            .startDate(prescriptionProduct.getStartDate())
-                            .usageDescriptions(prescriptionProduct.getUsageDescriptions())
-                            .build()).collect(Collectors.toList()),page,totalElements);
+            return  prescriptionProductPage.getContent();
         }else {
             throw new NotFoundException("There is no Prescription product");
         }
     }
-    public PrescriptionProductResponse getPrescriptionProductById(String id) {
+    public PrescriptionProduct getPrescriptionProductById(String id) {
         logger.info("Service Called: getPrescriptionProductById");
         Optional<PrescriptionProduct> optional =  prescriptionProductRepository.findById(id) ;
         if(optional.isPresent()){
-            PrescriptionProduct prescriptionProduct =  optional.get();
-            return PrescriptionProductResponse.builder()
-                    .usageDescriptions(prescriptionProduct.getUsageDescriptions())
-                    .startDate(prescriptionProduct.getStartDate())
-                    .quantity(prescriptionProduct.getQuantity())
-                    .endDate(prescriptionProduct.getEndDate())
-                    .productName(prescriptionProduct.getProductName())
-                    .build();
+            return optional.get();
         }else {
             logger.warn("Prescription product does not exist");
             throw new NotFoundException("Prescription product does not exist");
         }
     }
-    public List<PrescriptionProduct> getPrescriptionProducstByProducts(List<Product> products) {
+    public List<PrescriptionProduct> getPrescriptionProductsByProducts(List<Product> products) {
         return prescriptionProductRepository.findAllByProductIn(products);
     }
 
@@ -81,7 +66,7 @@ public class PrescriptionProductService {
         }
 
     }
-    public void deletePrescriptionProducts(ArrayList<String> ids) {
+    public void deletePrescriptionProducts(List<String> ids) {
             logger.info("Service Called: deletePrescriptionProducts");
             prescriptionProductRepository.deleteByIdIn(ids);
             logger.info("Ingredients deleted");

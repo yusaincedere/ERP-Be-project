@@ -1,7 +1,8 @@
 package com.iknow.stocktrackingbe.controller;
 
 import com.iknow.stocktrackingbe.model.PrescriptionProduct;
-import com.iknow.stocktrackingbe.payload.request.DeleteRequest;
+import com.iknow.stocktrackingbe.model.mapper.PrescriptionResponseMapper;
+import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.response.PrescriptionProductResponse;
 
 import com.iknow.stocktrackingbe.service.PrescriptionProductService;
@@ -10,9 +11,10 @@ import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.Pageable;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-
+import java.util.List;
 
 
 @RestController
@@ -20,14 +22,15 @@ import javax.validation.Valid;
 @RequestMapping(path = "/api/prescriptionProduct")
 public class PrescriptionProductController {
     private final PrescriptionProductService prescriptionProductService;
+    private final PrescriptionResponseMapper prescriptionResponseMapper;
 
-    @GetMapping
-    public Page<PrescriptionProductResponse> getPrescriptionProducts(Pageable page){
-        return prescriptionProductService.getPrescriptionProducts(page);
+    @GetMapping("/prescriptionProducts")
+    public ResponseEntity<List<PrescriptionProductResponse>> getPrescriptionProducts(Pageable page){
+        return ResponseEntity.ok(prescriptionResponseMapper.prescriptionProductsMapper(prescriptionProductService.getPrescriptionProducts(page)));
     }
-    @GetMapping(path = "/{id}")
-    public PrescriptionProductResponse getPrescriptionProductById(@PathVariable(required = false) String id){
-            return prescriptionProductService.getPrescriptionProductById(id);
+    @GetMapping(path = "/id/{id}")
+    public ResponseEntity<PrescriptionProductResponse> getPrescriptionProductById(@PathVariable(required = false) String id){
+            return ResponseEntity.ok(prescriptionResponseMapper.prescriptionProductMapper(prescriptionProductService.getPrescriptionProductById(id)));
     }
 
 
@@ -40,7 +43,7 @@ public class PrescriptionProductController {
     }
 
     @DeleteMapping(path = "/delete")
-    public void deletePrescriptionProducts(@RequestBody DeleteRequest ids) {
-        prescriptionProductService.deletePrescriptionProducts(ids.getIds());
+    public void deletePrescriptionProducts(@RequestBody IdListRequest ids) {
+        prescriptionProductService.deletePrescriptionProducts(ids.getIdList());
     }
 }

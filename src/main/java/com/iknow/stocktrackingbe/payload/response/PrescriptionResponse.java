@@ -22,13 +22,13 @@ public class PrescriptionResponse {
     @JsonProperty("prescription_version")
     private String prescriptionVersion;
     @JsonProperty("start_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startDate;
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     @JsonProperty("end_date")
     private LocalDate endDate;
     @JsonProperty("created")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date created;
     @JsonProperty("draft")
     private boolean draft;

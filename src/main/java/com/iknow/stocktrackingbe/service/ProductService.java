@@ -1,8 +1,10 @@
 package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.*;
+import com.iknow.stocktrackingbe.model.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.ProductRequest;
+import com.iknow.stocktrackingbe.payload.request.mapper.ProductRequestMapper;
 import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
 import com.iknow.stocktrackingbe.payload.response.ProductIngredientResponseProduct;
 import com.iknow.stocktrackingbe.payload.response.ProductResponse;
@@ -29,45 +31,23 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ProductIngredientService productIngredientService;
 
+    private final ProductRequestMapper productRequestMapper;
+
+
+
 
     private final WareHouseRepository wareHouseRepository;
 
-    public Page<ProductResponse> getPageableProducts(Pageable page) {
+    public List<Product> getProducts(Pageable page) {
         logger.info("Service Called: getPageableProducts");
         Page<Product> productsPage = productRepository.findAll(page);
         if(!productsPage.getContent().isEmpty()){
-            int totalElements =  productsPage.getNumberOfElements();
-            return new PageImpl<ProductResponse>(productsPage.getContent()
-                    .stream().map(product -> ProductResponse.builder()
-                            .productName(product.getProductName())
-                            .amountOfUsage(product.getAmountOfUsage())
-                            .productCode(product.getProductCode())
-                            .expiryDate(product.getExpiryDate())
-                            .prospectusId(product.getProspectus().getId())
-                            .id(product.getId())
-                            .produceDate(product.getProduceDate())
-                            .productIngredients(
-                                    product.getProductIngredients().stream().map(
-                                            productIngredient -> ProductIngredientResponseProduct.builder()
-                                                    .milliGramWeight(productIngredient.getMilliGramWeight())
-                                                    .name(productIngredient.getName())
-                                                    .id(productIngredient.getId())
-                                                    .build()
-                                    ).collect(Collectors.toList())
-                            )
-                            .stockCards(product.getStockCards().stream().map(
-                                    stockCard -> StockCardResponseProduct.builder()
-                                            .stockCode(stockCard.getStockCode())
-                                            .stockCount(stockCard.getStockCount())
-                                            .id(stockCard.getId())
-                                            .build()
-                            ).collect(Collectors.toList()))
-                            .build()).collect(Collectors.toList()),page,totalElements);
+           return productsPage.getContent();
         }else {
             throw new NotFoundException("There is no Product");
         }
     }
-    public List<Product> getProducts(ArrayList<String> ids) {
+    public List<Product> getProductsByIdList(ArrayList<String> ids) {
         logger.info("Service Called: getProducts");
         List<Product> products = productRepository.findAllById(ids);
         if(!products.isEmpty()){
@@ -77,33 +57,11 @@ public class ProductService {
         }
     }
 
-    public ProductResponse getProductById(String id) {
+    public Product getProductById(String id) {
         logger.info("Service Called: getProductById");
         Optional<Product> optional =  productRepository.findById(id);
         if(optional.isPresent()){
-            Product product = optional.get();
-            return ProductResponse.builder()
-                    .productCode(product.getProductCode())
-                    .productName(product.getProductName())
-                    .produceDate(product.getProduceDate())
-                    .expiryDate(product.getExpiryDate())
-                    .amountOfUsage(product.getAmountOfUsage())
-                    .id(product.getId())
-                    .prospectusId(product.getProspectus().getId())
-                    .stockCards(product.getStockCards().stream().map(
-                            stockCard -> StockCardResponseProduct.builder()
-                                    .id(stockCard.getId())
-                                    .stockCode(stockCard.getStockCode())
-                                    .stockCount(stockCard.getStockCount()).build()
-                    ).collect(Collectors.toList()))
-                    .productIngredients(product.getProductIngredients().stream().map(
-                            productIngredient -> ProductIngredientResponseProduct.builder()
-                                    .milliGramWeight(productIngredient.getMilliGramWeight())
-                                    .name(productIngredient.getName())
-                                    .id(productIngredient.getId())
-                                    .build()
-                    ).collect(Collectors.toList()))
-                    .build();
+            return  optional.get();
         }else {
             logger.warn("Prescription does not exist");
             throw new NotFoundException("Prescription does not exist");
@@ -125,15 +83,7 @@ public class ProductService {
     public void createNewProduct(ProductRequest productRequest) {
         logger.info("Service Called: createNewProduct");
         List<ProductIngredient> productIngredients = new ArrayList<>();
-        Product product = new Product().toBuilder()
-                .amountOfUsage(productRequest.getAmountOfUsage())
-                .productName(productRequest.getProductName())
-                .productCode(productRequest.getProductCode())
-                .price(productRequest.getPrice())
-                .expiryDate(productRequest.getExpiryDate())
-                .produceDate(productRequest.getProduceDate())
-                .prospectus(productRequest.getProspectus())
-                .build();
+        Product product = productRequestMapper.mapToModel(productRequest);
         for(int i = 0; i<productRequest.getIngredientIds().size();i++){
            ProductIngredient productIngredient = productIngredientService.getProductIngredientById(productRequest.getIngredientIds().get(i));
            productIngredients.add(productIngredient);

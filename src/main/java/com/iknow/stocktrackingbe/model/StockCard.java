@@ -33,7 +33,7 @@ public class StockCard extends idGenerator implements Serializable {
     private Long max;
 
     @JsonProperty("expected_supply_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate expectedSupplyDate;
 
     @ManyToOne
