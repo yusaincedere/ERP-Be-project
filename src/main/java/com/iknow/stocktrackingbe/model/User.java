@@ -22,7 +22,7 @@ public class User extends idGenerator {
     private String name;
     private String lastName;
     @Email
-    @Column(name = "username")
+    @Column(name = "username",unique = true)
     private String username;
     private String password;
     @Enumerated(EnumType.STRING)

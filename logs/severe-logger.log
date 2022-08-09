@@ -1,5 +1,6 @@
-2022-08-08 11:32:03,668 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 404 Message: There is no Prescription
-2022-08-08 11:32:11,824 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 404 Message: There is no Prescription
-2022-08-08 11:32:46,029 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 404 Message: There is no Prescription
-2022-08-08 13:12:05,693 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available
-2022-08-08 14:51:32,910 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available
+2022-08-09 10:29:21,829 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 405 Message: Request method 'GET' not supported
+2022-08-09 11:55:07,582 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 400 Message: Validation failed for object='stockCardAddRequest'. Error count: 2
+2022-08-09 11:56:08,935 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 400 Message: Validation failed for object='stockCardAddRequest'. Error count: 1
+2022-08-09 11:56:11,416 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 400 Message: Validation failed for object='stockCardAddRequest'. Error count: 1
+2022-08-09 11:56:15,198 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 400 Message: Validation failed for object='stockCardAddRequest'. Error count: 1
+2022-08-09 12:25:03,586 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 400 Message: Validation failed for object='stockCardAddRequest'. Error count: 1

@@ -21,9 +21,10 @@ public class ProductIngredientController {
 
     private final PrescriptionResponseMapper prescriptionResponseMapper;
 
+
     @GetMapping("/productIngredients")
-    public ResponseEntity<List<ProductIngredient>> getProductIngredients(Pageable page){
-            return ResponseEntity.ok(productIngredientService.getProductIngredients(page));
+    public ResponseEntity<List<ProductIngredient>> getProductIngredients(Pageable pageable){
+            return ResponseEntity.ok(productIngredientService.getProductIngredients(pageable));
     }
     @GetMapping(path = "/id/{id}")
     public ResponseEntity<ProductIngredient> getProductIngredientById(@PathVariable(required = false) String id){
@@ -33,6 +34,12 @@ public class ProductIngredientController {
     public ResponseEntity<List<PrescriptionResponse>> getPrescriptionsByProductIngredientId(@PathVariable(required = false) String id){
             return ResponseEntity.ok(prescriptionResponseMapper.mapper(productIngredientService.getPrescriptionsByProductIngredientId(id)));
     }
+
+    @GetMapping(path = "/name/{name}")
+    public ResponseEntity<List<ProductIngredient>> searchIngredientsByName(@PathVariable(required = false) String name,Pageable pageable){
+        return ResponseEntity.ok(productIngredientService.searchIngredientsByName(name,pageable));
+    }
+
 
 
     @PostMapping

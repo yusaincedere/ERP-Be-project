@@ -20,11 +20,15 @@ import java.util.List;
 @Data
 @Builder(toBuilder = true)
 @Entity
+@Table(name = "product", uniqueConstraints={
+        @UniqueConstraint( name = "unique_product_name",  columnNames ={"product_name"})
+})
 public class Product extends idGenerator implements Serializable {
 
 
     private String productCode;
     @NotNull
+    @Column(name = "product_name")
     private String productName;
     @NotNull
     @JsonFormat(pattern="yyyy-MM-dd")

@@ -44,5 +44,8 @@ public class StockCard extends idGenerator implements Serializable {
     @JsonIgnore
     private Product product;
 
+    @Enumerated(EnumType.STRING)
+    private StockCardStatus stockCardStatus = StockCardStatus.WAITING;
+
 
 }

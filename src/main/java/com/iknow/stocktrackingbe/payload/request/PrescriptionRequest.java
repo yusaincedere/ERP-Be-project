@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public class PrescriptionRequest {
     @JsonProperty("prescription_version")
     private String prescriptionVersion;
+    @NotEmpty
     @JsonProperty("wareHouse_id")
     private String wareHouseId;
     @JsonProperty("start_date")

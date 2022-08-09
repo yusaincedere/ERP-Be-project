@@ -6,7 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+
 
 @Data
 @NoArgsConstructor
@@ -14,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class FacilityRequest {
 
-    @NotNull
+    @NotEmpty
     private String name;
-    @NotNull
+    @NotEmpty
     private Address address;
 }

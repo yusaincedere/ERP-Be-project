@@ -22,4 +22,6 @@ public interface PrescriptionRepository extends JpaRepository<Prescription,Strin
 
 
 
+
+
 }

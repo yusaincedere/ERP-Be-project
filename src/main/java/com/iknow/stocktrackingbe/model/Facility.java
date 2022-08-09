@@ -17,6 +17,7 @@ import java.util.List;
 @Data
 @Builder(toBuilder = true)
 @Entity
+
 public class Facility extends idGenerator implements Serializable {
 
     @NotNull

@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.controller;
+import com.iknow.stocktrackingbe.helper.StockCodeHelper;
 import com.iknow.stocktrackingbe.model.Prescription;
 import com.iknow.stocktrackingbe.model.mapper.PrescriptionResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
@@ -31,6 +32,7 @@ public class PrescriptionController {
     }
     @GetMapping("/prescriptions")
     public ResponseEntity<List<PrescriptionResponse>> getPrescriptions(@PageableDefault (sort = "created",direction = Sort.Direction.ASC) Pageable page){
+        System.out.println(StockCodeHelper.generateRandomCode(8,0,90));
         return ResponseEntity.ok(prescriptionResponseMapper.mapper(prescriptionService.getPrescriptions(page)));
     }
 

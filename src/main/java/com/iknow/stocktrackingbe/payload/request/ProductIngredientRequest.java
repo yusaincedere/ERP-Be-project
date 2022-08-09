@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Data
@@ -13,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class ProductIngredientRequest {
+    @NotEmpty
     private String name;
     @JsonProperty("milli_gram_weight")
     private Double milliGramWeight;

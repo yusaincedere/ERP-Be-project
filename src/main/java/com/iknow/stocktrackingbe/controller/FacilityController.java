@@ -7,6 +7,7 @@ import com.iknow.stocktrackingbe.payload.request.FacilityUpdateRequest;
 import com.iknow.stocktrackingbe.service.FacilityService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,22 +22,26 @@ public class FacilityController {
 
 
 
+
+
+   @GetMapping(path = "/id/{id}")
+   public ResponseEntity<Facility> getFacilityById(@PathVariable(required = false) String id) {
+      return ResponseEntity.ok(facilityService.getFacilityById(id));
+   }
+   @GetMapping(path = "/name/{name}")
+   public ResponseEntity<List<Facility>> searchFacilitiesByName(@PathVariable(required = false) String name, Pageable pageable) {
+      return ResponseEntity.ok(facilityService.searchFacilitiesByName(name,pageable));
+   }
+
+   @GetMapping("/facilities")
+   public ResponseEntity<List<Facility>> getFacilities(Pageable pageable) {
+      List<Facility> facilities = facilityService.getFacilities(pageable);
+      return ResponseEntity.ok(facilities);
+   }
    @PostMapping
    public void createFacility(@Valid @RequestBody FacilityRequest facilityRequest) {
       facilityService.createNewFacility(facilityRequest);
    }
-
-   @GetMapping(path = "/{id}")
-   public ResponseEntity<Facility> getFacilityById(@PathVariable(required = false) String id) {
-      return ResponseEntity.ok(facilityService.getFacilityById(id));
-   }
-
-   @GetMapping
-   public ResponseEntity<List<Facility>> getFacilities() {
-      List<Facility> facilities = facilityService.getFacilities();
-      return ResponseEntity.ok(facilities);
-   }
-
    @PutMapping("/{id}/update")
    public void updateFacility(
            @Valid

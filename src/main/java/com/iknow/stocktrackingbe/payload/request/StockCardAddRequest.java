@@ -6,19 +6,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WareHouseRequest {
-
+public class StockCardAddRequest {
+    @JsonProperty("stock_card")
+    @Valid
+    private StockCardRequest stockCardRequest;
+    @JsonProperty("ware_house_id")
     @NotEmpty
-    private String name;
-    @NotEmpty
-    @JsonProperty("facility_id")
-    private String facilityId;
-
+    private String wareHouseId;
 }

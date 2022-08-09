@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Data
@@ -18,6 +19,7 @@ public class PrescriptionProductRequest {
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonProperty("end_date")
     private LocalDate endDate;
+    @NotEmpty
     @JsonProperty("product_id")
     private String productId;
     private int quantity;

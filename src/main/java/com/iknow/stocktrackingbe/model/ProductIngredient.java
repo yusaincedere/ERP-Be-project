@@ -20,6 +20,9 @@ import java.util.List;
 @Data
 @Builder(toBuilder = true)
 @Entity
+@Table(name = "product_ingredient", uniqueConstraints={
+        @UniqueConstraint( name = "unique_name",  columnNames ={"name"})
+})
 public class ProductIngredient extends idGenerator implements Serializable {
 
     @NotNull

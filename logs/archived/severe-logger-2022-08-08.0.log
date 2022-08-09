@@ -1,0 +1,5 @@
+2022-08-08 11:32:03,668 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 404 Message: There is no Prescription
+2022-08-08 11:32:11,824 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 404 Message: There is no Prescription
+2022-08-08 11:32:46,029 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 404 Message: There is no Prescription
+2022-08-08 13:12:05,693 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available
+2022-08-08 14:51:32,910 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 404 Message: No message available

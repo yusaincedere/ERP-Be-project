@@ -1,21 +1,20 @@
 package com.iknow.stocktrackingbe.payload.request;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class UserRegisterRequest {
-    @NotNull
+    @NotEmpty
     @Email
     private String username;
-    @NotNull
+    @NotEmpty
     private String password;
 }

@@ -1,16 +1,18 @@
 package com.iknow.stocktrackingbe.controller;
 
 import com.iknow.stocktrackingbe.model.Product;
+import com.iknow.stocktrackingbe.model.StockCard;
 import com.iknow.stocktrackingbe.model.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.ProductRequest;
-import com.iknow.stocktrackingbe.payload.request.StockCardRequest;
+import com.iknow.stocktrackingbe.payload.request.StockCardAddRequest;
 import com.iknow.stocktrackingbe.payload.response.ProductResponse;
 import com.iknow.stocktrackingbe.service.ProductService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -37,6 +39,10 @@ public class ProductController {
             return ResponseEntity.ok(productResponseMapper.mapper(productService.getProductById(id)));
     }
 
+    @GetMapping(path = "/name/{name}")
+    public  ResponseEntity<List<ProductResponse>> searchByProductName(@PathVariable(required = false) String name,Pageable pageable){
+        return ResponseEntity.ok(productResponseMapper.mapper(productService.searchByProductName(name,pageable)));
+    }
     @PostMapping
     public void createNewProduct(@Valid @RequestBody ProductRequest productRequest){
         productService.createNewProduct(productRequest);
@@ -55,10 +61,10 @@ public class ProductController {
         productService.addProductIngredients(id,idListRequest);
     }
     @PutMapping("/{id}/addStockCard")
-    public void addStockCard(
+    public StockCard addStockCard(
             @PathVariable String id,
-            @RequestBody StockCardRequest stockCardRequest){
-        productService.addStockCard(id,stockCardRequest.getStockCard(),stockCardRequest.getWareHouseId());
+            @Valid @RequestBody StockCardAddRequest stockCardAddRequest){
+        return productService.addStockCard(id,stockCardAddRequest.getStockCardRequest(),stockCardAddRequest.getWareHouseId());
     }
     @DeleteMapping(path = "/delete")
     public void deleteProducts(@RequestBody IdListRequest idList){

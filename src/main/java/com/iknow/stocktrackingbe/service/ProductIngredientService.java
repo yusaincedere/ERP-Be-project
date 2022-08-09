@@ -55,13 +55,10 @@ public class ProductIngredientService {
         }
     }
     public List<Prescription> getPrescriptionsByProductIngredientId(String id) {
-
         logger.info("Service Called: getPrescriptionsByProductIngredient");
         List<Product> products = getProductIngredientById(id).getProducts();
         List<PrescriptionProduct> prescriptionProducts =prescriptionProductService.getPrescriptionProductsByProducts(products);
         List<Prescription> prescriptions = new ArrayList<>();
-
-
         for(PrescriptionProduct prescriptionProduct:prescriptionProducts){
             prescriptions.add(prescriptionProduct.getPrescription());
         }
@@ -72,6 +69,16 @@ public class ProductIngredientService {
     public List<ProductIngredient> getProductIngredientsByIdList(List<String> idList){
         logger.info("Service Called: getProductIngredientsByIdList");
         return productIngredientRepository.findAllById(idList);
+    }
+
+    public List<ProductIngredient> searchIngredientsByName(String name, Pageable pageable) {
+        logger.info("Service Called: searchIngredientsByName");
+        Page<ProductIngredient> productIngredientPage = productIngredientRepository.findAllByNameContainingIgnoreCase(name,pageable);
+        if(!productIngredientPage.getContent().isEmpty()){
+            return productIngredientPage.getContent();
+        }else{
+            throw new NotFoundException("There is no ingredient with this name");
+        }
     }
 
 
@@ -111,4 +118,6 @@ public class ProductIngredientService {
         productIngredientRepository.deleteByIdIn(ids);
         logger.info("Ingredients deleted");
     }
+
+
 }

@@ -1,15 +1,19 @@
 package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
+import com.iknow.stocktrackingbe.helper.StockCodeHelper;
 import com.iknow.stocktrackingbe.model.*;
 import com.iknow.stocktrackingbe.model.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.ProductRequest;
+import com.iknow.stocktrackingbe.payload.request.StockCardRequest;
 import com.iknow.stocktrackingbe.payload.request.mapper.ProductRequestMapper;
+import com.iknow.stocktrackingbe.payload.request.mapper.StockCardRequestMapper;
 import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
 import com.iknow.stocktrackingbe.payload.response.ProductIngredientResponseProduct;
 import com.iknow.stocktrackingbe.payload.response.ProductResponse;
 import com.iknow.stocktrackingbe.payload.response.StockCardResponseProduct;
 import com.iknow.stocktrackingbe.repository.ProductRepository;
+import com.iknow.stocktrackingbe.repository.StockCardRepository;
 import com.iknow.stocktrackingbe.repository.WareHouseRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -32,6 +36,10 @@ public class ProductService {
     private final ProductIngredientService productIngredientService;
 
     private final ProductRequestMapper productRequestMapper;
+
+    private final StockCardRequestMapper stockCardRequestMapper;
+
+    private final StockCardRepository stockCardRepository;
 
 
 
@@ -66,7 +74,15 @@ public class ProductService {
             logger.warn("Prescription does not exist");
             throw new NotFoundException("Prescription does not exist");
         }
-
+    }
+    public List<Product> searchByProductName(String name, Pageable pageable) {
+        logger.info("Service Called: getProductById");
+        Page<Product> productPage = productRepository.findAllByProductNameContainingIgnoreCase(name,pageable);
+        if(!productPage.getContent().isEmpty()){
+            return productPage.getContent();
+        }else{
+            throw new NotFoundException("There is not product with this name");
+        }
     }
     public void updateProduct(String id, Product product) {
         logger.info("Service Called: updateProduct");
@@ -113,7 +129,7 @@ public class ProductService {
         }
         productRepository.flush();
     }
-    public void addStockCard(String id, StockCard stockCard,String wareHouseId) {
+    public StockCard addStockCard(String id, StockCardRequest stockCardRequest, String wareHouseId) {
         logger.info("Service Called: addStockCard");
         Product product = productRepository.findById(id).orElseThrow(
                 ()-> new IllegalStateException("There is no product with this id")
@@ -121,10 +137,21 @@ public class ProductService {
         WareHouse wareHouse = wareHouseRepository.findById(wareHouseId).orElseThrow(
                 ()-> new IllegalStateException("There is no ware house with this id")
         );
-        stockCard.setWareHouse(wareHouse);
-        stockCard.setProduct(product);
+        if(stockCardRequest.getStockCode()==null||stockCardRequest.getStockCode().equals("")){
+            boolean unique = false;
+            while(!unique){
+                stockCardRequest.setStockCode(StockCodeHelper.generateRandomCode(7,0,90));
+                if(!stockCardRepository.existsByStockCode(stockCardRequest.getStockCode())){
+                    unique = true;
+                }
+            }
+        }else if(stockCardRepository.existsByStockCode(stockCardRequest.getStockCode())){
+            throw new IllegalStateException("This stock card number already exists");
+        }
+        StockCard stockCard = stockCardRequestMapper.mapToModel(stockCardRequest,product,wareHouse);
         product.getStockCards().add(stockCard);
         wareHouse.getProducts().add(product);
         productRepository.flush();
+        return stockCard;
     }
 }

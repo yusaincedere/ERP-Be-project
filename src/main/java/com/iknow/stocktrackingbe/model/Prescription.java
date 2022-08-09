@@ -19,22 +19,25 @@ import java.util.List;
 @Data
 @Builder(toBuilder = true)
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@Table(name = "prescription", uniqueConstraints={
+        @UniqueConstraint( name = "version_name",  columnNames ={"prescription_version"})
+})
 public class Prescription extends idGenerator implements Serializable {
 
+    @Column(name = "prescription_version",unique = true)
     @JsonProperty("prescription_version")
     private String prescriptionVersion;
     @NotNull
     @JsonProperty("start_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startDate;
     @NotNull
     @JsonProperty("end_date")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endDate;
 
     @CreatedDate
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date created = new Date();
 
 
