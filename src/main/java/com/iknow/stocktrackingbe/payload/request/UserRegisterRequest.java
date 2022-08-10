@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.payload.request;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,9 @@ public class UserRegisterRequest {
     private String username;
     @NotEmpty
     private String password;
+    @NotEmpty
+    private String name;
+    @NotEmpty
+    @JsonProperty("last_name")
+    private String lastName;
 }

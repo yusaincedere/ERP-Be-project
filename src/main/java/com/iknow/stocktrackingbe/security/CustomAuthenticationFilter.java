@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iknow.stocktrackingbe.repository.UserRepository;
+import com.iknow.stocktrackingbe.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,10 +27,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @RequiredArgsConstructor
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-    private final AuthenticationManager authenticationManager;
-    private final UserRepository userRepository;
+
+    private final AuthService authService;
+
+
+
 
 
     @Override
@@ -42,36 +48,15 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
                 password);
 
-        return authenticationManager.authenticate(authenticationToken);
+        return this.getAuthenticationManager().authenticate(authenticationToken);
     }
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
                                             Authentication authentication) throws IOException, ServletException {
 
-        org.springframework.security.core.userdetails.User user = (User) authentication.getPrincipal();
-
-        Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
-
-        LocalDateTime localDateTime = LocalDateTime.now().plusYears(100);
-        Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
-
-        String access_token = JWT.create().withSubject(user.getUsername()).withExpiresAt(date)
-                .withClaim("role",
-                        user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-                .withIssuer(request.getRequestURL().toString()).sign(algorithm);
-
-        com.iknow.stocktrackingbe.model.User u = userRepository.findByUsername(user.getUsername())
-                .orElseThrow(() -> new IllegalStateException("User not found."));
-
-        Map<String, String> userResponse = new HashMap<>();
-        userResponse.put("username", u.getUsername());
-        userResponse.put("name", u.getName());
-        userResponse.put("role", u.getRole().name());
-        userResponse.put("access_token", access_token);
-
-        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-
-        new ObjectMapper().writeValue(response.getOutputStream(), userResponse);
+        Map<String, String> tokens = authService.createTokens(authentication.getName());
+        response.setContentType(APPLICATION_JSON_VALUE);
+        new ObjectMapper().writeValue(response.getOutputStream(), tokens);
     }
 }

@@ -5,6 +5,10 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.iknow.stocktrackingbe.exception.NotFoundException;
+import com.iknow.stocktrackingbe.repository.UserRepository;
+import com.iknow.stocktrackingbe.service.AuthService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,40 +23,34 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+@RequiredArgsConstructor
 public class CustomAuthorizationFilter extends OncePerRequestFilter {
+
+    private final AuthService authService;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if(request.getServletPath().equals("/login")||request.getServletPath().equals("/api/user/saveUser")){
+        if(request.getServletPath().equals("/login")||request.getServletPath().equals("/auth/register")){
             filterChain.doFilter(request,response);
         }else{
             String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
             if(authorizationHeader!=null && authorizationHeader.startsWith("Bearer ")){
                 try{
                     String token = authorizationHeader.substring("Bearer ".length());
-                    Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
-                    JWTVerifier verifier = JWT.require(algorithm).build();
-                    DecodedJWT decodedJWT = verifier.verify(token);
-                    String username = decodedJWT.getSubject();
-                    String[] role = decodedJWT.getClaim("role").asArray(String.class);
-                    Collection<GrantedAuthority> authorities = new ArrayList<>();
-                    authorities.add(new SimpleGrantedAuthority(role[0]));
-                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                            username, null, authorities);
-                    SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                    UsernamePasswordAuthenticationToken authToken;
+                    System.out.println(token);
+                    authToken = authService.getAuthToken(token);
+                    System.out.println(authToken.getName());
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
                     filterChain.doFilter(request, response);
+
                 }catch (Exception e){
-                    response.setHeader("error", e.getMessage());
-                    response.setStatus(HttpStatus.FORBIDDEN.value());
-                    Map<String, String> error = new HashMap<>();
-                    error.put("errorMessage", e.getMessage());
-                    response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-                    new ObjectMapper().writeValue(response.getOutputStream(), error);
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Invalid authentication");
                 }
             }else{
                 filterChain.doFilter(request, response);

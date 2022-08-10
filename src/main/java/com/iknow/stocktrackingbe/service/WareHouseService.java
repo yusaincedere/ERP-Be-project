@@ -31,9 +31,6 @@ public class WareHouseService {
     private final StockCardService stockCardService;
     private final FacilityRepository facilityRepository;
 
-
-
-
     public WareHouseResponse getWareHouseById(String id){
         logger.info("Service Called: getWareHouseById");
         Optional<WareHouse> optional = wareHouseRepository.findById(id);

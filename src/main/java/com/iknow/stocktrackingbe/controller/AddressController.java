@@ -22,7 +22,7 @@ public class AddressController {
 
 
 
-    @GetMapping(path = "/byCountry")
+    @GetMapping(path = "/country/{country}")
     public ResponseEntity<List<Address>> getAddressesByCountry(@PathVariable String country){
         return  ResponseEntity.ok(addressService.getAddressesByCountry(country));
     }

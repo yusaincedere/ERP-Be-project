@@ -1,11 +1,14 @@
 package com.iknow.stocktrackingbe.controller;
 import com.iknow.stocktrackingbe.model.User;
 import com.iknow.stocktrackingbe.payload.request.RoleToUserForm;
+import com.iknow.stocktrackingbe.payload.request.UserRegisterRequest;
 import com.iknow.stocktrackingbe.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(path = "/api/user")
@@ -24,8 +27,8 @@ public class UserController {
             return userService.getUserByUserName(username);
     }
     @PostMapping(path = "/saveUser")
-    public  void saveUser(@RequestBody User user){
-            userService.saveUser(user);
+    public  void saveUser(@Valid  @RequestBody UserRegisterRequest userRegisterRequest){
+            userService.saveUser(userRegisterRequest);
     }
     @PostMapping("/updateUser/{username}")
     public void updateUser(@PathVariable String username, @RequestBody User user) {
