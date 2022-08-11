@@ -8,12 +8,16 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 @Transactional
 public interface ProductIngredientRepository extends JpaRepository<ProductIngredient,String> {
 
-    void deleteByIdIn(List<String> ids);
+    void deleteByIdIn(Set<String> ids);
 
     Page<ProductIngredient> findAllByNameContainingIgnoreCase(String name, Pageable page);
+
+
+    boolean existsByName(String name);
 }

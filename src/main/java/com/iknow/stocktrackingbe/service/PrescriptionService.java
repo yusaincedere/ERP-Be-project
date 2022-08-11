@@ -145,7 +145,7 @@ public class PrescriptionService {
         prescriptionRepository.save(prescription);
     }
 
-    public void deletePrescriptions(List<String> ids) {
+    public void deletePrescriptions(Set<String> ids) {
         logger.info("Service Called: deletePrescriptions");
         prescriptionRepository.deleteByIdIn(ids);
         logger.info("Prescriptions deleted");

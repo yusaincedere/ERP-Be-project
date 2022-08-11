@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -13,5 +14,5 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class IdListRequest {
-    private List<String> idList;
+    private Set<String> idList;
 }

@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
+import java.util.Set;
 
 
 @AllArgsConstructor
@@ -28,7 +28,7 @@ public class Product extends idGenerator implements Serializable {
 
     private String productCode;
     @NotNull
-    @Column(name = "product_name")
+    @Column(name = "product_name",unique = true)
     private String productName;
     @NotNull
     @JsonFormat(pattern="yyyy-MM-dd")
@@ -53,7 +53,7 @@ public class Product extends idGenerator implements Serializable {
     private List<StockCard> stockCards;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Production> productions;
 

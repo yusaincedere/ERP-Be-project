@@ -22,10 +22,10 @@ public class TokenService {
 
         String token = UUID.randomUUID().toString();
 
-        Token confirmationTokentoken = new Token(token,
+        Token confirmationToken = new Token(token,
                 LocalDateTime.now(ZoneId.of("Europe/Istanbul")).toString(),
                 LocalDateTime.now(ZoneId.of("Europe/Istanbul")).plusDays(30).toString(), user.getId());
 
-        tokenRepository.save(confirmationTokentoken);
+        tokenRepository.save(confirmationToken);
     }
 }

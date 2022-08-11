@@ -33,7 +33,7 @@ public class ExceptionController implements ErrorController{
         int status = (Integer) attributes.get("status");
         ApiException exception = new ApiException(status,message,path);
         if(attributes.containsKey("errors")){
-            List<FieldError> fieldErrors = (List<FieldError>) attributes.get("errors");
+            List<FieldError> fieldErrors = (List<FieldError>)attributes.get("errors");
             Map<String ,String> validationExceptions =  new HashMap<>();
             for (FieldError fieldError: fieldErrors){
 

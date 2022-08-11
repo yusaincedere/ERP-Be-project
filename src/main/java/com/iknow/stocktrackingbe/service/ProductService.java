@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.service;
+import com.iknow.stocktrackingbe.exception.BadRequest;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.helper.StockCodeHelper;
 import com.iknow.stocktrackingbe.model.*;
@@ -23,9 +24,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -98,21 +97,26 @@ public class ProductService {
     }
     public void createNewProduct(ProductRequest productRequest) {
         logger.info("Service Called: createNewProduct");
-        List<ProductIngredient> productIngredients = new ArrayList<>();
-        Product product = productRequestMapper.mapToModel(productRequest);
-        for(int i = 0; i<productRequest.getIngredientIds().size();i++){
-           ProductIngredient productIngredient = productIngredientService.getProductIngredientById(productRequest.getIngredientIds().get(i));
-           productIngredients.add(productIngredient);
-           productIngredient.getProducts().add(product);
-        }
-        product.setProductIngredients(productIngredients);
+        if(productRepository.existsByProductName(productRequest.getProductName())){
+            logger.warn("Product"+productRequest.getProductName()+ " already exists" );
+            throw new BadRequest("This product already exists");
+        }else{
+            List<ProductIngredient> productIngredients =new ArrayList<>();
+            Product product = productRequestMapper.mapToModel(productRequest);
+            for(String id:productRequest.getIngredientIds()){
+                ProductIngredient productIngredient = productIngredientService.getProductIngredientById(id);
+                productIngredients.add(productIngredient);
+                productIngredient.getProducts().add(product);
+            }
+            product.setProductIngredients(productIngredients);
 
-        productRepository.save(product);
+            productRepository.save(product);
+        }
     }
 
-    public void deleteProducts(List<String> ids){
+    public void deleteProducts(Set<String> ids){
         logger.info("Service Called: deleteProducts");
-        productRepository.deleteByIdIn(new ArrayList<>(ids));
+        productRepository.deleteByIdIn(ids);
         logger.info("Products deleted");
     }
 
@@ -125,7 +129,7 @@ public class ProductService {
         product.setProductIngredients(productIngredients);
 
         for(ProductIngredient productIngredient:productIngredients){
-            productIngredientService.addProdutToIngredient(productIngredient,product);
+            productIngredientService.addProductToIngredient(productIngredient,product);
         }
         productRepository.flush();
     }
@@ -137,21 +141,29 @@ public class ProductService {
         WareHouse wareHouse = wareHouseRepository.findById(wareHouseId).orElseThrow(
                 ()-> new IllegalStateException("There is no ware house with this id")
         );
-        if(stockCardRequest.getStockCode()==null||stockCardRequest.getStockCode().equals("")){
-            boolean unique = false;
-            while(!unique){
-                stockCardRequest.setStockCode(StockCodeHelper.generateRandomCode(7,0,90));
-                if(!stockCardRepository.existsByStockCode(stockCardRequest.getStockCode())){
-                    unique = true;
-                }
-            }
-        }else if(stockCardRepository.existsByStockCode(stockCardRequest.getStockCode())){
-            throw new IllegalStateException("This stock card number already exists");
+        if(wareHouseRepository.existsWareHouseByProductsIsContaining(product)){
+            throw new IllegalStateException("This product already exists in this warehouse");
         }
+        stockCardRequest.setStockCode(checkStockCardNumber(stockCardRequest.getStockCode()));
         StockCard stockCard = stockCardRequestMapper.mapToModel(stockCardRequest,product,wareHouse);
         product.getStockCards().add(stockCard);
         wareHouse.getProducts().add(product);
         productRepository.flush();
         return stockCard;
+    }
+
+    private String checkStockCardNumber(String stockCardNumber){
+        if(stockCardNumber==null||stockCardNumber.equals("")){
+            boolean unique = false;
+            while(!unique){
+                stockCardNumber = StockCodeHelper.generateRandomCode(7,0,90);
+                if(!stockCardRepository.existsByStockCode(stockCardNumber)){
+                    unique =true;
+                }
+            }
+        }else if(stockCardRepository.existsByStockCode(stockCardNumber)){
+            throw new IllegalStateException("This stock card number already exists");
+        }
+        return stockCardNumber;
     }
 }

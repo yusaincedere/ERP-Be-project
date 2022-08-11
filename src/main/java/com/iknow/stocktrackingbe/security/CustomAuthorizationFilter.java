@@ -43,15 +43,13 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                 try{
                     String token = authorizationHeader.substring("Bearer ".length());
                     UsernamePasswordAuthenticationToken authToken;
-                    System.out.println(token);
                     authToken = authService.getAuthToken(token);
-                    System.out.println(authToken.getName());
                     SecurityContextHolder.getContext().setAuthentication(authToken);
-                    filterChain.doFilter(request, response);
 
                 }catch (Exception e){
-                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Invalid authentication");
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,e.getMessage());
                 }
+                filterChain.doFilter(request, response);
             }else{
                 filterChain.doFilter(request, response);
             }

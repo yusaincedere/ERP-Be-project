@@ -8,12 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @Repository
 @Transactional
 public interface PrescriptionProductRepository extends JpaRepository<PrescriptionProduct,String> {
-    void deleteByIdIn(List<String> ids);
+    void deleteByIdIn(Set<String> ids);
 
     List<PrescriptionProduct> findAllByProductIn(List<Product> products);
 

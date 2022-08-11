@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -94,7 +95,7 @@ public class WareHouseService {
                 .wareHouseName(stockCard.getWareHouse().getName()).build()).collect(Collectors.toList());
     }
 
-    public List<WareHouse> getWareHosesByIds(List<String> wareHouseIds) {
+    public List<WareHouse> getWareHosesByIds(Set<String> wareHouseIds) {
         logger.info("Service Called: getWareHosesByIds");
         return wareHouseRepository.findAllById(wareHouseIds);
     }

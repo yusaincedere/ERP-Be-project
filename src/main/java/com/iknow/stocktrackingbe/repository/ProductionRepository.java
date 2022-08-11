@@ -6,10 +6,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 @Transactional
 public interface ProductionRepository extends JpaRepository<Production,String> {
 
-    void deleteByIdIn(List<String> ids);
+    void deleteByIdIn(Set<String> ids);
 }

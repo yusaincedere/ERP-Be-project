@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 
 @AllArgsConstructor
@@ -24,6 +25,7 @@ public class User extends idGenerator {
     @Email
     @Column(name = "username",unique = true)
     private String username;
+
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role = Role.ROLE_USER;

@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.service;
 
+import com.iknow.stocktrackingbe.exception.BadRequest;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.Prescription;
 import com.iknow.stocktrackingbe.model.PrescriptionProduct;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -66,7 +68,7 @@ public class ProductIngredientService {
     }
 
 
-    public List<ProductIngredient> getProductIngredientsByIdList(List<String> idList){
+    public List<ProductIngredient> getProductIngredientsByIdList(Set<String> idList){
         logger.info("Service Called: getProductIngredientsByIdList");
         return productIngredientRepository.findAllById(idList);
     }
@@ -84,19 +86,26 @@ public class ProductIngredientService {
 
     public void createNewProductIngredient(ProductIngredientRequest productIngredientRequest) {
         logger.info("Service Called: createNewProductIngredient");
-        List<Product> productList = productRepository.findAllById(productIngredientRequest.getProductIds());
-        ProductIngredient productIngredient = ingredientRequestMapper.mapToModel(productIngredientRequest,productList);
-        for(Product product:productList){
-            product.getProductIngredients().add(productIngredient);
+        if(productIngredientRepository.existsByName(productIngredientRequest.getName())){
+            throw new BadRequest("This ingredient already exists");
+        }else{
+            List<Product> productList = productRepository.findAllById(productIngredientRequest.getProductIds());
+            ProductIngredient productIngredient = ingredientRequestMapper.mapToModel(productIngredientRequest,productList);
+            for(Product product:productList){
+                product.getProductIngredients().add(productIngredient);
+            }
+            productRepository.flush();
+            productIngredientRepository.save(productIngredient);
         }
-        productRepository.flush();
-        productIngredientRepository.save(productIngredient);
+
     }
 
 
-    public void addProdutToIngredient(ProductIngredient productIngredient,Product product){
+    public void addProductToIngredient(ProductIngredient productIngredient,Product product){
         List<Product> products = productIngredient.getProducts();
-        products.add(product);
+        if(!products.contains(product)){
+            products.add(product);
+        }
         productIngredient.setProducts(products);
     }
 
@@ -113,7 +122,7 @@ public class ProductIngredientService {
 
 
 
-    public void deleteProductIngredients(List<String> ids) {
+    public void deleteProductIngredients(Set<String> ids) {
         logger.info("Service Called: deleteProductIngredients");
         productIngredientRepository.deleteByIdIn(ids);
         logger.info("Ingredients deleted");

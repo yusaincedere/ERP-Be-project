@@ -26,10 +26,7 @@ public class UserController {
     public User getUser(@PathVariable String username){
             return userService.getUserByUserName(username);
     }
-    @PostMapping(path = "/saveUser")
-    public  void saveUser(@Valid  @RequestBody UserRegisterRequest userRegisterRequest){
-            userService.saveUser(userRegisterRequest);
-    }
+
     @PostMapping("/updateUser/{username}")
     public void updateUser(@PathVariable String username, @RequestBody User user) {
             userService.updateUser(username, user);

@@ -10,9 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -48,7 +46,7 @@ public class Prescription extends idGenerator implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JsonProperty("prescription_products")
-    private List<PrescriptionProduct> prescriptionProducts =new ArrayList<>();
+    private List<PrescriptionProduct> prescriptionProducts = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore

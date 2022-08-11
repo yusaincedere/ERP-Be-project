@@ -3,22 +3,18 @@ package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.PrescriptionProduct;
 import com.iknow.stocktrackingbe.model.Product;
-
-import com.iknow.stocktrackingbe.payload.response.PrescriptionProductResponse;
-import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
 import com.iknow.stocktrackingbe.repository.PrescriptionProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.Set;
+
 
 @Service
 @RequiredArgsConstructor
@@ -66,7 +62,7 @@ public class PrescriptionProductService {
         }
 
     }
-    public void deletePrescriptionProducts(List<String> ids) {
+    public void deletePrescriptionProducts(Set<String> ids) {
             logger.info("Service Called: deletePrescriptionProducts");
             prescriptionProductRepository.deleteByIdIn(ids);
             logger.info("Ingredients deleted");

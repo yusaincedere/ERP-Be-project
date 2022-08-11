@@ -121,9 +121,9 @@ public class UserService implements UserDetailsService {
 
     public User grantRole(String username, String roleName) {
         User user = getUserByUserName(username);
-        if (roleName.equals(Role.ROLE_USER)) {
+        if (roleName.equals(Role.ROLE_USER.toString())) {
            user.setRole(Role.ROLE_USER);
-        } else if (roleName.equals(Role.ROLE_ADMIN)) {
+        } else if (roleName.equals(Role.ROLE_ADMIN.toString())) {
             user.setRole(Role.ROLE_ADMIN);
         } else {
             throw new IllegalStateException("Invalid role name");
@@ -175,7 +175,4 @@ public class UserService implements UserDetailsService {
 
         return user;
     }
-
-
-
 }

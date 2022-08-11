@@ -1,0 +1,100 @@
+2022-08-10 11:28:12,533 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 403 Message: Access Denied
+2022-08-10 11:28:12,618 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-9] Status: 404 Message: No message available
+2022-08-10 11:28:29,515 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 405 Message: Request method 'GET' not supported
+2022-08-10 11:36:55,605 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 403 Message: Access Denied
+2022-08-10 11:51:16,571 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 404 Message: No message available
+2022-08-10 11:51:29,140 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 403 Message: Access Denied
+2022-08-10 11:51:34,194 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-5] Status: 404 Message: No message available
+2022-08-10 12:22:02,846 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 401 Message: Unauthorized
+2022-08-10 12:22:11,642 ERROR org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-1] An internal error occurred while trying to authenticate the user.
+org.springframework.security.authentication.InternalAuthenticationServiceException: User not found!
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:108)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:133)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:201)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$AuthenticationManagerDelegator.authenticate(WebSecurityConfigurerAdapter.java:514)
+	at com.iknow.stocktrackingbe.security.CustomAuthenticationFilter.attemptAuthentication(CustomAuthenticationFilter.java:45)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at com.iknow.stocktrackingbe.security.CustomAuthorizationFilter.doFilterInternal(CustomAuthorizationFilter.java:38)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1787)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.IllegalStateException: User not found!
+	at com.iknow.stocktrackingbe.service.UserService.lambda$loadUserByUsername$1(UserService.java:92)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408)
+	at com.iknow.stocktrackingbe.service.UserService.loadUserByUsername(UserService.java:92)
+	at com.iknow.stocktrackingbe.service.UserService$$FastClassBySpringCGLIB$$7017d5cc.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.iknow.stocktrackingbe.service.UserService$$EnhancerBySpringCGLIB$$c0f4a0db.loadUserByUsername(<generated>)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:93)
+	... 53 common frames omitted
+2022-08-10 12:22:11,646 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 401 Message: Unauthorized
+2022-08-10 15:41:58,022 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 415 Message: Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported
+2022-08-10 16:16:08,211 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 401 Message: Invalid authentication
+2022-08-10 16:16:22,329 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 500 Message: User already exists
+2022-08-10 16:16:38,818 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 401 Message: Invalid authentication
+2022-08-10 16:17:37,183 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 401 Message: Invalid authentication
+2022-08-10 16:19:13,781 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 401 Message: Invalid authentication
+2022-08-10 16:20:18,626 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 401 Message: Invalid authentication
+2022-08-10 16:21:51,918 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 401 Message: Invalid authentication
+2022-08-10 16:30:44,411 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 401 Message: Invalid authentication
+2022-08-10 16:31:10,725 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 401 Message: Invalid authentication
+2022-08-10 16:36:57,657 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-1] Status: 401 Message: Invalid authentication
+2022-08-10 16:38:58,362 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 403 Message: Access Denied
+2022-08-10 17:24:39,782 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-7] Status: 404 Message: User not found.
+2022-08-10 17:25:20,017 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 403 Message: Access Denied
+2022-08-10 17:25:20,339 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 403 Message: Access Denied
+2022-08-10 17:29:36,362 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 403 Message: Access Denied
+2022-08-10 17:29:38,597 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 403 Message: Access Denied

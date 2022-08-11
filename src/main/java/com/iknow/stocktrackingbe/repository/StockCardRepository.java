@@ -9,12 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Repository
 @Transactional
 public interface StockCardRepository extends JpaRepository<StockCard,String> {
 
-    List<StockCard> findAllByWareHouseId(String id);
+    Set<StockCard> findAllByWareHouseId(String id);
 
     Page<StockCard> findAllByWareHouseId(String id,Pageable pageable);
 

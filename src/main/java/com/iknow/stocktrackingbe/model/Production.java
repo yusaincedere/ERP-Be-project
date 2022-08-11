@@ -25,8 +25,6 @@ public class Production extends idGenerator implements Serializable {
 
 
     @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "product_id", referencedColumnName = "id")})
     private Product product;
 
 

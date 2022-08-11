@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -21,5 +22,5 @@ public class ProductIngredientRequest {
     @JsonProperty("stock_count")
     private Long stockCount;
     @JsonProperty("product_ids")
-    private List<String> productIds;
+    private Set<String> productIds;
 }

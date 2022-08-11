@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ public class StockCardService {
     private final StockCardRepository stockCardRepository;
 
 
-    public List<StockCard> findAllByWareHouseId(String id) {
+    public Set<StockCard> findAllByWareHouseId(String id) {
         logger.info("Service called: findAllByWareHouseId");
         return stockCardRepository.findAllByWareHouseId(id);
     }

@@ -7,20 +7,19 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ProductRequest {
-    @NotEmpty
+    @NotNull
     private BigDecimal price;
     @JsonProperty("expiry_date")
     @JsonFormat(pattern="yyyy-MM-dd")
@@ -28,7 +27,7 @@ public class ProductRequest {
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonProperty("produce_date")
     private LocalDate produceDate;
-    @NotEmpty
+    @NotNull
     @JsonProperty("name")
     private String productName;
     @JsonProperty("product_code")
@@ -38,6 +37,6 @@ public class ProductRequest {
     @OneToOne
     private Prospectus prospectus;
     @JsonProperty("ingredient_ids")
-    private List<String> ingredientIds;
+    private Set<String> ingredientIds;
 
 }

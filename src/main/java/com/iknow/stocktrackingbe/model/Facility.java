@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,7 +30,7 @@ public class Facility extends idGenerator implements Serializable {
     private Address address;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<WareHouse> wareHouses;
+    private List<WareHouse> wareHouses = new ArrayList<>();
 
 
 }

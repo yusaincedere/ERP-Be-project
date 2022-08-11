@@ -10,14 +10,17 @@ import com.iknow.stocktrackingbe.payload.response.ProductResponse;
 import com.iknow.stocktrackingbe.payload.response.StockCardResponseProduct;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
 public class ProductResponseMapper {
     public ProductResponse mapper(Product product) {
-        List<StockCardResponseProduct> stockCardResponses = this.stockCardMapper(product.getStockCards());
-        List<ProductIngredientResponseProduct> ingredientResponses = this.ingredientMapper(product.getProductIngredients());
+        List<StockCardResponseProduct> stockCardResponses = this.stockCardMapper(new ArrayList<>(product.getStockCards()));
+        List<ProductIngredientResponseProduct> ingredientResponses = this.ingredientMapper(new ArrayList<>(product.getProductIngredients()));
         return  ProductResponse.builder()
                 .productName(product.getProductName())
                 .id(product.getId())
