@@ -2,10 +2,8 @@ package com.iknow.stocktrackingbe.service;
 
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.Facility;
-import com.iknow.stocktrackingbe.model.Prescription;
 import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.payload.request.WareHouseRequest;
-import com.iknow.stocktrackingbe.payload.response.PrescriptionResponse;
 import com.iknow.stocktrackingbe.payload.response.StockCardResponse;
 import com.iknow.stocktrackingbe.payload.response.WareHouseProductResponse;
 import com.iknow.stocktrackingbe.payload.response.WareHouseResponse;

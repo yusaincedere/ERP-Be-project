@@ -2,14 +2,11 @@ package com.iknow.stocktrackingbe.controller;
 
 
 import com.iknow.stocktrackingbe.model.StockCard;
-import com.iknow.stocktrackingbe.payload.response.StockCardResponse;
 import com.iknow.stocktrackingbe.service.StockCardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -43,8 +40,5 @@ public class StockCardController {
     public ResponseEntity<StockCard> approveStockCard(@PathVariable String id){
         return ResponseEntity.ok(stockCardService.approveStockCard(id));
     }
-
-
-
 
 }

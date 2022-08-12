@@ -5,15 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductionRequest {
-    @NotEmpty
-    private String productId;
-    @NotEmpty
-    private Long productionCount;
+public class ProductUnitRequest {
+    @NotNull
+    private String unitName;
 }

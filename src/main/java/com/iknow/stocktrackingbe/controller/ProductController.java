@@ -5,6 +5,7 @@ import com.iknow.stocktrackingbe.model.StockCard;
 import com.iknow.stocktrackingbe.model.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.ProductRequest;
+import com.iknow.stocktrackingbe.payload.request.ProductUpdateRequest;
 import com.iknow.stocktrackingbe.payload.request.StockCardAddRequest;
 import com.iknow.stocktrackingbe.payload.response.ProductResponse;
 import com.iknow.stocktrackingbe.service.ProductService;
@@ -12,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -50,22 +50,11 @@ public class ProductController {
     @PutMapping("/{id}/update")
     public void updateProduct(
             @PathVariable String id,
-            @RequestBody Product product){
-        System.out.println(product);
-        productService.updateProduct(id,product);
+            @Valid @RequestBody ProductUpdateRequest productUpdateRequest){
+        productService.updateProduct(id,productUpdateRequest);
     }
-    @PutMapping("/{id}/addIngredients")
-    public void addProductIngredients(
-            @PathVariable String id,
-            @RequestBody IdListRequest idListRequest){
-        productService.addProductIngredients(id,idListRequest);
-    }
-    @PutMapping("/{id}/addStockCard")
-    public StockCard addStockCard(
-            @PathVariable String id,
-            @Valid @RequestBody StockCardAddRequest stockCardAddRequest){
-        return productService.addStockCard(id,stockCardAddRequest.getStockCardRequest(),stockCardAddRequest.getWareHouseId());
-    }
+
+
     @DeleteMapping(path = "/delete")
     public void deleteProducts(@RequestBody IdListRequest idList){
         productService.deleteProducts(idList.getIdList());

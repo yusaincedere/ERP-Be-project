@@ -61,7 +61,7 @@ public class FacilityService {
         }
     }
     public void createNewFacility(FacilityRequest facilityRequest) {
-        logger.info("Servis Called: CreateNewFacility");
+        logger.info("Service Called: CreateNewFacility");
         Facility facility = new Facility().toBuilder()
                 .address(facilityRequest.getAddress()).name(facilityRequest.getName()).build();
         facilityRepository.saveAndFlush(facility);

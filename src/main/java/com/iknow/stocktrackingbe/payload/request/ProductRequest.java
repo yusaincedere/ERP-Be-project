@@ -2,7 +2,6 @@ package com.iknow.stocktrackingbe.payload.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.iknow.stocktrackingbe.model.Prospectus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,23 +19,17 @@ import java.util.Set;
 @Builder
 public class ProductRequest {
     @NotNull
-    private BigDecimal price;
-    @JsonProperty("expiry_date")
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private LocalDate expiryDate;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    @JsonProperty("produce_date")
-    private LocalDate produceDate;
-    @NotNull
     @JsonProperty("name")
     private String productName;
+    @NotNull
     @JsonProperty("product_code")
     private String productCode;
-    @JsonProperty("amount_of_usage")
-    private String amountOfUsage;
-    @OneToOne
-    private Prospectus prospectus;
-    @JsonProperty("ingredient_ids")
-    private Set<String> ingredientIds;
-
+    @NotNull
+    @JsonProperty("product_type")
+    private String productType;
+    @NotNull
+    @JsonProperty("product_unit")
+    private String productUnit;
+    @JsonProperty("child_products")
+    private List<String> childProductIds;
 }

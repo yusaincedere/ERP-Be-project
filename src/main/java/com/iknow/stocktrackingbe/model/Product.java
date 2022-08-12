@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 
 @AllArgsConstructor
@@ -30,37 +30,19 @@ public class Product extends idGenerator implements Serializable {
     @NotNull
     @Column(name = "product_name",unique = true)
     private String productName;
-    @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private LocalDate expiryDate;
-    @NotNull
 
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private LocalDate produceDate;
-    @NotNull
-    private BigDecimal price;
+    @ManyToOne
+    private ProductType productType;
+    @ManyToOne
+    private ProductUnit productUnit;
 
-    @Enumerated(EnumType.STRING)
-    private CurrencyType currencyType = CurrencyType.TL;
+    @OneToOne
+    private Product parentProduct;
 
-    private String amountOfUsage;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Prospectus prospectus;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<StockCard> stockCards;
+    @OneToMany
+    private List<Stock> stocks;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Production> productions;
-
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<ProductIngredient> productIngredients;
-
-
-
+    @OneToMany
+    private List<Product> childProducts = new ArrayList<>();
 }

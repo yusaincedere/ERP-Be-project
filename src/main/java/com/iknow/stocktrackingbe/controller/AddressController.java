@@ -32,4 +32,6 @@ public class AddressController {
     public ResponseEntity<List<Address>> getAddressesByCity(@PathVariable String city, Pageable pageable){
         return  ResponseEntity.ok(addressService.getAddressesByCity(city,pageable));
     }
+
+
 }

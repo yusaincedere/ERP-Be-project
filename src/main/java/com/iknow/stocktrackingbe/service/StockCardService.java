@@ -72,9 +72,4 @@ public class StockCardService {
             throw new IllegalStateException("There is no stock card with this id");
         }
     }
-
-
-
-
-
 }

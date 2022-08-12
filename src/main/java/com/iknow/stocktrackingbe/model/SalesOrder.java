@@ -1,7 +1,5 @@
 package com.iknow.stocktrackingbe.model;
 
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.iknow.stocktrackingbe.idGenerator.idGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,26 +8,28 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.math.BigDecimal;
 import java.util.Date;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder(toBuilder = true)
 @Entity
-public class Prospectus extends idGenerator implements Serializable {
+public class SalesOrder extends idGenerator implements Serializable {
 
+    @ManyToOne
+    private Customer customer;
 
     @CreatedDate
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date created = new Date();
+    private Date date = new Date();
 
-    private String details;
 
+    private Date dueDate;
+
+    private BigDecimal totalPrice;
 
 }
