@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Builder
 @Table(name = "refresh_token")
 
-public class RefreshToken extends idGenerator {
+public class RefreshToken extends BaseEntity {
     private String username;
     @NotEmpty
     @Size(min = 32, max = 32)

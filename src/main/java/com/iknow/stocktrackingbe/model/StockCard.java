@@ -3,7 +3,7 @@ package com.iknow.stocktrackingbe.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @Data
 @Builder(toBuilder = true)
 @Entity
-public class StockCard extends idGenerator implements Serializable {
+public class StockCard extends BaseEntity{
 
 
     @JsonProperty("stock_code")

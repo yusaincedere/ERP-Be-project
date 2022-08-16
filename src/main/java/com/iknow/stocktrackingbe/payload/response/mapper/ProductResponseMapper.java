@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.model.mapper;
+package com.iknow.stocktrackingbe.payload.response.mapper;
 
 
 import com.iknow.stocktrackingbe.model.Product;
@@ -19,7 +19,11 @@ public class ProductResponseMapper {
                 .id(product.getId())
                 .productCode(product.getProductCode())
                 .productType(product.getProductType().getType())
-                .productUnit(product.getProductUnit().getUnitName()).build();
+                .description(product.getDescription())
+                .url(product.getUrl())
+                .weight(product.getWeight())
+                .dimension(product.getDimension())
+                .build();
     }
     public List<ProductResponse> mapper(List<Product> products) {
         return products.stream()

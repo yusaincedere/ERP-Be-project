@@ -1,6 +1,8 @@
 package com.iknow.stocktrackingbe.payload.response;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.iknow.stocktrackingbe.model.Dimension;
+import com.iknow.stocktrackingbe.model.Weight;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,9 +25,14 @@ public class ProductResponse {
     @JsonProperty("product_type")
     private String productType;
 
-    @JsonProperty("product_unit")
-    private String productUnit;
 
+    private String description;
+
+    private String url;
+
+    private Weight weight;
+
+    private Dimension dimension;
 
 
 }

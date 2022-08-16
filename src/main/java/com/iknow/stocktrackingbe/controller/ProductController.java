@@ -1,12 +1,9 @@
 package com.iknow.stocktrackingbe.controller;
 
-import com.iknow.stocktrackingbe.model.Product;
-import com.iknow.stocktrackingbe.model.StockCard;
-import com.iknow.stocktrackingbe.model.mapper.ProductResponseMapper;
+import com.iknow.stocktrackingbe.payload.response.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.ProductRequest;
 import com.iknow.stocktrackingbe.payload.request.ProductUpdateRequest;
-import com.iknow.stocktrackingbe.payload.request.StockCardAddRequest;
 import com.iknow.stocktrackingbe.payload.response.ProductResponse;
 import com.iknow.stocktrackingbe.service.ProductService;
 import lombok.RequiredArgsConstructor;

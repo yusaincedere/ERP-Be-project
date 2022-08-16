@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,9 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +19,7 @@ import java.util.Set;
 @Builder(toBuilder = true)
 @Entity
 
-public class Facility extends idGenerator implements Serializable {
+public class Facility extends BaseEntity{
 
     @NotNull
     private String name;

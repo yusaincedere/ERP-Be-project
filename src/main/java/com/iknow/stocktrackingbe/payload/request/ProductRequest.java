@@ -30,6 +30,4 @@ public class ProductRequest {
     @NotNull
     @JsonProperty("product_unit")
     private String productUnit;
-    @JsonProperty("child_products")
-    private List<String> childProductIds;
 }

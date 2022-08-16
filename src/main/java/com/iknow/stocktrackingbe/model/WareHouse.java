@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +18,7 @@ import java.util.List;
 @Data
 @Builder(toBuilder = true)
 @Entity
-public class WareHouse extends idGenerator implements Serializable {
+public class WareHouse extends BaseEntity{
 
     @NotNull
     private String name;

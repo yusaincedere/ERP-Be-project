@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +21,7 @@ import java.io.Serializable;
 @Table(name = "product_unit", uniqueConstraints={
         @UniqueConstraint( name = "unique_unit_name",  columnNames ={"unit_name"})
 })
-public class ProductUnit extends idGenerator implements Serializable {
+public class ProductUnit extends BaseEntity{
     @Column(name = "unit_name",unique = true)
     private String unitName;
 }

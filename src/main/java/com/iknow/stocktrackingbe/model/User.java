@@ -1,7 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
-import com.iknow.stocktrackingbe.model.Role;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
 
 
 @AllArgsConstructor
@@ -18,7 +16,7 @@ import javax.validation.constraints.Size;
 @Builder(toBuilder = true)
 @Entity
 @Table(name = "users",uniqueConstraints = { @UniqueConstraint(name = "unique_userName", columnNames = { "username"}) })
-public class User extends idGenerator {
+public class User extends BaseEntity {
 
     private String name;
     private String lastName;

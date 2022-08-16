@@ -1,38 +1,46 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder(toBuilder = true)
 @Entity
-public class BomDetail extends idGenerator implements Serializable {
+public class BomDetail extends BaseEntity{
 
-    @OneToOne
+    @ManyToOne
     private Bom bom;
 
 
     @OneToOne
-    private Product mainProduct;
+    private  Product mainProduct;
 
     @OneToOne
-    private Product childProduct;
+    private  Product childProduct;
 
 
-    private Long mainAmount;
+    private BigDecimal quantity;
 
 
-    private Long childAmount;
+    private String description;
+
+
+    private BigDecimal efficiency;
+
+
+
+
+
+
+
 
 }

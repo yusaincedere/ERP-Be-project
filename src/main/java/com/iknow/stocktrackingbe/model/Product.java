@@ -1,17 +1,16 @@
 package com.iknow.stocktrackingbe.model;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import java.awt.*;
+
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.ArrayList;
+
 import java.util.List;
 
 
@@ -23,7 +22,7 @@ import java.util.List;
 @Table(name = "product", uniqueConstraints={
         @UniqueConstraint( name = "unique_product_name",  columnNames ={"product_name"})
 })
-public class Product extends idGenerator implements Serializable {
+public class Product extends BaseEntity{
 
 
     private String productCode;
@@ -36,13 +35,31 @@ public class Product extends idGenerator implements Serializable {
     @ManyToOne
     private ProductUnit productUnit;
 
-    @OneToOne
-    private Product parentProduct;
 
     @OneToMany
+    @JsonIgnore
     private List<Stock> stocks;
 
+    private String description;
 
-    @OneToMany
-    private List<Product> childProducts = new ArrayList<>();
+    private String barcode;
+
+    private String url;
+
+    private String partNumber;
+
+    private BigDecimal selPrice;
+
+    private BigDecimal cost;
+
+    @ManyToOne
+    private Dimension dimension;
+
+    @ManyToOne
+    private Weight weight;
+
+    private boolean toBuy;
+
+    private boolean toSell;
+
 }

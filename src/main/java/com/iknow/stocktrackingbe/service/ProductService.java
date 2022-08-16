@@ -77,13 +77,7 @@ public class ProductService {
         }else{
             ProductUnit productUnit = productUnitService.getProductUnitByUnitName(productRequest.getProductUnit());
             ProductType productType = productTypeService.getProductTypeByTypeName(productRequest.getProductType());
-
-            List<Product> childProducts = productRepository.findAllByIdIn(productRequest.getChildProductIds());
             Product product = productRequestMapper.mapToModel(productRequest,productUnit,productType);
-            for(Product child:childProducts){
-                child.setParentProduct(product);
-                product.getChildProducts().add(child);
-            }
             productRepository.save(product);
             logger.info("Product created");
         }

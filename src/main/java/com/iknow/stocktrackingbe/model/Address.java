@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Data
 @Builder(toBuilder = true)
 @Entity
-public class Address  extends idGenerator implements Serializable {
+public class Address  extends BaseEntity{
     @NotNull
     private String country;
     @NotNull

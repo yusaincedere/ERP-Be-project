@@ -1,7 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.idGenerator.idGenerator;
-import lombok.AllArgsConstructor;
+import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "confirmation_tokens")
 
-public class Token extends idGenerator {
+public class Token extends BaseEntity {
 
     @Column(name = "token")
     private String token;
