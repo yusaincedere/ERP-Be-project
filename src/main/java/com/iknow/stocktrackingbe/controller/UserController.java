@@ -1,5 +1,5 @@
 package com.iknow.stocktrackingbe.controller;
-import com.iknow.stocktrackingbe.model.User;
+import com.iknow.stocktrackingbe.model.user.User;
 import com.iknow.stocktrackingbe.payload.request.RoleToUserForm;
 import com.iknow.stocktrackingbe.service.UserService;
 import lombok.RequiredArgsConstructor;

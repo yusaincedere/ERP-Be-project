@@ -1,10 +1,9 @@
 package com.iknow.stocktrackingbe.controller;
 
-import com.iknow.stocktrackingbe.model.Bom;
-import com.iknow.stocktrackingbe.payload.request.BomRequest;
+import com.iknow.stocktrackingbe.payload.request.bom.BomRequest;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.response.mapper.BomResponseMapper;
-import com.iknow.stocktrackingbe.payload.response.BomResponse;
+import com.iknow.stocktrackingbe.payload.response.bom.BomResponse;
 import com.iknow.stocktrackingbe.service.BomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

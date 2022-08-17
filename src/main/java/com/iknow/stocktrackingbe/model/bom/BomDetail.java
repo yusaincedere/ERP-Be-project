@@ -1,13 +1,13 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.model.bom;
 
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @AllArgsConstructor
@@ -25,7 +25,7 @@ public class BomDetail extends BaseEntity{
     private  Product mainProduct;
 
     @OneToOne
-    private  Product childProduct;
+    private Product childProduct;
 
 
     private BigDecimal quantity;
@@ -35,12 +35,5 @@ public class BomDetail extends BaseEntity{
 
 
     private BigDecimal efficiency;
-
-
-
-
-
-
-
 
 }

@@ -1,18 +1,21 @@
 package com.iknow.stocktrackingbe.controller;
 
+import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.payload.response.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
-import com.iknow.stocktrackingbe.payload.request.ProductRequest;
-import com.iknow.stocktrackingbe.payload.request.ProductUpdateRequest;
-import com.iknow.stocktrackingbe.payload.response.ProductResponse;
+import com.iknow.stocktrackingbe.payload.request.product.ProductRequest;
+import com.iknow.stocktrackingbe.payload.request.product.ProductUpdateRequest;
+import com.iknow.stocktrackingbe.payload.response.product.ProductResponse;
 import com.iknow.stocktrackingbe.service.ProductService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -37,12 +40,19 @@ public class ProductController {
     }
 
     @GetMapping(path = "/name/{name}")
-    public  ResponseEntity<List<ProductResponse>> searchByProductName(@PathVariable(required = false) String name,Pageable pageable){
+    public ResponseEntity<List<ProductResponse>> searchByProductName(@PathVariable(required = false) String name,Pageable pageable){
         return ResponseEntity.ok(productResponseMapper.mapper(productService.searchByProductName(name,pageable)));
     }
     @PostMapping
-    public void createNewProduct(@Valid @RequestBody ProductRequest productRequest){
-        productService.createNewProduct(productRequest);
+    public ResponseEntity<?> createNewProduct(@Valid @RequestBody ProductRequest productRequest){
+        Product product =productService.createNewProduct(productRequest);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                        .path("/{id}")
+                                .buildAndExpand(product.getId()).toUri();
+
+        return ResponseEntity.created(location).build();
+
     }
     @PutMapping("/{id}/update")
     public void updateProduct(

@@ -45,11 +45,11 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     UsernamePasswordAuthenticationToken authToken;
                     authToken = authService.getAuthToken(token);
                     SecurityContextHolder.getContext().setAuthentication(authToken);
-
+                    filterChain.doFilter(request, response);
                 }catch (Exception e){
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED,e.getMessage());
                 }
-                filterChain.doFilter(request, response);
+
             }else{
                 filterChain.doFilter(request, response);
             }

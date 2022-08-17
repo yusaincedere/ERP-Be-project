@@ -1,7 +1,7 @@
-package com.iknow.stocktrackingbe.model;
-
+package com.iknow.stocktrackingbe.model.product;
 
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.product.WeightType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,12 +16,9 @@ import java.math.BigDecimal;
 @Data
 @Builder(toBuilder = true)
 @Entity
-public class Dimension extends BaseEntity {
+public class Weight extends BaseEntity {
 
     @Enumerated
-    private DimensionType dimensionType;
-    private BigDecimal length;
-    private BigDecimal height;
-    private BigDecimal width;
-
+    private WeightType weightType;
+    private BigDecimal amount;
 }

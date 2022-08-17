@@ -1,23 +1,16 @@
 package com.iknow.stocktrackingbe.service;
-
 import com.iknow.stocktrackingbe.exception.NotFoundException;
-import com.iknow.stocktrackingbe.model.Bom;
-import com.iknow.stocktrackingbe.model.BomDetail;
-import com.iknow.stocktrackingbe.model.Product;
-import com.iknow.stocktrackingbe.payload.request.BomDetailRequest;
-import com.iknow.stocktrackingbe.payload.request.BomRequest;
-import com.iknow.stocktrackingbe.payload.request.mapper.BomDetailRequestMapper;
+import com.iknow.stocktrackingbe.model.WareHouse;
+import com.iknow.stocktrackingbe.model.bom.Bom;
+import com.iknow.stocktrackingbe.model.product.Product;
+import com.iknow.stocktrackingbe.payload.request.bom.BomRequest;
 import com.iknow.stocktrackingbe.payload.request.mapper.BomRequestMapper;
-import com.iknow.stocktrackingbe.repository.BomDetailRepository;
 import com.iknow.stocktrackingbe.repository.BomRepository;
-
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -32,9 +25,8 @@ public class BomService {
     private final ProductService productService;
 
     private final BomRequestMapper bomRequestMapper;
-    private final BomDetailRequestMapper bomDetailRequestMapper;
 
-    private final BomDetailRepository bomDetailRepository;
+    private final WareHouseService wareHouseService;
 
     public List<Bom> getBomList(Pageable pageable) {
         logger.info("Service Called: getBomList");
@@ -58,17 +50,10 @@ public class BomService {
 
     public Bom createBom(BomRequest bomRequest) {
         logger.info("Service Called: createBom");
-        List<BomDetail> bomDetailList = new ArrayList<>();
         Product mainProduct = productService.getProductById(bomRequest.getProductId());
-        Bom bom = bomRequestMapper.mapToModel(bomRequest,mainProduct);
+        WareHouse wareHouse = wareHouseService.getWareHouseById(bomRequest.getWareHouseId());
+        Bom bom = bomRequestMapper.mapToModel(bomRequest,mainProduct,wareHouse);
         bomRepository.save(bom);
-        for(BomDetailRequest bomDetailRequest:bomRequest.getBomDetailRequest()){
-            Product childProduct = productService.getProductById(bomDetailRequest.getChildProductId());
-            BomDetail bomDetail = bomDetailRequestMapper.mapToModel(bomDetailRequest,mainProduct,childProduct,bom);
-            bomDetailList.add(bomDetail);
-        }
-        bom.setBomDetails(bomDetailList);
-        bomRepository.flush();
         return bom;
     }
     public Bom createDraft(BomRequest bomRequest) {

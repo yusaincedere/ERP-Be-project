@@ -1,8 +1,8 @@
 package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
-import com.iknow.stocktrackingbe.model.*;
-import com.iknow.stocktrackingbe.payload.request.ProductRequest;
-import com.iknow.stocktrackingbe.payload.request.ProductUpdateRequest;
+import com.iknow.stocktrackingbe.model.product.Product;
+import com.iknow.stocktrackingbe.payload.request.product.ProductRequest;
+import com.iknow.stocktrackingbe.payload.request.product.ProductUpdateRequest;
 import com.iknow.stocktrackingbe.payload.request.mapper.ProductRequestMapper;
 import com.iknow.stocktrackingbe.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +19,6 @@ import java.util.*;
 public class ProductService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final ProductRepository productRepository;
-
-    private final ProductUnitService productUnitService;
-
-    private final ProductTypeService productTypeService;
 
     private final ProductRequestMapper productRequestMapper;
 
@@ -61,25 +57,33 @@ public class ProductService {
         Optional<Product> optional = productRepository.findById(id);
         if(optional.isPresent()){
             Product product = optional.get();
-            ProductUnit unit = productUnitService.getProductUnitByUnitName(productUpdateRequest.getProductUnit());
-            ProductType type = productTypeService.getProductTypeByTypeName(productUpdateRequest.getProductType());
-            product.setProductType(type);
-            product.setProductName(productUpdateRequest.getProductName());
-            product.setProductCode(productUpdateRequest.getProductCode());
-            product.setProductUnit(unit);
+            product.setProductType(productUpdateRequest.getProductType()==null ? optional.get().getProductType():productUpdateRequest.getProductType());
+            product.setProductUnit(productUpdateRequest.getProductUnit()==null ? optional.get().getProductUnit():productUpdateRequest.getProductUnit());
+            product.setProductName(productUpdateRequest.getProductName()==null ? optional.get().getProductName():productUpdateRequest.getProductName());
+            product.setProductCode(productUpdateRequest.getProductCode()==null ? optional.get().getProductCode():productUpdateRequest.getProductCode());
+            product.setCost(productUpdateRequest.getCost()==null ? optional.get().getCost():productUpdateRequest.getCost());
+            product.setDescription(productUpdateRequest.getDescription()==null ? optional.get().getDescription():productUpdateRequest.getDescription());
+            product.setDimension(productUpdateRequest.getDimension()==null ? optional.get().getDimension():productRequestMapper.mapToDimension(productUpdateRequest.getDimension()));
+            product.setSelPrice(productUpdateRequest.getSelPrice()==null ? optional.get().getSelPrice():productUpdateRequest.getSelPrice());
+            product.setWeight(productUpdateRequest.getWeight()==null ? optional.get().getWeight():productRequestMapper.mapToWeight(productUpdateRequest.getWeight()));
+            product.setUrl(productUpdateRequest.getUrl()==null ? optional.get().getUrl():productUpdateRequest.getUrl());
+            product.setToBuy(productUpdateRequest.getToBuy()==null ? optional.get().getToBuy():productUpdateRequest.getToBuy());
+            product.setToSell(productUpdateRequest.getToSell()==null ? optional.get().getToSell():productUpdateRequest.getToSell());
             productRepository.flush();
+        }else{
+            throw new NotFoundException("There is no product with this id");
         }
     }
-    public void createNewProduct(ProductRequest productRequest) {
+    public Product createNewProduct(ProductRequest productRequest) {
         logger.info("Service Called: createNewProduct");
         if(productRepository.existsByProductName(productRequest.getProductName())){
             throw new IllegalStateException("A product with this name already exists");
         }else{
-            ProductUnit productUnit = productUnitService.getProductUnitByUnitName(productRequest.getProductUnit());
-            ProductType productType = productTypeService.getProductTypeByTypeName(productRequest.getProductType());
-            Product product = productRequestMapper.mapToModel(productRequest,productUnit,productType);
+            Product product = productRequestMapper.mapToModel(productRequest);
             productRepository.save(product);
             logger.info("Product created");
+            return product;
+
         }
     }
     public void deleteProducts(Set<String> ids){

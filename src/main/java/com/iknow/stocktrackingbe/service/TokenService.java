@@ -1,7 +1,7 @@
 package com.iknow.stocktrackingbe.service;
 
-import com.iknow.stocktrackingbe.model.Token;
-import com.iknow.stocktrackingbe.model.User;
+import com.iknow.stocktrackingbe.model.user.Token;
+import com.iknow.stocktrackingbe.model.user.User;
 import com.iknow.stocktrackingbe.repository.TokenRepository;
 import com.iknow.stocktrackingbe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

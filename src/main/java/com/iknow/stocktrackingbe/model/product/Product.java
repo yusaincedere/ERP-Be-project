@@ -1,13 +1,13 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.model.product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.Stock;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.awt.*;
 
 import java.math.BigDecimal;
 
@@ -30,9 +30,9 @@ public class Product extends BaseEntity{
     @Column(name = "product_name",unique = true)
     private String productName;
 
-    @ManyToOne
+    @Enumerated
     private ProductType productType;
-    @ManyToOne
+    @Enumerated
     private ProductUnit productUnit;
 
 
@@ -58,8 +58,8 @@ public class Product extends BaseEntity{
     @ManyToOne
     private Weight weight;
 
-    private boolean toBuy;
+    private Boolean toBuy;
 
-    private boolean toSell;
+    private Boolean toSell;
 
 }

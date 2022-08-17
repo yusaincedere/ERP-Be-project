@@ -1,14 +1,12 @@
-package com.iknow.stocktrackingbe.payload.request;
+package com.iknow.stocktrackingbe.payload.request.bom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.iknow.stocktrackingbe.model.Product;
-import com.iknow.stocktrackingbe.model.ProductUnit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.OneToOne;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
@@ -18,8 +16,7 @@ public class BomDetailRequest{
 
     @JsonProperty("child_product_id")
     private String childProductId;
-    @JsonProperty("child_amount")
-    private Long childAmount;
-    @JsonProperty("main_amount")
-    private Long mainAmount;
+    private BigDecimal efficiency;
+    private Long quantity;
+    private String description;
 }

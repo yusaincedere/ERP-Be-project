@@ -1,6 +1,6 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.model.product;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
+
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,9 +16,12 @@ import java.math.BigDecimal;
 @Data
 @Builder(toBuilder = true)
 @Entity
-public class Weight extends BaseEntity {
+public class Dimension extends BaseEntity {
 
     @Enumerated
-    private WeightType weightType;
-    private BigDecimal amount;
+    private DimensionType dimensionType;
+    private BigDecimal length;
+    private BigDecimal height;
+    private BigDecimal width;
+
 }

@@ -2,7 +2,7 @@ package com.iknow.stocktrackingbe.service;
 
 import com.iknow.stocktrackingbe.helper.JwtHelper;
 import com.iknow.stocktrackingbe.model.RefreshToken;
-import com.iknow.stocktrackingbe.model.User;
+import com.iknow.stocktrackingbe.model.user.User;
 import com.iknow.stocktrackingbe.payload.request.LoginRequest;
 import com.iknow.stocktrackingbe.payload.request.UserRegisterRequest;
 import com.iknow.stocktrackingbe.repository.RefreshTokenRepository;

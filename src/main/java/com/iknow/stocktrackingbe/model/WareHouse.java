@@ -1,6 +1,8 @@
 package com.iknow.stocktrackingbe.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.product.Product;
+import com.sun.jdi.PrimitiveValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,9 +32,12 @@ public class WareHouse extends BaseEntity{
     @JsonIgnore
     private List<Product> products = new ArrayList<>();
 
-    @ManyToOne()
-    @JsonIgnore
-    private Facility facility;
+    @ManyToOne
+    private WareHouse parent;
+
+    @Size(max =20,min = 8)
+    private String phone;
+
 
 
 

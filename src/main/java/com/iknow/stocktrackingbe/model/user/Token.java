@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.model.user;
 
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import lombok.Data;

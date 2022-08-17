@@ -1,5 +1,4 @@
 package com.iknow.stocktrackingbe.exception;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
@@ -9,13 +8,12 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
-public class ExceptionController implements ErrorController{
+public class  ExceptionController implements ErrorController{
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private ErrorAttributes errorAttributes;
@@ -36,7 +34,6 @@ public class ExceptionController implements ErrorController{
             List<FieldError> fieldErrors = (List<FieldError>)attributes.get("errors");
             Map<String ,String> validationExceptions =  new HashMap<>();
             for (FieldError fieldError: fieldErrors){
-
                 validationExceptions.put(fieldError.getField(),fieldError.getDefaultMessage());
             }
             exception.setValidationExceptions(validationExceptions);

@@ -37,18 +37,18 @@
 2022-08-11 14:11:51,067 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 405 Message: Request method 'POST' not supported
 2022-08-11 14:18:50,225 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 400 Message: Validation failed for object='userRegisterRequest'. Error count: 1
 2022-08-11 14:19:16,305 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 500 Message: User already exists
-2022-08-11 14:19:22,491 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.User] during persist time for groups [javax.validation.groups.Default, ]
+2022-08-11 14:19:22,491 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.user.User] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.User, messageTemplate='{javax.validation.constraints.Size.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.user.User, messageTemplate='{javax.validation.constraints.Size.message}'}
 ]
 2022-08-11 14:19:56,622 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 400 Message: Validation failed for object='userRegisterRequest'. Error count: 1
-2022-08-11 14:20:01,243 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.User] during persist time for groups [javax.validation.groups.Default, ]
+2022-08-11 14:20:01,243 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.user.User] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.User, messageTemplate='{javax.validation.constraints.Size.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.user.User, messageTemplate='{javax.validation.constraints.Size.message}'}
 ]
-2022-08-11 14:20:22,991 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.User] during persist time for groups [javax.validation.groups.Default, ]
+2022-08-11 14:20:22,991 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.user.User] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.User, messageTemplate='{javax.validation.constraints.Size.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.user.User, messageTemplate='{javax.validation.constraints.Size.message}'}
 ]
 2022-08-11 14:20:48,870 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-3] Status: 500 Message: User already exists
 2022-08-11 14:25:50,758 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 401 Message: Invalid token

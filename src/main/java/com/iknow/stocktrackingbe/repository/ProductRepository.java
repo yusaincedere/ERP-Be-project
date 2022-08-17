@@ -1,5 +1,5 @@
 package com.iknow.stocktrackingbe.repository;
-import com.iknow.stocktrackingbe.model.Product;
+import com.iknow.stocktrackingbe.model.product.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

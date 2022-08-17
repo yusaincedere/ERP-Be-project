@@ -310,24 +310,24 @@
 2022-08-11 14:19:16,305 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-2] Status: 500 Message: User already exists
 2022-08-11 14:19:22,256 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-4] Did not match request to Ant [pattern='/login', POST]
 2022-08-11 14:19:22,489 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-4] Did not match request to Ant [pattern='/login', POST]
-2022-08-11 14:19:22,491 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.User] during persist time for groups [javax.validation.groups.Default, ]
+2022-08-11 14:19:22,491 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-4] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.user.User] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.User, messageTemplate='{javax.validation.constraints.Size.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.user.User, messageTemplate='{javax.validation.constraints.Size.message}'}
 ]
 2022-08-11 14:19:56,596 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-6] Did not match request to Ant [pattern='/login', POST]
 2022-08-11 14:19:56,614 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-6] Did not match request to Ant [pattern='/login', POST]
 2022-08-11 14:19:56,622 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-6] Status: 400 Message: Validation failed for object='userRegisterRequest'. Error count: 1
 2022-08-11 14:20:01,062 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-8] Did not match request to Ant [pattern='/login', POST]
 2022-08-11 14:20:01,242 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-8] Did not match request to Ant [pattern='/login', POST]
-2022-08-11 14:20:01,243 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.User] during persist time for groups [javax.validation.groups.Default, ]
+2022-08-11 14:20:01,243 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-8] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.user.User] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.User, messageTemplate='{javax.validation.constraints.Size.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.user.User, messageTemplate='{javax.validation.constraints.Size.message}'}
 ]
 2022-08-11 14:20:22,761 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-10] Did not match request to Ant [pattern='/login', POST]
 2022-08-11 14:20:22,989 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-10] Did not match request to Ant [pattern='/login', POST]
-2022-08-11 14:20:22,991 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.User] during persist time for groups [javax.validation.groups.Default, ]
+2022-08-11 14:20:22,991 ERROR com.iknow.stocktrackingbe.exception.ExceptionController [http-nio-8080-exec-10] Status: 500 Message: Validation failed for classes [com.iknow.stocktrackingbe.model.user.User] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.User, messageTemplate='{javax.validation.constraints.Size.message}'}
+	ConstraintViolationImpl{interpolatedMessage='boyut '8' ile '15' arasında olmalı', propertyPath=password, rootBeanClass=class com.iknow.stocktrackingbe.model.user.User, messageTemplate='{javax.validation.constraints.Size.message}'}
 ]
 2022-08-11 14:20:33,181 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 5344 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
 2022-08-11 14:20:33,181 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21

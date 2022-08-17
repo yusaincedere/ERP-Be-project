@@ -1,15 +1,18 @@
-package com.iknow.stocktrackingbe.model;
+package com.iknow.stocktrackingbe.model.bom;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.WareHouse;
+import com.iknow.stocktrackingbe.model.user.User;
+import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -25,7 +28,7 @@ public class Bom  extends BaseEntity {
 
     private String bomName;
 
-    private boolean approved = false;
+    private Boolean approved = false;
 
     private LocalDate dateApproved;
 
@@ -37,16 +40,20 @@ public class Bom  extends BaseEntity {
     @OneToOne
     private User userApproved;
 
-    private double quantity;
+    private BigDecimal quantity;
 
-    private double efficiency;
+    private BigDecimal efficiency;
 
-    private boolean draft = true;
+    private Boolean draft = true;
 
     private LocalDate startDate;
     private LocalDate endDate;
     @OneToMany(mappedBy = "bom", orphanRemoval = true,cascade = CascadeType.ALL)
-    private List<BomDetail> bomDetails;
+    private List<BomDetail> bomDetails = new ArrayList<>();
+
+
+    @ManyToOne
+    private WareHouse wareHouse;
 
     @OneToOne
     private Product product;

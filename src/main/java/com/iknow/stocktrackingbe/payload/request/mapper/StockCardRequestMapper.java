@@ -1,5 +1,5 @@
 package com.iknow.stocktrackingbe.payload.request.mapper;
-import com.iknow.stocktrackingbe.model.Product;
+import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.model.StockCard;
 import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.payload.request.StockCardRequest;

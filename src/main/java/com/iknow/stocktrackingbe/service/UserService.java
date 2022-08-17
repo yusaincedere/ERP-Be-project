@@ -1,8 +1,8 @@
 package com.iknow.stocktrackingbe.service;
 
 import com.iknow.stocktrackingbe.exception.NotFoundException;
-import com.iknow.stocktrackingbe.model.User;
-import com.iknow.stocktrackingbe.model.Role;
+import com.iknow.stocktrackingbe.model.user.User;
+import com.iknow.stocktrackingbe.model.user.Role;
 import com.iknow.stocktrackingbe.payload.request.UserRegisterRequest;
 import com.iknow.stocktrackingbe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
