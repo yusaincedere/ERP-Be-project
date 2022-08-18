@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.controller;
 import com.iknow.stocktrackingbe.model.user.User;
 import com.iknow.stocktrackingbe.payload.request.RoleToUserForm;
+import com.iknow.stocktrackingbe.payload.request.UserRegisterRequest;
 import com.iknow.stocktrackingbe.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,9 +25,9 @@ public class UserController {
             return userService.getUserByUserName(username);
     }
 
-    @PostMapping("/updateUser/{username}")
-    public void updateUser(@PathVariable String username, @RequestBody User user) {
-            userService.updateUser(username, user);
+    @PutMapping("/updateUser/{username}")
+    public void updateUser(@PathVariable String username, @RequestBody UserRegisterRequest userRegisterRequest) {
+            userService.updateUser(username, userRegisterRequest);
     }
 
     @PutMapping(path = "/role/addToUser")

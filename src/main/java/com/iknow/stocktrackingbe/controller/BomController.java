@@ -36,12 +36,12 @@ public class BomController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<BomResponse>geBomById(@PathVariable String id){
+    public ResponseEntity<BomResponse>geBomById(@PathVariable Long id){
         return ResponseEntity.ok(bomResponseMapper.mapper(bomService.getBomById(id)));
     }
 
     @GetMapping("/clone/{id}")
-    public ResponseEntity<BomResponse>cloneBom(@PathVariable String id){
+    public ResponseEntity<BomResponse>cloneBom(@PathVariable Long id){
         return ResponseEntity.ok(bomResponseMapper.mapper(bomService.cloneBom(id)));
     }
 
@@ -57,7 +57,7 @@ public class BomController {
     }
 
     @PutMapping("/approve/{id}")
-    public void approveBom(@PathVariable String id){
+    public void approveBom(@PathVariable Long id){
         bomService.approveBom(id);
     }
 

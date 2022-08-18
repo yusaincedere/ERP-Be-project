@@ -1,9 +1,9 @@
 package com.iknow.stocktrackingbe.repository;
 
-import com.iknow.stocktrackingbe.model.bom.BomDetail;
+import com.iknow.stocktrackingbe.model.Stock;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BomDetailRepository extends JpaRepository<BomDetail,Long> {
+public interface StockRepository extends JpaRepository<Stock,Long> {
 }

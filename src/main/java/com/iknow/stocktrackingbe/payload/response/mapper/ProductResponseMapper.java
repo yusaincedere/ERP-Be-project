@@ -1,15 +1,11 @@
 package com.iknow.stocktrackingbe.payload.response.mapper;
 
 
-import com.iknow.stocktrackingbe.model.product.Dimension;
 import com.iknow.stocktrackingbe.model.product.Product;
 
 import com.iknow.stocktrackingbe.model.StockCard;
-import com.iknow.stocktrackingbe.model.product.Weight;
-import com.iknow.stocktrackingbe.payload.response.product.DimensionResponse;
 import com.iknow.stocktrackingbe.payload.response.product.ProductResponse;
 import com.iknow.stocktrackingbe.payload.response.StockCardResponseProduct;
-import com.iknow.stocktrackingbe.payload.response.product.WeightResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -25,8 +21,13 @@ public class ProductResponseMapper {
                 .productType(product.getProductType())
                 .description(product.getDescription())
                 .url(product.getUrl())
-                .weight(weightResponseMapper(product.getWeight()))
-                .dimension(dimensionResponseMapper(product.getDimension()))
+                .weight(product.getWeight())
+                .dimensionType(product.getDimensionType())
+                .weightType(product.getWeightType())
+                .height(product.getHeight())
+                .length(product.getLength())
+                .productUnit(product.getProductUnit())
+                .width(product.getWidth())
                 .build();
     }
     public List<ProductResponse> mapper(List<Product> products) {
@@ -48,22 +49,4 @@ public class ProductResponseMapper {
                 .map(this::stockCardMapper)
                 .collect(Collectors.toList());
     }
-
-    public WeightResponse weightResponseMapper(Weight weight){
-        return WeightResponse.builder()
-                .weightType(weight.getWeightType())
-                .amount(weight.getAmount())
-                .build();
-    }
-
-    public DimensionResponse dimensionResponseMapper(Dimension dimension){
-        return DimensionResponse.builder()
-                .length(dimension.getLength())
-                .dimensionType(dimension.getDimensionType())
-                .height(dimension.getHeight())
-                .width(dimension.getWidth())
-                .build();
-    }
-
-
 }

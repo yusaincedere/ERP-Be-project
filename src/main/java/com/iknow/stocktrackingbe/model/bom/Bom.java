@@ -4,10 +4,7 @@ import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.model.user.User;
 import com.iknow.stocktrackingbe.model.product.Product;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -17,7 +14,8 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder(toBuilder = true)
 @Entity
 public class Bom  extends BaseEntity {

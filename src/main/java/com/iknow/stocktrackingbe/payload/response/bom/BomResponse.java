@@ -1,20 +1,19 @@
 package com.iknow.stocktrackingbe.payload.response.bom;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class BomResponse {
 
-    private String id;
+    private Long id;
     @JsonProperty("bom_code")
     private String bomCode;
     @JsonProperty("bom_name")
@@ -26,7 +25,7 @@ public class BomResponse {
     @JsonProperty("product_name")
     private String mainProductName;
     @JsonProperty("product_id")
-    private String mainProductID;
+    private Long mainProductID;
     @JsonProperty("quantity")
     private BigDecimal mainProductQuantity;
 

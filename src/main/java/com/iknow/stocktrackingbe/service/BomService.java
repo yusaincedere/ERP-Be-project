@@ -37,7 +37,7 @@ public class BomService {
         logger.info("Service Called: getBomList");
         return bomRepository.findAllByBomName(name,page).getContent();
     }
-    public Bom getBomById(String id) {
+    public Bom getBomById(Long id) {
         logger.info("Service Called: geBomById");
         Optional<Bom> optional = bomRepository.findById(id);
         if(optional.isPresent()){
@@ -62,20 +62,18 @@ public class BomService {
         bomRepository.flush();
         return bom;
     }
-    public void approveBom(String id) {
+    public void approveBom(Long id) {
         logger.info("Service Called: approveBom");
         Bom bom = getBomById(id);
         bom.setApproved(true);
         bomRepository.flush();
     }
 
-    public void deleteBom(Set<String> idList) {
+    public void deleteBom(Set<Long> idList) {
         logger.info("Service Called: deleteBom");
         bomRepository.deleteByIdIn(idList);
-
     }
-
-    public Bom cloneBom(String id) {
+    public Bom cloneBom(Long id) {
         logger.info("Service Called: clonePrescription");
         Bom bom = getBomById(id);
         return new Bom().toBuilder()
@@ -87,8 +85,4 @@ public class BomService {
                 .bomDetails(bom.getBomDetails())
                 .build();
     }
-
-
-
-
 }

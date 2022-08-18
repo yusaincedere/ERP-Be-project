@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface TokenRepository  extends JpaRepository<Token,String> {
+public interface TokenRepository  extends JpaRepository<Token,Long> {
     Optional<Token> findByToken(String token);
 
 }

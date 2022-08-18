@@ -2,16 +2,14 @@ package com.iknow.stocktrackingbe.payload.request.bom;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -23,11 +21,11 @@ public class BomRequest {
     @JsonProperty("end_date")
     private LocalDate endDate;
     @JsonProperty("product_id")
-    private String productId;
+    private Long productId;
     @JsonProperty("quantity")
     private BigDecimal quantity;
     private BigDecimal efficiency;
     private String description;
     @JsonProperty("ware_house_id")
-    private String wareHouseId;
+    private Long wareHouseId;
 }

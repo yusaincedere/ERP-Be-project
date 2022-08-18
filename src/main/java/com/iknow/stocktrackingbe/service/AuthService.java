@@ -68,7 +68,7 @@ public class AuthService {
         map.put("access_token", access_token);
         map.put("refresh_token", refreshToken.getToken());
         map.put("username", user.getUsername());
-        map.put("id", user.getId());
+        map.put("id", user.getId().toString());
         return map;
     }
 

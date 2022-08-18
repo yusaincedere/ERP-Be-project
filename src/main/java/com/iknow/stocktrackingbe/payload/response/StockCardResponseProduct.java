@@ -1,12 +1,10 @@
 package com.iknow.stocktrackingbe.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -15,5 +13,5 @@ public class StockCardResponseProduct {
     private String stockCode;
     @JsonProperty("stock_count")
     private Long stockCount;
-    private String id;
+    private Long id;
 }

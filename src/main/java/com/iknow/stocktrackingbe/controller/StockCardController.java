@@ -18,7 +18,7 @@ public class StockCardController {
 
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<StockCard> getStockCardById(@PathVariable String id){
+    public ResponseEntity<StockCard> getStockCardById(@PathVariable Long id){
         return ResponseEntity.ok(stockCardService.getStockCardById(id));
     }
 
@@ -32,12 +32,12 @@ public class StockCardController {
     }
 
     @GetMapping("/warehouse/{id}")
-    public ResponseEntity<List<StockCard>> getStockCardByWareHouseId(@PathVariable String id,Pageable pageable){
+    public ResponseEntity<List<StockCard>> getStockCardByWareHouseId(@PathVariable Long id,Pageable pageable){
         return ResponseEntity.ok(stockCardService.getStockCardByWareHouseId(id,pageable));
     }
 
     @PutMapping("/{id}/approve")
-    public ResponseEntity<StockCard> approveStockCard(@PathVariable String id){
+    public ResponseEntity<StockCard> approveStockCard(@PathVariable Long id){
         return ResponseEntity.ok(stockCardService.approveStockCard(id));
     }
 

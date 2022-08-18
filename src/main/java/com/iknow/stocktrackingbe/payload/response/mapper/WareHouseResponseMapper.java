@@ -2,38 +2,29 @@ package com.iknow.stocktrackingbe.payload.response.mapper;
 
 import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.model.product.Product;
-import com.iknow.stocktrackingbe.payload.response.WareHouseProductResponse;
 import com.iknow.stocktrackingbe.payload.response.WareHouseResponse;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class WareHouseResponseMapper {
 
+    private final StockResponseMapper stockResponseMapper;
     public WareHouseResponse mapper(WareHouse wareHouse) {
         return  WareHouseResponse.builder()
                 .id(wareHouse.getId())
-                .wareHouseProducts(toResponse(wareHouse.getProducts()))
+                .stocks(stockResponseMapper.mapper(wareHouse.getStocks()))
                 .name(wareHouse.getName())
+                .parentId(wareHouse.getParent()==null ? null:wareHouse.getParent().getId())
+                .parentName(wareHouse.getParent()==null ? null:wareHouse.getParent().getName())
                 .build();
     }
 
-
-    public WareHouseProductResponse toResponse(Product product){
-        return WareHouseProductResponse.builder()
-                .name(product.getProductName())
-                .id(product.getId())
-                .build();
-    }
-
-    public List<WareHouseProductResponse> toResponse(List<Product> products){
-        return products.stream()
-                .map(this::toResponse)
-                .collect(Collectors.toList());
-    }
 
     public List<WareHouseResponse> mapper(List<WareHouse> wareHouses){
         return wareHouses.stream()

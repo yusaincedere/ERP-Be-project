@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
+import com.iknow.stocktrackingbe.model.Stock;
 import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.payload.request.product.ProductRequest;
 import com.iknow.stocktrackingbe.payload.request.product.ProductUpdateRequest;
@@ -34,7 +35,7 @@ public class ProductService {
         }
     }
 
-    public Product getProductById(String id) {
+    public Product getProductById(Long id) {
         logger.info("Service Called: getProductById");
         Optional<Product> optional =  productRepository.findById(id);
         if(optional.isPresent()){
@@ -53,7 +54,12 @@ public class ProductService {
             throw new NotFoundException("There is no product with this name");
         }
     }
-    public void updateProduct(String id, ProductUpdateRequest productUpdateRequest) {
+
+    public List<Stock> getProductStocks(Long id) {
+        Product product = getProductById(id);
+        return product.getStocks();
+    }
+    public void updateProduct(Long id, ProductUpdateRequest productUpdateRequest) {
         Optional<Product> optional = productRepository.findById(id);
         if(optional.isPresent()){
             Product product = optional.get();
@@ -63,9 +69,13 @@ public class ProductService {
             product.setProductCode(productUpdateRequest.getProductCode()==null ? optional.get().getProductCode():productUpdateRequest.getProductCode());
             product.setCost(productUpdateRequest.getCost()==null ? optional.get().getCost():productUpdateRequest.getCost());
             product.setDescription(productUpdateRequest.getDescription()==null ? optional.get().getDescription():productUpdateRequest.getDescription());
-            product.setDimension(productUpdateRequest.getDimension()==null ? optional.get().getDimension():productRequestMapper.mapToDimension(productUpdateRequest.getDimension()));
+            product.setDimensionType(productUpdateRequest.getDimensionType()==null ? optional.get().getDimensionType():productUpdateRequest.getDimensionType());
             product.setSelPrice(productUpdateRequest.getSelPrice()==null ? optional.get().getSelPrice():productUpdateRequest.getSelPrice());
-            product.setWeight(productUpdateRequest.getWeight()==null ? optional.get().getWeight():productRequestMapper.mapToWeight(productUpdateRequest.getWeight()));
+            product.setWeightType(productUpdateRequest.getWeightType()==null ? optional.get().getWeightType():productUpdateRequest.getWeightType());
+            product.setWeight(productUpdateRequest.getWeight()==null ? optional.get().getWeight():productUpdateRequest.getWeight());
+            product.setLength(productUpdateRequest.getLength()==null ? optional.get().getLength():productUpdateRequest.getLength());
+            product.setWidth(productUpdateRequest.getWidth()==null ? optional.get().getWidth():productUpdateRequest.getWidth());
+            product.setHeight(productUpdateRequest.getHeight()==null ? optional.get().getHeight():productUpdateRequest.getHeight());
             product.setUrl(productUpdateRequest.getUrl()==null ? optional.get().getUrl():productUpdateRequest.getUrl());
             product.setToBuy(productUpdateRequest.getToBuy()==null ? optional.get().getToBuy():productUpdateRequest.getToBuy());
             product.setToSell(productUpdateRequest.getToSell()==null ? optional.get().getToSell():productUpdateRequest.getToSell());
@@ -86,10 +96,11 @@ public class ProductService {
 
         }
     }
-    public void deleteProducts(Set<String> ids){
+    public void deleteProducts(Set<Long> ids){
         logger.info("Service Called: deleteProducts");
         productRepository.deleteByIdIn(ids);
         logger.info("Products deleted");
     }
+
 
 }

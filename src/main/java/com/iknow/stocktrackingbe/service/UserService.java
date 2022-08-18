@@ -21,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -83,16 +84,16 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public void updateUser(String username, User user) {
+    public void updateUser(String username, UserRegisterRequest userRegisterRequest) {
         Optional<User> existingUser =userRepository.findByUsername(username);
 
         if(existingUser.isPresent()){
             User userObject = existingUser.get();
-            userObject.setName(user.getName() == null ? existingUser.get().getName() : user.getName());
-            userObject.setUsername(user.getUsername() == null ? existingUser.get().getUsername() : user.getUsername());
-            userObject.setRole(user.getRole() == null  ? existingUser.get().getRole() : user.getRole());
-            userObject.setLastName(user.getLastName() == null  ? existingUser.get().getLastName() : user.getLastName());
-            userRepository.save(userObject);
+            userObject.setName(userRegisterRequest.getName() == null ? existingUser.get().getName() : userRegisterRequest.getName());
+            userObject.setUsername(userRegisterRequest.getUsername() == null ? existingUser.get().getUsername() : userRegisterRequest.getUsername());
+            userObject.setLastName(userRegisterRequest.getLastName() == null  ? existingUser.get().getLastName() : userRegisterRequest.getLastName());
+            userObject.setLastUpdated(LocalDate.now());
+            userRepository.flush();
         }else {
             throw new NotFoundException("User not found!");
         }
@@ -109,7 +110,7 @@ public class UserService implements UserDetailsService {
                 true, true, true, true, Collections.singletonList(authority));
     }
 
-    public User getUserById(String id) {
+    public User getUserById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("User not found"));
     }

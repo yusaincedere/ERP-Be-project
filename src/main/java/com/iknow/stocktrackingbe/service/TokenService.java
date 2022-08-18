@@ -24,7 +24,7 @@ public class TokenService {
 
         Token confirmationToken = new Token(token,
                 LocalDateTime.now(ZoneId.of("Europe/Istanbul")).toString(),
-                LocalDateTime.now(ZoneId.of("Europe/Istanbul")).plusDays(30).toString(), user.getId());
+                LocalDateTime.now(ZoneId.of("Europe/Istanbul")).plusDays(30).toString(), user.getId().toString());
 
         tokenRepository.save(confirmationToken);
     }

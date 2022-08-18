@@ -1,9 +1,15 @@
 package com.iknow.stocktrackingbe.controller;
 
+import com.iknow.stocktrackingbe.model.Stock;
+import com.iknow.stocktrackingbe.model.StockCard;
 import com.iknow.stocktrackingbe.model.WareHouse;
+import com.iknow.stocktrackingbe.payload.request.IdListRequest;
+import com.iknow.stocktrackingbe.payload.request.StockRequest;
 import com.iknow.stocktrackingbe.payload.request.WareHouseRequest;
 import com.iknow.stocktrackingbe.payload.response.StockCardResponse;
+import com.iknow.stocktrackingbe.payload.response.StockResponse;
 import com.iknow.stocktrackingbe.payload.response.WareHouseResponse;
+import com.iknow.stocktrackingbe.payload.response.mapper.StockResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.WareHouseResponseMapper;
 import com.iknow.stocktrackingbe.service.WareHouseService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +26,10 @@ import java.util.List;
 public class WareHouseController {
     private final WareHouseService wareHouseService;
     private final WareHouseResponseMapper wareHouseResponseMapper;
+
+    private final StockResponseMapper stockResponseMapper;
     @GetMapping(path = "/id/{id}")
-    public ResponseEntity<WareHouseResponse> getWareHouseById(@PathVariable  String id){
+    public ResponseEntity<WareHouseResponse> getWareHouseById(@PathVariable  Long id){
         return ResponseEntity.ok(wareHouseResponseMapper.mapper(wareHouseService.getWareHouseById(id)));
     }
     @GetMapping
@@ -29,12 +37,38 @@ public class WareHouseController {
         return  ResponseEntity.ok(wareHouseResponseMapper.mapper(wareHouseService.getWareHouses(page)));
     }
 
-    @GetMapping(path = "/{warehouseId}/stocks")
-    public List<StockCardResponse> getStocks(@PathVariable String warehouseId){
-        return  wareHouseService.getStocks(warehouseId);
+    @GetMapping(path = "/warehouses/{parentId}")
+    public ResponseEntity<List<WareHouseResponse>> getAllChildWarehouses(@PathVariable Long parentId){
+        return  ResponseEntity.ok(wareHouseResponseMapper.mapper(wareHouseService.getAllChildWarehouses(parentId)));
+    }
+
+    @GetMapping(path = "/stocks/{id}")
+    public ResponseEntity<List<StockResponse>> getWareHouseStocks(@PathVariable Long id){
+        return  ResponseEntity.ok(stockResponseMapper.mapper(wareHouseService.getWareHouseStocks(id)));
     }
     @PostMapping
     public void createWareHouse(@RequestBody WareHouseRequest wareHouseRequest){
         wareHouseService.createWareHouse(wareHouseRequest);
+    }
+
+    @PutMapping("/update/{id}")
+    public void updateWareHouse(@PathVariable Long id ,@RequestBody WareHouseRequest wareHouseRequest){
+        wareHouseService.updateWareHouse(id,wareHouseRequest);
+    }
+
+    @PutMapping("/addStock/{id}")
+    public void addStockToWareHouse(@PathVariable Long id ,@RequestBody StockRequest stockRequest){
+        wareHouseService.addStockToWareHouse(id,stockRequest);
+    }
+
+    @PutMapping("/deleteStock/{wareHoseId}")
+    public void deleteStockFromWareHouse(@PathVariable Long wareHoseId ,@RequestBody IdListRequest idListRequest){
+        wareHouseService.deleteStockFromWareHouse(wareHoseId,idListRequest);
+    }
+
+    @DeleteMapping(path = "/delete")
+    public void deleteWareHouses(@RequestBody IdListRequest idList){
+
+        wareHouseService.deleteWareHouses(idList.getIdList());
     }
 }

@@ -3,10 +3,7 @@ package com.iknow.stocktrackingbe.payload.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iknow.stocktrackingbe.model.Address;
 import com.iknow.stocktrackingbe.model.WareHouse;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -14,7 +11,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -28,7 +26,7 @@ public class WareHouseRequest {
 
 
     @JsonProperty("parent_id")
-    private String parentId;
+    private Long parentId;
 
 
     @Size(max =20,min = 8)

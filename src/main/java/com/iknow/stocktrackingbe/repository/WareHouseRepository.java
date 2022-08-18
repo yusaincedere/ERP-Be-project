@@ -7,10 +7,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Set;
+
 @Repository
-public interface WareHouseRepository extends JpaRepository<WareHouse,String> {
+public interface WareHouseRepository extends JpaRepository<WareHouse,Long> {
 
     Page<WareHouse> findAllByNameContainingIgnoreCase(String name, Pageable pageable);
 
-    boolean existsWareHouseByProductsIsContaining(Product product);
+
+
+    List<WareHouse> findAllByParentId(Long parentId);
+
+    void deleteByIdIn(Set<Long> idList);
 }

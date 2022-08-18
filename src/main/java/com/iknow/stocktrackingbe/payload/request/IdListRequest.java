@@ -1,18 +1,16 @@
 package com.iknow.stocktrackingbe.payload.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
 
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class IdListRequest {
-    private Set<String> idList;
+    private Set<Long> idList;
 }

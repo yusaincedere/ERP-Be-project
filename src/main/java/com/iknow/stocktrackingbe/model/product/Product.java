@@ -2,10 +2,8 @@ package com.iknow.stocktrackingbe.model.product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.Stock;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +14,8 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder(toBuilder = true)
 @Entity
 @Table(name = "product", uniqueConstraints={
@@ -52,11 +51,20 @@ public class Product extends BaseEntity{
 
     private BigDecimal cost;
 
-    @ManyToOne
-    private Dimension dimension;
 
-    @ManyToOne
-    private Weight weight;
+    @Enumerated
+    private DimensionType dimensionType;
+
+    private BigDecimal length;
+
+    private BigDecimal width;
+
+    private BigDecimal height;
+
+    @Enumerated
+    private WeightType weightType;
+
+    private BigDecimal weight;
 
     private Boolean toBuy;
 

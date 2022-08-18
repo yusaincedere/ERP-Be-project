@@ -13,11 +13,11 @@ import java.util.Set;
 
 @Repository
 @Transactional
-public interface StockCardRepository extends JpaRepository<StockCard,String> {
+public interface StockCardRepository extends JpaRepository<StockCard,Long> {
 
-    Set<StockCard> findAllByWareHouseId(String id);
+    Set<StockCard> findAllByWareHouseId(Long id);
 
-    Page<StockCard> findAllByWareHouseId(String id,Pageable pageable);
+    Page<StockCard> findAllByWareHouseId(Long id,Pageable pageable);
 
     Page<StockCard> findAllByWareHouseAddressCity(String city,Pageable pageable);
 

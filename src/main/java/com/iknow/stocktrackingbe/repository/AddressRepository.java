@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Repository
 @Transactional
-public interface AddressRepository extends JpaRepository<Address,String> {
+public interface AddressRepository extends JpaRepository<Address,Long> {
 
     Page<Address> findAllByCity(String city, Pageable pageable);
 

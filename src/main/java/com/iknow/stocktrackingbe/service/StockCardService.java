@@ -22,12 +22,12 @@ public class StockCardService {
     private final StockCardRepository stockCardRepository;
 
 
-    public Set<StockCard> findAllByWareHouseId(String id) {
+    public Set<StockCard> findAllByWareHouseId(Long id) {
         logger.info("Service called: findAllByWareHouseId");
         return stockCardRepository.findAllByWareHouseId(id);
     }
 
-    public List<StockCard> getStockCardByWareHouseId(String warehouseId, Pageable pageable) {
+    public List<StockCard> getStockCardByWareHouseId(Long warehouseId, Pageable pageable) {
         logger.info("Service called: getStockCardByWareHouseId");
         Page<StockCard> stockCardPage = stockCardRepository.findAllByWareHouseId(warehouseId,pageable);
         return stockCardPage.getContent();
@@ -47,7 +47,7 @@ public class StockCardService {
 
 
 
-    public StockCard getStockCardById(String id) {
+    public StockCard getStockCardById(Long id) {
         logger.info("Service called: getStockCardById");
         Optional<StockCard> optional = stockCardRepository.findById(id);
         if(optional.isPresent()){
@@ -59,7 +59,7 @@ public class StockCardService {
 
 
 
-    public StockCard approveStockCard(String id) {
+    public StockCard approveStockCard(Long id) {
         logger.info("Service called: getStockCardById");
         Optional<StockCard> optional = stockCardRepository.findById(id);
         if (optional.isPresent()) {

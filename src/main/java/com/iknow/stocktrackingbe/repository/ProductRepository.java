@@ -12,14 +12,14 @@ import java.util.Set;
 
 @Repository
 @Transactional
-public interface ProductRepository extends JpaRepository<Product,String> {
-    void deleteByIdIn(Set<String> ids);
+public interface ProductRepository extends JpaRepository<Product,Long> {
+    void deleteByIdIn(Set<Long> ids);
 
     Page<Product> findAllByProductNameContainingIgnoreCase(String name, Pageable pageable);
 
     boolean existsByProductName(String name);
 
 
-    List<Product> findAllByIdIn(List<String> ids);
+    List<Product> findAllByIdIn(List<Long> ids);
 
 }

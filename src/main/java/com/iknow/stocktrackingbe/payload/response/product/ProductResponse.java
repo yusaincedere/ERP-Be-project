@@ -1,19 +1,20 @@
 package com.iknow.stocktrackingbe.payload.response.product;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.iknow.stocktrackingbe.model.product.Dimension;
+import com.iknow.stocktrackingbe.model.product.DimensionType;
 import com.iknow.stocktrackingbe.model.product.ProductType;
-import com.iknow.stocktrackingbe.model.product.Weight;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.iknow.stocktrackingbe.model.product.ProductUnit;
+import com.iknow.stocktrackingbe.model.product.WeightType;
+import lombok.*;
 
-@Data
+import java.math.BigDecimal;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ProductResponse {
-    private String id;
+    private Long id;
     @JsonProperty("product_code")
     private String productCode;
     @JsonProperty("name")
@@ -26,10 +27,20 @@ public class ProductResponse {
     private String description;
 
     private String url;
+    @JsonProperty("weight_type")
+    private WeightType weightType;
 
-    private WeightResponse weight;
+    private BigDecimal weight;
 
-    private DimensionResponse dimension;
+    @JsonProperty("dimension_type")
+    private DimensionType dimensionType;
 
+    private BigDecimal length;
+
+    private BigDecimal width;
+
+    private BigDecimal height;
+
+    private ProductUnit productUnit;
 
 }

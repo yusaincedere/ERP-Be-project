@@ -3,10 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.product.Product;
 import com.sun.jdi.PrimitiveValue;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,7 +14,8 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder(toBuilder = true)
 @Entity
 public class WareHouse extends BaseEntity{
@@ -25,20 +23,16 @@ public class WareHouse extends BaseEntity{
     @NotNull
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Product> products = new ArrayList<>();
+    private List<Stock> stocks = new ArrayList<>();
 
     @ManyToOne
     private WareHouse parent;
 
     @Size(max =20,min = 8)
     private String phone;
-
-
-
-
 }

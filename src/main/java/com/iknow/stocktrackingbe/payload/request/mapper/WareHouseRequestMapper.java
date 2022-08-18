@@ -10,6 +10,8 @@ public class WareHouseRequestMapper {
     public WareHouse mapToModel(WareHouseRequest wareHouseRequest) {
         return new WareHouse().toBuilder()
                 .name(wareHouseRequest.getName())
+                .address(wareHouseRequest.getAddress())
+                .phone(wareHouseRequest.getPhone())
                 .build();
     }
 }

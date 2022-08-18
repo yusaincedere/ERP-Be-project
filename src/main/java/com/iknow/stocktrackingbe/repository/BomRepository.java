@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Repository
 @Transactional
-public interface BomRepository  extends JpaRepository<Bom,String > {
+public interface BomRepository  extends JpaRepository<Bom,Long > {
 
 
     boolean existsByBomCode(String code);
@@ -20,7 +20,7 @@ public interface BomRepository  extends JpaRepository<Bom,String > {
 
     Page<Bom> findAllByBomName(String name, Pageable pageable);
 
-    void deleteByIdIn(Set<String> ids);
+    void deleteByIdIn(Set<Long> ids);
 
 
 
