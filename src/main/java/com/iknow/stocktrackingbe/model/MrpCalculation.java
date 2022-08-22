@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 
-import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.bom.Bom;
 import com.iknow.stocktrackingbe.model.bom.BomDetail;
 import com.iknow.stocktrackingbe.model.product.Product;
@@ -49,14 +49,5 @@ public class MrpCalculation extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
     private SupplyType supplyType;
-
-
-
-
-
-
-
-
-
 
 }

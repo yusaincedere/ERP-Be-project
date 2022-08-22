@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.payload.response.bom;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -19,8 +20,10 @@ public class BomResponse {
     @JsonProperty("bom_name")
     private String bomName;
     @JsonProperty("start_date")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startDate;
     @JsonProperty("end_date")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endDate;
     @JsonProperty("product_name")
     private String mainProductName;
@@ -41,5 +44,9 @@ public class BomResponse {
     @JsonProperty("bom_details")
     private List<BomDetailResponse> bomDetailResponses;
 
+    @JsonProperty("total_cost")
+    private BigDecimal totalCost;
+    @JsonProperty("unit_cost")
+    private BigDecimal unitCost;
 
 }

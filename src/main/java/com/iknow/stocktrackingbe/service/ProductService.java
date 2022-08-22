@@ -1,7 +1,9 @@
 package com.iknow.stocktrackingbe.service;
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.Stock;
+import com.iknow.stocktrackingbe.model.bom.Bom;
 import com.iknow.stocktrackingbe.model.product.Product;
+import com.iknow.stocktrackingbe.model.product.ProductType;
 import com.iknow.stocktrackingbe.payload.request.product.ProductRequest;
 import com.iknow.stocktrackingbe.payload.request.product.ProductUpdateRequest;
 import com.iknow.stocktrackingbe.payload.request.mapper.ProductRequestMapper;
@@ -23,6 +25,7 @@ public class ProductService {
 
     private final ProductRequestMapper productRequestMapper;
 
+    private final BomService bomService;
 
 
     public List<Product> getProducts(Pageable page) {
@@ -31,6 +34,7 @@ public class ProductService {
         if(!productsPage.getContent().isEmpty()){
            return productsPage.getContent();
         }else {
+            logger.warn("There is no product");
             throw new NotFoundException("There is no product");
         }
     }
@@ -46,20 +50,29 @@ public class ProductService {
         }
     }
     public List<Product> searchByProductName(String name, Pageable pageable) {
-        logger.info("Service Called: getProductById");
+        logger.info("Service Called: searchByProductName");
         Page<Product> productPage = productRepository.findAllByProductNameContainingIgnoreCase(name,pageable);
         if(!productPage.getContent().isEmpty()){
             return productPage.getContent();
         }else{
+            logger.warn("There is no product with this name");
             throw new NotFoundException("There is no product with this name");
         }
     }
 
     public List<Stock> getProductStocks(Long id) {
+        logger.info("Service Called: getProductStocks");
         Product product = getProductById(id);
         return product.getStocks();
     }
+
+    public List<Bom> findBomListByProductID(Long id) {
+        logger.info("Service Called: findBomListByProductID");
+        Product product = getProductById(id);
+        return bomService.findBomListByProduct(product);
+    }
     public void updateProduct(Long id, ProductUpdateRequest productUpdateRequest) {
+        logger.info("Service Called: updateProduct");
         Optional<Product> optional = productRepository.findById(id);
         if(optional.isPresent()){
             Product product = optional.get();
@@ -81,12 +94,14 @@ public class ProductService {
             product.setToSell(productUpdateRequest.getToSell()==null ? optional.get().getToSell():productUpdateRequest.getToSell());
             productRepository.flush();
         }else{
+            logger.warn("There is no product with this id");
             throw new NotFoundException("There is no product with this id");
         }
     }
     public Product createNewProduct(ProductRequest productRequest) {
         logger.info("Service Called: createNewProduct");
         if(productRepository.existsByProductName(productRequest.getProductName())){
+            logger.error("A product with this name already exists");
             throw new IllegalStateException("A product with this name already exists");
         }else{
             Product product = productRequestMapper.mapToModel(productRequest);
@@ -101,6 +116,4 @@ public class ProductService {
         productRepository.deleteByIdIn(ids);
         logger.info("Products deleted");
     }
-
-
 }

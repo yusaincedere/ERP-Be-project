@@ -1,6 +1,4 @@
-package com.iknow.stocktrackingbe.BaseEntity;
-
-import org.hibernate.annotations.GenericGenerator;
+package com.iknow.stocktrackingbe.model.BaseEntity;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.GeneratedValue;

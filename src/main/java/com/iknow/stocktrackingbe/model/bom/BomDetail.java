@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model.bom;
 
-import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.product.Product;
 import lombok.*;
 
@@ -30,6 +30,10 @@ public class BomDetail extends BaseEntity{
 
 
     private String description;
+
+    private BigDecimal bomDetailCost = new BigDecimal(0);
+
+    private BigDecimal totalBomDetailCost = new BigDecimal(0);
 
 
     private BigDecimal efficiency;

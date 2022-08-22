@@ -17,6 +17,7 @@ public interface WareHouseRepository extends JpaRepository<WareHouse,Long> {
 
 
 
+
     List<WareHouse> findAllByParentId(Long parentId);
 
     void deleteByIdIn(Set<Long> idList);

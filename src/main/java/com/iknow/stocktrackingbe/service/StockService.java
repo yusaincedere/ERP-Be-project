@@ -2,6 +2,7 @@ package com.iknow.stocktrackingbe.service;
 
 import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.Stock;
+import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.repository.StockRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -30,8 +31,9 @@ public class StockService {
         }
     }
 
-
-
+    public boolean existsByProductId(Long productId, Long wareHouseId){
+        return existsByProductId(productId,wareHouseId);
+    }
     public List<Stock> getAllStocksByIdList(Set<Long> idList){
         return stockRepository.findAllById(idList);
     }

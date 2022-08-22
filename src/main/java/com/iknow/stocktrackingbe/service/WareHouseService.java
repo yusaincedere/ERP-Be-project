@@ -8,6 +8,7 @@ import com.iknow.stocktrackingbe.payload.request.StockRequest;
 import com.iknow.stocktrackingbe.payload.request.WareHouseRequest;
 import com.iknow.stocktrackingbe.payload.request.mapper.StockRequestMapper;
 import com.iknow.stocktrackingbe.payload.request.mapper.WareHouseRequestMapper;
+import com.iknow.stocktrackingbe.repository.ProductRepository;
 import com.iknow.stocktrackingbe.repository.WareHouseRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -25,13 +26,11 @@ public class WareHouseService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final WareHouseRepository wareHouseRepository;
 
-    private final ProductService productService;
+    private final ProductRepository productRepository;
 
     private final WareHouseRequestMapper wareHouseRequestMapper;
 
     private final StockRequestMapper stockRequestMapper;
-
-
 
     private final StockService stockService;
 
@@ -102,15 +101,19 @@ public class WareHouseService {
     public void addStockToWareHouse(Long id, StockRequest stockRequest) {
         logger.info("Service Called: updateWareHouse");
         WareHouse wareHouse = getWareHouseById(id);
-        Product product = productService.getProductById(stockRequest.getProductId());
-        Stock stock = stockRequestMapper.mapToModel(stockRequest,wareHouse,product);
-        wareHouse.getStocks().add(stock);
-        product.getStocks().add(stock);
-        wareHouseRepository.flush();
-        logger.info("Stock added to warehouse: " + wareHouse.getName());
+        if(stockService.existsByProductId(stockRequest.getProductId(),wareHouse.getId())){
+            throw new IllegalStateException("This product already exists in this warehouse");
+        }else{
+            Product product = productRepository.findById(stockRequest.getProductId()).orElseThrow(() -> new NotFoundException("There is no product with this id"));;
+            Stock stock = stockRequestMapper.mapToModel(stockRequest,wareHouse,product);
+            wareHouse.getStocks().add(stock);
+            product.getStocks().add(stock);
+            wareHouseRepository.flush();
+            logger.info("Stock added to warehouse: " + wareHouse.getName());
+        }
     }
 
-    public void deleteStockFromWareHouse(Long wareHoseId, IdListRequest idListRequest) {
+    public void deleteStockFromWareHouse(Long wareHoseId, IdListRequest idListRequest){
         WareHouse wareHouse = getWareHouseById(wareHoseId);
         List<Stock> stocks = stockService.getAllStocksByIdList(idListRequest.getIdList());
         wareHouse.getStocks().removeAll(stocks);

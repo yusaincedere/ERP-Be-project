@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model.bom;
 
-import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.model.user.User;
 import com.iknow.stocktrackingbe.model.product.Product;
@@ -48,6 +48,10 @@ public class Bom  extends BaseEntity {
     private LocalDate endDate;
     @OneToMany(mappedBy = "bom", orphanRemoval = true,cascade = CascadeType.ALL)
     private List<BomDetail> bomDetails = new ArrayList<>();
+
+    private BigDecimal totalCost =new BigDecimal(0);
+
+    private BigDecimal unitCost = new BigDecimal(0);
 
 
     @ManyToOne

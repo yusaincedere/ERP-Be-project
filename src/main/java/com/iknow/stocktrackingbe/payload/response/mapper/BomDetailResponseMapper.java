@@ -18,6 +18,8 @@ public class BomDetailResponseMapper {
                 .description(bomDetail.getDescription())
                 .efficiency(bomDetail.getEfficiency())
                 .childProductName(bomDetail.getChildProduct().getProductName())
+                .bomDetailCost(bomDetail.getBomDetailCost())
+                .totalBomDetailCost(bomDetail.getTotalBomDetailCost())
                 .build();
     }
     public List<BomDetailResponse> mapper(List<BomDetail> bomDetails) {

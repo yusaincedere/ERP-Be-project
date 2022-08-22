@@ -1,7 +1,10 @@
 package com.iknow.stocktrackingbe.controller;
 
+import com.iknow.stocktrackingbe.payload.request.bom.BomDetailRequest;
 import com.iknow.stocktrackingbe.payload.request.bom.BomRequest;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
+import com.iknow.stocktrackingbe.payload.response.bom.BomListResponse;
+import com.iknow.stocktrackingbe.payload.response.mapper.BomListResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.BomResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.bom.BomResponse;
 import com.iknow.stocktrackingbe.service.BomService;
@@ -22,17 +25,19 @@ public class BomController {
     
     private final BomResponseMapper bomResponseMapper;
 
+    private final BomListResponseMapper bomListResponseMapper;
+
 
 
 
     @GetMapping("/bomList")
-    public ResponseEntity<List<BomResponse>>getBomList(Pageable page){
-        return ResponseEntity.ok(bomResponseMapper.mapper(bomService.getBomList(page)));
+    public ResponseEntity<List<BomListResponse>>getBomList(Pageable page){
+        return ResponseEntity.ok(bomListResponseMapper.mapper(bomService.getBomList(page)));
     }
 
     @GetMapping("/name/{name}")
-    public ResponseEntity<List<BomResponse>>getBomList(@PathVariable String name, Pageable page){
-        return ResponseEntity.ok(bomResponseMapper.mapper(bomService.getBomListByName(name,page)));
+    public ResponseEntity<List<BomListResponse>>getBomList(@PathVariable String name, Pageable page){
+        return ResponseEntity.ok(bomListResponseMapper.mapper(bomService.getBomListByName(name,page)));
     }
 
     @GetMapping("/id/{id}")
@@ -61,10 +66,27 @@ public class BomController {
         bomService.approveBom(id);
     }
 
+    @PutMapping("/addBomDetail/{id}")
+    public void addBomDetail(@PathVariable Long id, @RequestBody BomDetailRequest bomDetailRequest){
+        bomService.addBomDetail(id,bomDetailRequest);
+    }
+
+    @PutMapping("/{id}/update")
+    public void updateBom(
+            @PathVariable Long id,
+            @Valid @RequestBody BomRequest bomRequest){
+        bomService.updateBom(id,bomRequest);
+    }
+
+    @PutMapping("/{id}/updateDetail")
+    public void updateBomDetail(
+            @PathVariable Long id,
+            @Valid @RequestBody BomDetailRequest bomDetailRequest){
+        bomService.updateBomDetail(id,bomDetailRequest);
+    }
+
     @DeleteMapping(path = "/delete")
     public void deleteProducts(@RequestBody IdListRequest idList){
         bomService.deleteBom(idList.getIdList());
     }
-
-    
 }

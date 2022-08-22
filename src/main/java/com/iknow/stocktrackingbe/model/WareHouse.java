@@ -1,8 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
-import com.iknow.stocktrackingbe.model.product.Product;
-import com.sun.jdi.PrimitiveValue;
+import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -35,4 +33,7 @@ public class WareHouse extends BaseEntity{
 
     @Size(max =20,min = 8)
     private String phone;
+
+    private Long uniqueItemCount = 0L;
+
 }

@@ -2,6 +2,10 @@ package com.iknow.stocktrackingbe.controller;
 
 import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.payload.response.StockResponse;
+import com.iknow.stocktrackingbe.payload.response.bom.BomListResponse;
+import com.iknow.stocktrackingbe.payload.response.bom.BomResponse;
+import com.iknow.stocktrackingbe.payload.response.mapper.BomListResponseMapper;
+import com.iknow.stocktrackingbe.payload.response.mapper.BomResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.ProductResponseMapper;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.product.ProductRequest;
@@ -30,6 +34,8 @@ public class ProductController {
 
     private final StockResponseMapper stockResponseMapper;
 
+    private final BomListResponseMapper bomListResponseMapper;
+
     @GetMapping("/products")
     public ResponseEntity<List<ProductResponse>> getProducts(Pageable page){
             return ResponseEntity.ok(productResponseMapper.mapper(productService.getProducts(page)));
@@ -44,10 +50,15 @@ public class ProductController {
         return ResponseEntity.ok(productResponseMapper.mapper(productService.searchByProductName(name,pageable)));
     }
 
+    @GetMapping(path = "/{id}/bomList")
+    public ResponseEntity<List<BomListResponse>> findBomListByProductID(@PathVariable Long id){
+        return ResponseEntity.ok(bomListResponseMapper.mapper(productService.findBomListByProductID(id)));
+    }
     @GetMapping(path = "/stocks/{id}")
     public ResponseEntity<List<StockResponse>> getProductStocks(@PathVariable Long id){
         return ResponseEntity.ok(stockResponseMapper.mapper(productService.getProductStocks(id)));
     }
+
     @PostMapping
     public ResponseEntity<?> createNewProduct(@Valid @RequestBody ProductRequest productRequest){
         Product product =productService.createNewProduct(productRequest);
@@ -65,8 +76,6 @@ public class ProductController {
             @Valid @RequestBody ProductUpdateRequest productUpdateRequest){
         productService.updateProduct(id,productUpdateRequest);
     }
-
-
     @DeleteMapping(path = "/delete")
     public void deleteProducts(@RequestBody IdListRequest idList){
         productService.deleteProducts(idList.getIdList());

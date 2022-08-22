@@ -19,9 +19,11 @@ public class BomDetailResponse {
     @JsonProperty("child_product_id")
     private Long childProductId;
     private BigDecimal quantity;
-
     private BigDecimal efficiency;
-
     private String description;
+    @JsonProperty("bom_detail_cost")
+    private BigDecimal bomDetailCost;
+    @JsonProperty("total_bom_detail_cost")
+    private BigDecimal totalBomDetailCost;
 
 }

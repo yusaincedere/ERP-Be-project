@@ -1,7 +1,6 @@
 package com.iknow.stocktrackingbe.model.user;
 
-import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
-import lombok.Data;
+import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

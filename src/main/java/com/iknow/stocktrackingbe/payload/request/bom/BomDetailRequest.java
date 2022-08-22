@@ -15,6 +15,6 @@ public class BomDetailRequest{
     @JsonProperty("child_product_id")
     private Long childProductId;
     private BigDecimal efficiency;
-    private Long quantity;
+    private BigDecimal quantity;
     private String description;
 }

@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.model.product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.iknow.stocktrackingbe.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.Stock;
 import lombok.*;
 

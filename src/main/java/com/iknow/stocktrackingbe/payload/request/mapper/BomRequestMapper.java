@@ -20,6 +20,7 @@ public class BomRequestMapper {
                 .endDate(bomRequest.getEndDate())
                 .startDate(bomRequest.getStartDate())
                 .product(product)
+                .bomName(bomRequest.getBomName())
                 .build();
     }
 }
