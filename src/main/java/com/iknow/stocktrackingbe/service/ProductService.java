@@ -34,7 +34,7 @@ public class ProductService {
         if(!productsPage.getContent().isEmpty()){
            return productsPage.getContent();
         }else {
-            logger.warn("There is no product");
+            logger.error("There is no product");
             throw new NotFoundException("There is no product");
         }
     }
@@ -45,7 +45,7 @@ public class ProductService {
         if(optional.isPresent()){
             return  optional.get();
         }else {
-            logger.warn("Prescription does not exist");
+            logger.error("Prescription does not exist");
             throw new NotFoundException("Prescription does not exist");
         }
     }
@@ -55,7 +55,7 @@ public class ProductService {
         if(!productPage.getContent().isEmpty()){
             return productPage.getContent();
         }else{
-            logger.warn("There is no product with this name");
+            logger.error("There is no product with this name");
             throw new NotFoundException("There is no product with this name");
         }
     }
@@ -94,7 +94,7 @@ public class ProductService {
             product.setToSell(productUpdateRequest.getToSell()==null ? optional.get().getToSell():productUpdateRequest.getToSell());
             productRepository.flush();
         }else{
-            logger.warn("There is no product with this id");
+            logger.error("There is no product with this id");
             throw new NotFoundException("There is no product with this id");
         }
     }

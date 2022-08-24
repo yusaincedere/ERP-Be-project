@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.model.product;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
 import com.iknow.stocktrackingbe.model.Stock;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 import java.util.List;
+import java.util.Set;
 
 
 @AllArgsConstructor
@@ -50,7 +52,6 @@ public class Product extends BaseEntity{
     private BigDecimal selPrice;
 
     private BigDecimal cost;
-
 
     @Enumerated
     private DimensionType dimensionType;

@@ -1,5 +1,6 @@
 package com.iknow.stocktrackingbe.model;
 import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
+import com.iknow.stocktrackingbe.model.suplier.Supplier;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.Entity;

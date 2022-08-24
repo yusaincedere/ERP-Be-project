@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class WareHouseResponseMapper {
 
+    private final AddressResponseMapper addressResponseMapper;
     private final StockResponseMapper stockResponseMapper;
     public WareHouseResponse mapper(WareHouse wareHouse) {
         return  WareHouseResponse.builder()
@@ -22,6 +23,7 @@ public class WareHouseResponseMapper {
                 .name(wareHouse.getName())
                 .parentId(wareHouse.getParent()==null ? null:wareHouse.getParent().getId())
                 .parentName(wareHouse.getParent()==null ? null:wareHouse.getParent().getName())
+                .addressResponse(addressResponseMapper.mapper(wareHouse.getAddress()))
                 .build();
     }
 

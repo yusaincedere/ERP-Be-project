@@ -12,11 +12,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 public class LoginRequest {
-
-    @Email
-    @NotNull
     private String username;
-    @Size(min = 8,max = 15)
     private String password;
 
 }

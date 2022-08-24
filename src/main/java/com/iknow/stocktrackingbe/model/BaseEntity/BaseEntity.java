@@ -1,4 +1,5 @@
 package com.iknow.stocktrackingbe.model.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ public abstract class BaseEntity implements Serializable {
     private Long id;
 
     @CreatedDate
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate created = LocalDate.now();
 
     public Long getId() {

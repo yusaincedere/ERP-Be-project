@@ -21,4 +21,6 @@ public class WareHouseResponse {
     private Long parentId;
     @JsonProperty("ware_house_stocks")
     private List<StockResponse> stocks;
+    @JsonProperty("address")
+    private AddressResponse addressResponse;
 }

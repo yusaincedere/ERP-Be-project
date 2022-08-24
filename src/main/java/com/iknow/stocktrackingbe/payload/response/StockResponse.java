@@ -1,6 +1,7 @@
 package com.iknow.stocktrackingbe.payload.response;
 
 
+import com.iknow.stocktrackingbe.model.Address;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -17,4 +18,6 @@ public class StockResponse {
     private BigDecimal stock;
     private BigDecimal minStock;
     private BigDecimal orderQuantity;
+    private Long wareHouseId;
+    private String wareHouseName;
 }

@@ -30,7 +30,7 @@ public class BomController {
 
 
 
-    @GetMapping("/bomList")
+    @GetMapping("/boms")
     public ResponseEntity<List<BomListResponse>>getBomList(Pageable page){
         return ResponseEntity.ok(bomListResponseMapper.mapper(bomService.getBomList(page)));
     }
@@ -41,7 +41,7 @@ public class BomController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<BomResponse>geBomById(@PathVariable Long id){
+    public ResponseEntity<BomResponse>getBomById(@PathVariable Long id){
         return ResponseEntity.ok(bomResponseMapper.mapper(bomService.getBomById(id)));
     }
 
@@ -51,13 +51,13 @@ public class BomController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<BomResponse> createBom(@Valid @RequestBody BomRequest bomRequest){
+    public ResponseEntity<BomResponse> createBom(@RequestBody BomRequest bomRequest){
        return ResponseEntity.ok(bomResponseMapper.mapper(bomService.createBom(bomRequest)));
 
     }
 
     @PostMapping("/createDraft")
-    public ResponseEntity<BomResponse> createDraft(@Valid @RequestBody BomRequest bomRequest){
+    public ResponseEntity<BomResponse> createDraft(@RequestBody BomRequest bomRequest){
         return ResponseEntity.ok(bomResponseMapper.mapper(bomService.createDraft(bomRequest)));
     }
 

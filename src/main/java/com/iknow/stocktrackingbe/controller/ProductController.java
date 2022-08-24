@@ -50,7 +50,7 @@ public class ProductController {
         return ResponseEntity.ok(productResponseMapper.mapper(productService.searchByProductName(name,pageable)));
     }
 
-    @GetMapping(path = "/{id}/bomList")
+    @GetMapping(path = "/{id}/boms")
     public ResponseEntity<List<BomListResponse>> findBomListByProductID(@PathVariable Long id){
         return ResponseEntity.ok(bomListResponseMapper.mapper(productService.findBomListByProductID(id)));
     }

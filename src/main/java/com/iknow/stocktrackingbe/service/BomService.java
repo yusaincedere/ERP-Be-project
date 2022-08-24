@@ -54,6 +54,7 @@ public class BomService {
             calculateBomCost(bom);
             return bom;
         }else {
+            logger.warn("There is no bom with id:"  + id);
             throw new NotFoundException("There is no bom with this id");
         }
     }
@@ -78,6 +79,7 @@ public class BomService {
     public Bom createBom(BomRequest bomRequest) {
         logger.info("Service Called: createBom");
         if(bomRepository.existsByBomName(bomRequest.getBomName())){
+            logger.error("A bom with this name already exists name:" + bomRequest.getBomName());
             throw new IllegalStateException("A bom with this name already exists");
         }else{
             Product mainProduct = productRepository.findById(bomRequest.getProductId()).orElseThrow(() -> new NotFoundException("There is no product with this id"));;
@@ -119,6 +121,7 @@ public class BomService {
     public void addBomDetail(Long id, BomDetailRequest bomDetailRequest) {
         logger.info("Service Called: addBomDetail");
         if(bomDetailService.existsByProductId(id)){
+            logger.error("The product to add is already the product to produce.");
            throw new IllegalStateException("The product to add is already the product to produce.");
         }else{
             Bom bom = getBomById(id);
@@ -152,15 +155,15 @@ public class BomService {
         bomDetailService.updateBomDetail(id,bomDetailRequest);
     }
 
-    public void calculateBomCost(Bom bom){
+    public void calculateBomCost(Bom bom) {
         BigDecimal detailCost = new BigDecimal(0);
         BigDecimal bomCost = new BigDecimal(0);
         bom.setUnitCost(bomCost);
         bom.setTotalCost(bomCost);
-        for(BomDetail bomDetail: bom.getBomDetails()){
+        for (BomDetail bomDetail : bom.getBomDetails()) {
             bomDetail.setBomDetailCost(detailCost);
             bomDetail.setTotalBomDetailCost(detailCost);
-            detailCost =  bomDetail.getQuantity().multiply(bomDetail.getEfficiency()).multiply(bomDetail.getChildProduct().getCost());
+            detailCost = bomDetail.getQuantity().multiply(bomDetail.getEfficiency()).multiply(bomDetail.getChildProduct().getCost());
             bomDetail.setBomDetailCost(detailCost);
             bomCost = bomCost.add(detailCost);
             bomDetail.setTotalBomDetailCost(detailCost.multiply(bom.getQuantity()));

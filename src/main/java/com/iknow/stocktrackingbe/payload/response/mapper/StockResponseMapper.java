@@ -18,6 +18,8 @@ public class StockResponseMapper {
                 .minStock(stock.getMinStock())
                 .productId(stock.getProduct().getId())
                 .stock(stock.getStock())
+                .wareHouseId(stock.getWareHouse().getId())
+                .wareHouseName(stock.getWareHouse().getName())
                 .build();
     }
 

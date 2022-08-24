@@ -22,7 +22,7 @@ public class WareHouseRequest {
     private String name;
 
 
-    private Address address;
+    private AddressRequest address;
 
 
     @JsonProperty("parent_id")
