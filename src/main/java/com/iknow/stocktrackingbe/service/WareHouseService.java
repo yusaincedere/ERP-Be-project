@@ -6,6 +6,7 @@ import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.StockRequest;
 import com.iknow.stocktrackingbe.payload.request.WareHouseRequest;
+import com.iknow.stocktrackingbe.payload.request.mapper.AddressRequestMapper;
 import com.iknow.stocktrackingbe.payload.request.mapper.StockRequestMapper;
 import com.iknow.stocktrackingbe.payload.request.mapper.WareHouseRequestMapper;
 import com.iknow.stocktrackingbe.repository.ProductRepository;
@@ -33,6 +34,8 @@ public class WareHouseService {
     private final StockRequestMapper stockRequestMapper;
 
     private final StockService stockService;
+
+    private final AddressRequestMapper addressRequestMapper;
 
     public WareHouse getWareHouseById(Long id){
         logger.info("Service Called: getWareHouseById");
@@ -81,7 +84,7 @@ public class WareHouseService {
         Optional<WareHouse> optional = wareHouseRepository.findById(id);
         if(optional.isPresent()){
             WareHouse wareHouse = optional.get();
-            wareHouse.setAddress(wareHouseRequest.getAddress()==null ? optional.get().getAddress():wareHouseRequest.getAddress());
+            wareHouse.setAddress(wareHouseRequest.getAddress()==null ? optional.get().getAddress():addressRequestMapper.mapToModel(wareHouseRequest.getAddress()));
             wareHouse.setName(wareHouseRequest.getName()==null ? optional.get().getName():wareHouseRequest.getName());
             wareHouse.setPhone(wareHouseRequest.getPhone()==null ? optional.get().getPhone():wareHouseRequest.getPhone());
 

@@ -19,10 +19,10 @@ public class SpringFoxConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Stock Tracking api")
-                .description("iknow stock tracking Api")
+                .title("Stock Tracking Api")
+                .description("iknow stock tracking api")
                 .version("0.0.5")
-                .contact(new Contact("yusa", "", "yusa.incedere@iknow.com.tr"))
+                .contact(new Contact("yuşa", "", "yusa.incedere@iknow.com.tr"))
                 .build();
     }
 

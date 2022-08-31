@@ -1,6 +1,6 @@
 package com.iknow.stocktrackingbe.payload.response.mapper;
-import com.iknow.stocktrackingbe.model.suplier.Supplier;
-import com.iknow.stocktrackingbe.payload.response.supplier.SupplierListResponse;
+import com.iknow.stocktrackingbe.model.thirdparty.Supplier;
+import com.iknow.stocktrackingbe.payload.response.thirdparty.SupplierListResponse;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;

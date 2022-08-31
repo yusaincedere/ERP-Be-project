@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.payload.response.supplier;
+package com.iknow.stocktrackingbe.payload.response.thirdparty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class SupplierListResponse {
+    private Long id;
     @JsonProperty("supplier_code")
     private String supplierCode;
     @JsonProperty("supplier_name")

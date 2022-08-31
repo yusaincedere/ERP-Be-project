@@ -102,10 +102,7 @@ public class BomService {
         bomRepository.flush();
     }
 
-    public void deleteBom(Set<Long> idList) {
-        logger.info("Service Called: deleteBom");
-        bomRepository.deleteByIdIn(idList);
-    }
+
     public Bom cloneBom(Long id) {
         logger.info("Service Called: clonePrescription");
         Bom bom = getBomById(id);
@@ -170,5 +167,10 @@ public class BomService {
         }
         bom.setTotalCost(bomCost.multiply(bom.getQuantity()));
         bom.setUnitCost(bomCost);
+    }
+    public void deleteBom(Set<Long> idList) {
+        logger.info("Service Called: deleteBom");
+        bomRepository.deleteByIdIn(idList);
+        logger.info("Boms deleted");
     }
 }

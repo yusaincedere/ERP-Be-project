@@ -1,10 +1,7 @@
 package com.iknow.stocktrackingbe.service;
 
 import com.iknow.stocktrackingbe.exception.NotFoundException;
-import com.iknow.stocktrackingbe.model.WareHouse;
-import com.iknow.stocktrackingbe.model.bom.Bom;
-import com.iknow.stocktrackingbe.model.product.Product;
-import com.iknow.stocktrackingbe.model.suplier.Supplier;
+import com.iknow.stocktrackingbe.model.thirdparty.Supplier;
 import com.iknow.stocktrackingbe.payload.request.SupplierRequest;
 import com.iknow.stocktrackingbe.payload.request.mapper.AddressRequestMapper;
 import com.iknow.stocktrackingbe.payload.request.mapper.SupplierRequestMapper;
@@ -17,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -64,7 +62,7 @@ public class SupplierService {
             Supplier supplier = optional.get();
             supplier.setSupplierCode(supplierRequest.getSupplierCode()==null ? optional.get().getSupplierCode():supplierRequest.getSupplierCode());
             supplier.setSupplierName(supplierRequest.getSupplierName()==null ? optional.get().getSupplierName():supplierRequest.getSupplierName());
-            supplier.setSupplierType(supplierRequest.getSupplierType()==null ? optional.get().getSupplierType():supplierRequest.getSupplierType());
+            supplier.setThirdPartyType(supplierRequest.getThirdPartyType()==null ? optional.get().getThirdPartyType():supplierRequest.getThirdPartyType());
             supplier.setAddress(supplierRequest.getAddressRequest()==null ? optional.get().getAddress():addressRequestMapper.mapToModel(supplierRequest.getAddressRequest()));
             supplier.setEmail(supplierRequest.getEmail()==null ? optional.get().getEmail():supplierRequest.getEmail());
             supplier.setTelNo(supplierRequest.getTelNo()==null ? optional.get().getTelNo():supplierRequest.getTelNo());
@@ -73,5 +71,11 @@ public class SupplierService {
             logger.error("There is no supplier with id: " + id);
             throw new NotFoundException("There is no supplier with this id");
         }
+    }
+
+    public void deleteSupplier(Set<Long> idList) {
+        logger.info("Service Called: deleteSupplier");
+        supplierRepository.deleteByIdIn(idList);
+        logger.info("Suppliers deleted");
     }
 }

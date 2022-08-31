@@ -1,4 +1,4 @@
-package com.iknow.stocktrackingbe.model.suplier;
+package com.iknow.stocktrackingbe.model.thirdparty;
 
 import com.iknow.stocktrackingbe.model.Address;
 import com.iknow.stocktrackingbe.model.BaseEntity.BaseEntity;
@@ -33,7 +33,7 @@ public class Supplier extends BaseEntity{
     private String email;
 
     @Enumerated
-    private SupplierType supplierType;
+    private ThirdPartyType thirdPartyType;
 
 
     @OneToMany

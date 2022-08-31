@@ -1,32 +1,16 @@
-2022-08-24 12:22:48,268 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 18.0.2 on DESKTOP-OEEDDTC with PID 6672 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
-2022-08-24 12:22:48,274 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
-2022-08-24 12:22:48,275 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-08-24 12:25:51,525 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 18.0.2 on DESKTOP-OEEDDTC with PID 5192 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
-2022-08-24 12:25:51,529 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
-2022-08-24 12:25:51,530 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-08-24 12:25:58,904 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 8.161 seconds (JVM running for 9.615)
-2022-08-24 12:26:06,704 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-2] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:06,780 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-1] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:06,781 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-3] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:06,791 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-4] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:06,796 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-5] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:06,811 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-6] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:07,314 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-7] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:07,414 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-8] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:07,430 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-9] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 12:26:07,493 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-10] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:41:12,195 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting StockTrackingBeApplication using Java 18.0.2 on DESKTOP-OEEDDTC with PID 14072 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
-2022-08-24 14:41:12,196 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.1, Spring v5.3.21
-2022-08-24 14:41:12,197 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-08-24 14:41:18,957 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started StockTrackingBeApplication in 7.397 seconds (JVM running for 8.491)
-2022-08-24 14:42:13,732 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-1] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:13,796 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-2] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:13,797 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-3] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:13,815 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-4] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:13,819 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-5] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:13,851 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-6] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:14,325 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-7] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:14,329 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-8] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:14,443 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-9] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:14,458 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-10] Did not match request to Ant [pattern='/login', POST]
-2022-08-24 14:42:14,510 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-8080-exec-1] Did not match request to Ant [pattern='/login', POST]
+2022-08-27 15:00:16,480 INFO org.springframework.boot.StartupInfoLogger [main] Starting StockTrackingBeApplication using Java 18.0.2 on DESKTOP-OEEDDTC with PID 4408 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-08-27 15:00:16,485 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-08-27 15:00:16,486 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-27 15:00:24,987 INFO org.springframework.boot.StartupInfoLogger [main] Started StockTrackingBeApplication in 9.931 seconds (JVM running for 11.641)
+2022-08-27 15:01:16,954 INFO org.springframework.boot.StartupInfoLogger [main] Starting StockTrackingBeApplication using Java 18.0.2 on DESKTOP-OEEDDTC with PID 8204 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-08-27 15:01:16,962 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-08-27 15:01:16,964 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-27 15:01:24,582 INFO org.springframework.boot.StartupInfoLogger [main] Started StockTrackingBeApplication in 8.363 seconds (JVM running for 9.502)
+2022-08-27 15:02:10,467 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-9090-exec-1] Did not match request to Ant [pattern='/login', POST]
+2022-08-27 15:02:10,519 TRACE org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter [http-nio-9090-exec-2] Did not match request to Ant [pattern='/login', POST]
+2022-08-27 15:02:10,771 INFO com.iknow.stocktrackingbe.service.AuthService [http-nio-9090-exec-2] Map Login password: yusa1234
+2022-08-27 15:02:10,774 INFO com.iknow.stocktrackingbe.service.UserService [http-nio-9090-exec-2] Login attempt user: com.iknow.stocktrackingbe.model.user.User@77b7a8a5
+2022-08-27 15:02:10,775 INFO com.iknow.stocktrackingbe.service.UserService [http-nio-9090-exec-2] login attempt user password: $2a$10$PT7KQBttsbSh40F3UNjS5eIdTNsza4l2J96axM8Ij51F7EnQTf966   request password: yusa1234
+2022-08-27 15:02:10,887 INFO com.iknow.stocktrackingbe.service.AuthService [http-nio-9090-exec-2] Login successful
+2022-08-27 15:02:10,904 INFO com.iknow.stocktrackingbe.service.AuthService [http-nio-9090-exec-2] Token created
+2022-08-27 15:02:10,905 INFO com.iknow.stocktrackingbe.service.AuthService [http-nio-9090-exec-2] Service called: createRefreshToken

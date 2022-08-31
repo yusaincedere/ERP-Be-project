@@ -1,10 +1,8 @@
 package com.iknow.stocktrackingbe.payload.response.mapper;
 
 
-import com.iknow.stocktrackingbe.model.bom.Bom;
-import com.iknow.stocktrackingbe.model.suplier.Supplier;
-import com.iknow.stocktrackingbe.payload.response.bom.BomResponse;
-import com.iknow.stocktrackingbe.payload.response.supplier.SupplierResponse;
+import com.iknow.stocktrackingbe.model.thirdparty.Supplier;
+import com.iknow.stocktrackingbe.payload.response.thirdparty.SupplierResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +19,7 @@ public class SupplierResponseMapper {
                 .id(supplier.getId())
                 .supplierCode(supplier.getSupplierCode())
                 .supplierName(supplier.getSupplierName())
-                .supplierType(supplier.getSupplierType())
+                .thirdPartyType(supplier.getThirdPartyType())
                 .email(supplier.getEmail())
                 .telNo(supplier.getTelNo())
                 .build();

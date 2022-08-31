@@ -1,10 +1,10 @@
 package com.iknow.stocktrackingbe.controller;
+import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.SupplierRequest;
-import com.iknow.stocktrackingbe.payload.request.bom.BomRequest;
 import com.iknow.stocktrackingbe.payload.response.mapper.SupplierListResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.SupplierResponseMapper;
-import com.iknow.stocktrackingbe.payload.response.supplier.SupplierListResponse;
-import com.iknow.stocktrackingbe.payload.response.supplier.SupplierResponse;
+import com.iknow.stocktrackingbe.payload.response.thirdparty.SupplierListResponse;
+import com.iknow.stocktrackingbe.payload.response.thirdparty.SupplierResponse;
 import com.iknow.stocktrackingbe.service.SupplierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -22,12 +22,6 @@ public class SupplierController {
     private SupplierResponseMapper supplierResponseMapper;
 
     private SupplierListResponseMapper supplierListResponseMapper;
-
-
-
-
-
-
 
     @GetMapping("/suppliers")
     public ResponseEntity<List<SupplierListResponse>> getSuppliers(Pageable page){
@@ -50,6 +44,11 @@ public class SupplierController {
             @PathVariable Long id,
             @Valid @RequestBody SupplierRequest supplierRequest){
         supplierService.updateSupplier(id,supplierRequest);
+    }
+
+    @DeleteMapping(path = "/delete")
+    public void deleteSupplier(@RequestBody IdListRequest idList){
+        supplierService.deleteSupplier(idList.getIdList());
     }
 
 

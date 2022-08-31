@@ -86,7 +86,7 @@ public class BomController {
     }
 
     @DeleteMapping(path = "/delete")
-    public void deleteProducts(@RequestBody IdListRequest idList){
+    public void deleteBom(@RequestBody IdListRequest idList){
         bomService.deleteBom(idList.getIdList());
     }
 }

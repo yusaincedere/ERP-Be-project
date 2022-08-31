@@ -1,33 +1,29 @@
 package com.iknow.stocktrackingbe.payload.request;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.iknow.stocktrackingbe.model.thirdparty.ThirdPartyType;
 import lombok.*;
 
+
 import javax.persistence.Enumerated;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SupplierRequest {
-    @JsonProperty("supplier_code")
-    private String supplierCode;
-    @JsonProperty("supplier_name")
-    private String supplierName;
+public class CustomerRequest {
+    @JsonProperty("customer_code")
+    private String customerCode;
+    @JsonProperty("customer_name")
+    private String customerName;
 
-    @JsonProperty("address_request")
-    private AddressRequest addressRequest;
+    private AddressRequest address;
     @JsonProperty("tel_no")
     private String telNo;
 
     private String email;
-
     @Enumerated
-    @JsonProperty("supplier_type")
+    @JsonProperty("third_party_type")
     private ThirdPartyType thirdPartyType;
-
-
-
 }

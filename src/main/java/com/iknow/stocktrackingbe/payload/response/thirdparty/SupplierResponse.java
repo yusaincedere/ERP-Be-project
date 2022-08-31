@@ -1,12 +1,9 @@
-package com.iknow.stocktrackingbe.payload.response.supplier;
+package com.iknow.stocktrackingbe.payload.response.thirdparty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.iknow.stocktrackingbe.model.suplier.SupplierType;
+import com.iknow.stocktrackingbe.model.thirdparty.ThirdPartyType;
 import com.iknow.stocktrackingbe.payload.response.AddressResponse;
 import lombok.*;
-
-import javax.persistence.Enumerated;
-import javax.validation.constraints.Email;
 
 @Getter
 @Setter
@@ -24,6 +21,6 @@ public class SupplierResponse {
     private String telNo;
     private String email;
     @JsonProperty("supplier_type")
-    private SupplierType supplierType;
+    private ThirdPartyType thirdPartyType;
     private Long id;
 }
