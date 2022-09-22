@@ -16,13 +16,17 @@ deploy-master:
     - if: '$CI_COMMIT_BRANCH =~ /^dev$/'
 
                                                                                                                   
-  before_script:                                                                                                                                
-    - apt-get update -qq && apt-get install -y -qq sshpass                                                                                      
+  before_script:                                          
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )' 
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts                                                                                      
+    - apt-get update -qq && apt-get install -y -qq sshpass                                                                                  
   stage: deploy                                                                                                                                 
-  script:                                                                                                                                       
-    - sshpass -V                                                                                                                                
-    - export SSHPASS=$CI_USER_PASS                                                                                                              
-    - sshpass -e scp -o StrictHostKeyChecking=no target/stock-tracking-be-0.0.1-SNAPSHOT.jar gitlab-ci@3.93.9.46:/home/gitlab-ci    
-
-    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo mv /home/gitlab-ci/stock-tracking-be-0.0.1-SNAPSHOT.jar /opt/java/webapps     
-    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo systemctl restart stock-tracking-be-0.0.1-SNAPSHOT.service 
+  script:                                                                                                                                                                                                                                                   
+    - scp -o StrictHostKeyChecking=no target/stock-tracking-be-0.0.1-SNAPSHOT.jar gitlab-ci@3.93.9.46:/home/gitlab-ci
+    - ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo mv /home/gitlab-ci/stock-tracking-be-0.0.1-SNAPSHOT.jar /opt/java/webapps     
+    - ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo systemctl restart stock-tracking-be-0.0.1-SNAPSHOT.service 
