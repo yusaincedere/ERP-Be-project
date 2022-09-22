@@ -29,5 +29,5 @@ deploy:
         - ssh ubuntu@$EC2_IPADDRESS "sudo systemctl start stockapp.service"
         - echo "Finished deploying the app."
     only:
-        - master
+        - dev
     
