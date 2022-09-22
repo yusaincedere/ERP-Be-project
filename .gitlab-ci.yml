@@ -9,8 +9,8 @@ maven-build:
   script: "mvn package -B"                                                                                                                      
   artifacts:                                                                                                                                    
     paths:                                                                                                                                      
-      - target/stockbackend.jar                                                                                                               
-                                                                                                                                                
+      - target/stock-tracking-be-0.0.1-SNAPSHOT.jar
+
 deploy-master:
   rules:                                                                                                                                    
     - if: '$CI_COMMIT_BRANCH =~ /^dev$/'
@@ -22,6 +22,7 @@ deploy-master:
   script:                                                                                                                                       
     - sshpass -V                                                                                                                                
     - export SSHPASS=$CI_USER_PASS                                                                                                              
-    - sshpass -e scp -o StrictHostKeyChecking=no target/stockbackend.jar gitlab-ci@3.93.9.46:/home/gitlab-ci                            
-    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo mv /home/gitlab-ci/stockbackend.jar /opt/java/webapps     
+    - sshpass -e scp -o StrictHostKeyChecking=no target/stock-tracking-be-0.0.1-SNAPSHOT.jar gitlab-ci@3.93.9.46:/home/gitlab-ci    
+
+    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo mv /home/gitlab-ci/stock-tracking-be-0.0.1-SNAPSHOT.jar /opt/java/webapps     
     - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo systemctl restart gitlab-ci-demo.service 
