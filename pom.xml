@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.iknow</groupId>
-	<artifactId>stocktbackend</artifactId>
+	<artifactId>stock-tracking-be</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>stock-tracking-be</name>
 	<description>stock-tracking-be</description>
