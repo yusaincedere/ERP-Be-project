@@ -13,3 +13,6 @@
 2022-09-21 11:51:32,441 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
 2022-09-21 11:51:32,446 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
 2022-09-21 11:52:23,232 INFO org.springframework.boot.StartupInfoLogger [main] Started StockTrackingBeApplicationTests in 52.337 seconds (JVM running for 55.168)
+2022-09-22 17:47:27,479 INFO org.springframework.boot.StartupInfoLogger [main] Starting StockTrackingBeApplication using Java 11.0.15 on DESKTOP-OEEDDTC with PID 1848 (D:\stock-tracking-be\target\classes started by Dev in D:\stock-tracking-be)
+2022-09-22 17:47:27,481 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-09-22 17:47:27,482 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
