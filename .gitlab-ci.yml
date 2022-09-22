@@ -15,5 +15,5 @@ Deploy:
     - cp -r * .public
     - mv .public public
     - zip -r public.zip public
-    - scp -o StrictHostKeyChecking=no public.zip ubuntu@13.233.134.103:/var/www/html
-    - ssh -o StrictHostKeyChecking=no ubuntu@13.233.134.103 "cd /var/www/html; touch foo.txt; unzip public.zip"
+    - scp -o StrictHostKeyChecking=no public.zip ubuntu@3.93.9.46:/var/www/html
+    - ssh -o StrictHostKeyChecking=no ubuntu@3.93.9.46 "cd /var/www/html; touch foo.txt; unzip public.zip"
