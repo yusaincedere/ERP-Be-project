@@ -3,7 +3,6 @@ import com.iknow.stocktrackingbe.exception.NotFoundException;
 import com.iknow.stocktrackingbe.model.Stock;
 import com.iknow.stocktrackingbe.model.WareHouse;
 import com.iknow.stocktrackingbe.model.product.Product;
-import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.StockRequest;
 import com.iknow.stocktrackingbe.payload.request.WareHouseRequest;
 import com.iknow.stocktrackingbe.payload.request.mapper.AddressRequestMapper;
@@ -107,8 +106,10 @@ public class WareHouseService {
         if(stockService.existsByProductId(stockRequest.getProductId(),wareHouse.getId())){
             throw new IllegalStateException("This product already exists in this warehouse");
         }else{
-            Product product = productRepository.findById(stockRequest.getProductId()).orElseThrow(() -> new NotFoundException("There is no product with this id"));;
+            Product product = productRepository.findById(stockRequest.getProductId()).orElseThrow(() -> new NotFoundException("There is no product with this id"));
+
             Stock stock = stockRequestMapper.mapToModel(stockRequest,wareHouse,product);
+
             wareHouse.getStocks().add(stock);
             product.getStocks().add(stock);
             wareHouseRepository.flush();
@@ -116,9 +117,9 @@ public class WareHouseService {
         }
     }
 
-    public void deleteStockFromWareHouse(Long wareHoseId, IdListRequest idListRequest){
+    public void deleteStockFromWareHouse(Long wareHoseId, Set<Long> idList){
         WareHouse wareHouse = getWareHouseById(wareHoseId);
-        List<Stock> stocks = stockService.getAllStocksByIdList(idListRequest.getIdList());
+        List<Stock> stocks = stockService.getAllStocksByIdList(idList);
         wareHouse.getStocks().removeAll(stocks);
         for(Stock stock:stocks){
             stock.getProduct().getStocks().remove(stock);

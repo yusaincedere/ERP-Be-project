@@ -1,14 +1,10 @@
 package com.iknow.stocktrackingbe.controller;
 
 import com.iknow.stocktrackingbe.payload.request.CustomerRequest;
-import com.iknow.stocktrackingbe.payload.request.IdListRequest;
-import com.iknow.stocktrackingbe.payload.request.SupplierRequest;
 import com.iknow.stocktrackingbe.payload.response.mapper.CustomerListResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.CustomerResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.thirdparty.CustomerListResponse;
 import com.iknow.stocktrackingbe.payload.response.thirdparty.CustomerResponse;
-import com.iknow.stocktrackingbe.payload.response.thirdparty.SupplierListResponse;
-import com.iknow.stocktrackingbe.payload.response.thirdparty.SupplierResponse;
 import com.iknow.stocktrackingbe.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @RestController
@@ -50,7 +47,7 @@ public class CustomerController {
     }
 
     @DeleteMapping(path = "/delete")
-    public void deleteCustomer(@RequestBody IdListRequest idList){
-        customerService.deleteCustomer(idList.getIdList());
+    public void deleteCustomer(@RequestParam Set<Long> idList){
+        customerService.deleteCustomer(idList);
     }
 }

@@ -1,24 +1,19 @@
 package com.iknow.stocktrackingbe.controller;
 
-import com.iknow.stocktrackingbe.model.Stock;
-import com.iknow.stocktrackingbe.model.StockCard;
-import com.iknow.stocktrackingbe.model.WareHouse;
-import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.StockRequest;
 import com.iknow.stocktrackingbe.payload.request.WareHouseRequest;
-import com.iknow.stocktrackingbe.payload.response.StockCardResponse;
 import com.iknow.stocktrackingbe.payload.response.StockResponse;
 import com.iknow.stocktrackingbe.payload.response.WareHouseResponse;
 import com.iknow.stocktrackingbe.payload.response.mapper.StockResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.WareHouseResponseMapper;
 import com.iknow.stocktrackingbe.service.WareHouseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(path = "/api/warehouse")
@@ -62,13 +57,13 @@ public class WareHouseController {
     }
 
     @PutMapping("/deleteStock/{wareHoseId}")
-    public void deleteStockFromWareHouse(@PathVariable Long wareHoseId ,@RequestBody IdListRequest idListRequest){
+    public void deleteStockFromWareHouse(@PathVariable Long wareHoseId ,@RequestParam Set<Long> idListRequest){
         wareHouseService.deleteStockFromWareHouse(wareHoseId,idListRequest);
     }
 
     @DeleteMapping(path = "/delete")
-    public void deleteWareHouses(@RequestBody IdListRequest idList){
+    public void deleteWareHouses(@RequestParam Set<Long> idList){
 
-        wareHouseService.deleteWareHouses(idList.getIdList());
+        wareHouseService.deleteWareHouses(idList);
     }
 }

@@ -3,11 +3,8 @@ package com.iknow.stocktrackingbe.controller;
 import com.iknow.stocktrackingbe.model.product.Product;
 import com.iknow.stocktrackingbe.payload.response.StockResponse;
 import com.iknow.stocktrackingbe.payload.response.bom.BomListResponse;
-import com.iknow.stocktrackingbe.payload.response.bom.BomResponse;
 import com.iknow.stocktrackingbe.payload.response.mapper.BomListResponseMapper;
-import com.iknow.stocktrackingbe.payload.response.mapper.BomResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.ProductResponseMapper;
-import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.product.ProductRequest;
 import com.iknow.stocktrackingbe.payload.request.product.ProductUpdateRequest;
 import com.iknow.stocktrackingbe.payload.response.mapper.StockResponseMapper;
@@ -23,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -77,7 +75,7 @@ public class ProductController {
         productService.updateProduct(id,productUpdateRequest);
     }
     @DeleteMapping(path = "/delete")
-    public void deleteProducts(@RequestBody IdListRequest idList){
-        productService.deleteProducts(idList.getIdList());
+    public void deleteProducts(@RequestParam(name = "ids") Set<Long> idList){
+        productService.deleteProducts(idList);
     }
 }

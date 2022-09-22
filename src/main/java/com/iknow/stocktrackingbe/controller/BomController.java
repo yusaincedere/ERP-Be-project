@@ -2,7 +2,6 @@ package com.iknow.stocktrackingbe.controller;
 
 import com.iknow.stocktrackingbe.payload.request.bom.BomDetailRequest;
 import com.iknow.stocktrackingbe.payload.request.bom.BomRequest;
-import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.response.bom.BomListResponse;
 import com.iknow.stocktrackingbe.payload.response.mapper.BomListResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.BomResponseMapper;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 
 @RequiredArgsConstructor
@@ -86,7 +86,7 @@ public class BomController {
     }
 
     @DeleteMapping(path = "/delete")
-    public void deleteBom(@RequestBody IdListRequest idList){
-        bomService.deleteBom(idList.getIdList());
+    public void deleteBom(@RequestParam(name = "ids") Set<Long> idList){
+        bomService.deleteBom(idList);
     }
 }

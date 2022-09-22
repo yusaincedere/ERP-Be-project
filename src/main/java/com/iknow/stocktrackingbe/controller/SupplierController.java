@@ -1,5 +1,4 @@
 package com.iknow.stocktrackingbe.controller;
-import com.iknow.stocktrackingbe.payload.request.IdListRequest;
 import com.iknow.stocktrackingbe.payload.request.SupplierRequest;
 import com.iknow.stocktrackingbe.payload.response.mapper.SupplierListResponseMapper;
 import com.iknow.stocktrackingbe.payload.response.mapper.SupplierResponseMapper;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController("/api/supplier")
 @RequiredArgsConstructor
@@ -47,8 +47,8 @@ public class SupplierController {
     }
 
     @DeleteMapping(path = "/delete")
-    public void deleteSupplier(@RequestBody IdListRequest idList){
-        supplierService.deleteSupplier(idList.getIdList());
+    public void deleteSupplier(@RequestParam Set<Long> idList){
+        supplierService.deleteSupplier(idList);
     }
 
 

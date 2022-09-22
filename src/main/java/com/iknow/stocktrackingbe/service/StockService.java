@@ -32,7 +32,7 @@ public class StockService {
     }
 
     public boolean existsByProductId(Long productId, Long wareHouseId){
-        return existsByProductId(productId,wareHouseId);
+        return stockRepository.existsByProductIdAndWareHouseId(productId,wareHouseId);
     }
     public List<Stock> getAllStocksByIdList(Set<Long> idList){
         return stockRepository.findAllById(idList);

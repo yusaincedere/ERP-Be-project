@@ -22,7 +22,7 @@ public class MrpCalculation extends BaseEntity{
     private LocalDate date = LocalDate.now();
 
 
-    @OneToOne
+    @OneToOne()
     private SalesOrderDetail salesOrderDetail;
 
     @OneToOne

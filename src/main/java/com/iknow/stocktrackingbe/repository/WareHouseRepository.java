@@ -16,8 +16,7 @@ public interface WareHouseRepository extends JpaRepository<WareHouse,Long> {
     Page<WareHouse> findAllByNameContainingIgnoreCase(String name, Pageable pageable);
 
 
-
-
+    
     List<WareHouse> findAllByParentId(Long parentId);
 
     void deleteByIdIn(Set<Long> idList);

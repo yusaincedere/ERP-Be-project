@@ -29,7 +29,7 @@ public class Customer extends BaseEntity{
     @Email
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer")
     private List<SalesOrder> salesOrderList;
 
     @Enumerated

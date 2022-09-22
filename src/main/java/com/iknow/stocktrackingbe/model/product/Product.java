@@ -25,7 +25,6 @@ import java.util.Set;
 })
 public class Product extends BaseEntity{
 
-
     private String productCode;
     @NotNull
     @Column(name = "product_name",unique = true)
@@ -37,7 +36,7 @@ public class Product extends BaseEntity{
     private ProductUnit productUnit;
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "product")
     @JsonIgnore
     private List<Stock> stocks;
 
