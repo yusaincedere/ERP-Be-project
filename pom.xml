@@ -9,12 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.iknow</groupId>
-	<artifactId>stock-tracking-be</artifactId>
+	<artifactId>stocktbackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>stock-tracking-be</name>
 	<description>stock-tracking-be</description>
 	<properties>
-		<jar.finalName>"stockbackend"</jar.finalName>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
