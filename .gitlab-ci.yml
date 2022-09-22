@@ -25,4 +25,4 @@ deploy-master:
     - sshpass -e scp -o StrictHostKeyChecking=no target/stock-tracking-be-0.0.1-SNAPSHOT.jar gitlab-ci@3.93.9.46:/home/gitlab-ci    
 
     - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo mv /home/gitlab-ci/stock-tracking-be-0.0.1-SNAPSHOT.jar /opt/java/webapps     
-    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo systemctl restart gitlab-ci-demo.service 
+    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@3.93.9.46 sudo systemctl restart stockec2.service 
