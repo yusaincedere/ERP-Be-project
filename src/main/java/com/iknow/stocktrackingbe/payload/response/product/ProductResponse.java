@@ -23,8 +23,15 @@ public class ProductResponse {
     @JsonProperty("product_type")
     private ProductType productType;
 
-
+    @JsonProperty("to_buy")
+    private Boolean toBuy;
+    @JsonProperty("to_sell")
+    private Boolean toSell;
     private String description;
+
+    @JsonProperty("sel_price")
+    private BigDecimal selPrice;
+    private BigDecimal cost;
 
     private String url;
     @JsonProperty("weight_type")

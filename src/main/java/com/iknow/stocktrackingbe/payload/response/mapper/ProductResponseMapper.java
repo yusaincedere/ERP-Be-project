@@ -28,6 +28,10 @@ public class ProductResponseMapper {
                 .length(product.getLength())
                 .productUnit(product.getProductUnit())
                 .width(product.getWidth())
+                .selPrice(product.getSelPrice())
+                .cost(product.getCost())
+                .toSell(product.getToSell())
+                .toBuy(product.getToBuy())
                 .build();
     }
     public List<ProductResponse> mapper(List<Product> products) {
