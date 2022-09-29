@@ -6,11 +6,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
 
 @Repository
+@Transactional
 public interface WareHouseRepository extends JpaRepository<WareHouse,Long> {
 
     Page<WareHouse> findAllByNameContainingIgnoreCase(String name, Pageable pageable);
@@ -19,5 +21,5 @@ public interface WareHouseRepository extends JpaRepository<WareHouse,Long> {
     
     List<WareHouse> findAllByParentId(Long parentId);
 
-    void deleteByIdIn(Set<Long> idList);
+    void deleteByIdIn(Set<Long> ids);
 }

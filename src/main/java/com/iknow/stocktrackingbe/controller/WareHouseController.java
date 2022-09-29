@@ -62,8 +62,8 @@ public class WareHouseController {
     }
 
     @DeleteMapping(path = "/delete")
-    public void deleteWareHouses(@RequestParam Set<Long> idList){
+    public void deleteWareHouses(@RequestParam Set<Long> ids){
 
-        wareHouseService.deleteWareHouses(idList);
+        wareHouseService.deleteWareHouses(ids);
     }
 }
